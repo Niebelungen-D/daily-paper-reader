@@ -4,7 +4,7 @@
 Pipeline shape:
 1. Supabase BM25 + embedding candidate retrieval.
 2. RRF fusion.
-3. Optional local reranker.
+3. Optional Qwen3 reranker.
 """
 
 from __future__ import annotations
@@ -79,7 +79,7 @@ def main() -> None:
     parser.add_argument("--embedding-device", type=str, default="cpu")
     parser.add_argument("--embedding-batch-size", type=int, default=8)
     parser.add_argument("--embedding-max-length", type=int, default=512)
-    parser.add_argument("--run-rerank", action="store_true", help="继续运行本地 Qwen3 reranker。")
+    parser.add_argument("--run-rerank", action="store_true", help="继续运行 Qwen3 reranker。")
     parser.add_argument("--rerank-top-n", type=int, default=80)
     parser.add_argument("--rerank-device", type=str, default=os.getenv("LOCAL_RERANK_DEVICE", "cpu"))
     parser.add_argument("--rerank-batch-size", type=int, default=int(os.getenv("LOCAL_RERANK_BATCH_SIZE") or "4"))

@@ -204,6 +204,51 @@
           ];
     return sanitizeModelList(defaults, 99);
   };
+  const RERANKER_PROFILES = [
+    {
+      value: 'local-qwen3-0.6b',
+      label: '本地 Qwen3-Reranker-0.6B',
+      provider: 'local',
+      model: 'Qwen/Qwen3-Reranker-0.6B',
+      baseUrl: '',
+      note: '无需 reranker API Key，GitHub Actions 在 CPU 上加载本地模型。',
+    },
+    {
+      value: 'siliconflow-qwen3-0.6b',
+      label: '硅基流动 Qwen3-Reranker-0.6B',
+      provider: 'siliconflow',
+      model: 'Qwen/Qwen3-Reranker-0.6B',
+      baseUrl: 'https://api.siliconflow.cn/v1/rerank',
+      note: '速度快、成本低；需要硅基流动 API Key。',
+    },
+    {
+      value: 'blt-qwen3-4b',
+      label: 'BLT Qwen3-Reranker-4B',
+      provider: 'blt',
+      model: 'Qwen/Qwen3-Reranker-4B',
+      baseUrl: '',
+      note: '使用你自己的 BLT rerank 服务；需要填写 API Key 和 rerank Base URL。',
+    },
+  ];
+  const findRerankerProfile = (value) => {
+    const normalized = normalizeText(value || '').toLowerCase().replace(/_/g, '-');
+    return (
+      RERANKER_PROFILES.find((item) => item.value === normalized) ||
+      RERANKER_PROFILES[0]
+    );
+  };
+  const resolveRerankerConfig = (secret) => {
+    const safeSecret = secret && typeof secret === 'object' ? secret : {};
+    const reranker = safeSecret.rerankerLLM || {};
+    const profile = findRerankerProfile(reranker.profile || '');
+    return {
+      profile: profile.value,
+      provider: normalizeText(reranker.provider || reranker.type || profile.provider) || profile.provider,
+      model: normalizeText(reranker.model || profile.model) || profile.model,
+      apiKey: normalizeText(reranker.apiKey || ''),
+      baseUrl: normalizeBaseUrlForStorage(reranker.baseUrl || profile.baseUrl || ''),
+    };
+  };
   const buildConnectivityTestPayload = (baseUrl, model) => {
     const utils = getLLMUtils();
     if (typeof utils.buildConnectivityTestPayload === 'function') {
@@ -456,9 +501,17 @@
       const localRerankModel = normalizeText(
         safeOptions.localRerankModel || 'Qwen/Qwen3-Reranker-0.6B',
       );
+      const rerankerProfile = normalizeText(safeOptions.rerankerProfile || 'local-qwen3-0.6b');
+      const rerankerProvider = normalizeText(safeOptions.rerankerProvider || 'local');
+      const rerankerModel = normalizeText(safeOptions.rerankerModel || localRerankModel);
+      const rerankerApiKey = normalizeText(safeOptions.rerankerApiKey || '');
+      const rerankerBaseUrl = normalizeBaseUrlForStorage(safeOptions.rerankerBaseUrl || '');
 
       if (!summarizedApiKey || !summarizedBaseUrl || !summarizedModel) {
         throw new Error('总结模型配置不完整，无法写入 GitHub Secrets。');
+      }
+      if (!rerankerProfile || !rerankerProvider || !rerankerModel) {
+        throw new Error('Reranker 配置不完整，无法写入 GitHub Secrets。');
       }
 
       const secretNameSummKey = 'Summarized_LLM_API_KEY';
@@ -472,6 +525,16 @@
       const secretNameDeepSeekModel = 'DEEPSEEK_MODEL';
       const secretNameLlmPrimaryBase = 'LLM_PRIMARY_BASE_URL';
       const secretNameLocalRerankModel = 'LOCAL_RERANK_MODEL';
+      const secretNameRerankProfile = 'RERANK_PROFILE';
+      const secretNameRerankProvider = 'RERANK_PROVIDER';
+      const secretNameRerankModel = 'RERANK_MODEL';
+      const secretNameRerankApiKey = 'RERANK_API_KEY';
+      const secretNameRerankBaseUrl = 'RERANK_API_BASE_URL';
+      const secretNameSiliconFlowKey = 'SILICONFLOW_API_KEY';
+      const secretNameSiliconFlowUrl = 'SILICONFLOW_RERANK_URL';
+      const secretNameSiliconFlowInterval = 'SILICONFLOW_RERANK_MIN_INTERVAL_SECONDS';
+      const secretNameBltKey = 'BLT_RERANK_API_KEY';
+      const secretNameBltUrl = 'BLT_RERANK_BASE_URL';
 
       const putSecret = async (name, encrypted) => {
         const body = {
@@ -512,7 +575,36 @@
         { name: secretNameDeepSeekModel, value: summarizedModel },
         { name: secretNameLlmPrimaryBase, value: summarizedBaseUrl },
         { name: secretNameLocalRerankModel, value: localRerankModel },
+        { name: secretNameRerankProfile, value: rerankerProfile },
+        { name: secretNameRerankProvider, value: rerankerProvider },
+        { name: secretNameRerankModel, value: rerankerModel },
       ];
+      if (rerankerProvider !== 'local') {
+        if (rerankerApiKey) {
+          secrets.push({ name: secretNameRerankApiKey, value: rerankerApiKey });
+        }
+        if (rerankerBaseUrl) {
+          secrets.push({ name: secretNameRerankBaseUrl, value: rerankerBaseUrl });
+        }
+      }
+      if (rerankerProvider === 'siliconflow') {
+        if (rerankerApiKey) {
+          secrets.push({ name: secretNameSiliconFlowKey, value: rerankerApiKey });
+        }
+        secrets.push({
+          name: secretNameSiliconFlowUrl,
+          value: rerankerBaseUrl || 'https://api.siliconflow.cn/v1/rerank',
+        });
+        secrets.push({ name: secretNameSiliconFlowInterval, value: '8' });
+      }
+      if (rerankerProvider === 'blt') {
+        if (rerankerApiKey) {
+          secrets.push({ name: secretNameBltKey, value: rerankerApiKey });
+        }
+        if (rerankerBaseUrl) {
+          secrets.push({ name: secretNameBltUrl, value: rerankerBaseUrl });
+        }
+      }
 
       for (let i = 0; i < secrets.length; i += 1) {
         const item = secrets[i];
@@ -863,6 +955,7 @@
           : {};
       const currentProviderType = inferProviderType(currentSecret);
       const currentSummaryLLM = resolveSummaryLLM(currentSecret) || {};
+      const currentReranker = resolveRerankerConfig(currentSecret);
       const defaultDeepSeekModels = getDefaultDeepSeekChatModels();
       const deepseekSummaryModels = [
         {
@@ -911,7 +1004,7 @@
             <div id="secret-setup-deepseek-section" class="secret-setup-step2-block">
               <div class="secret-setup-step2-title">DeepSeek API（必填）</div>
               <p class="secret-setup-step2-note">
-                DeepSeek 用于 query enrich、LLM refine、总结与聊天；重排改为本地 Qwen3-Reranker-0.6B。
+                DeepSeek 用于 query enrich、LLM refine、总结与聊天；Reranker 可在右侧单独选择。
               </p>
               <div class="secret-setup-input-row multi-actions">
                 <input
@@ -937,7 +1030,7 @@
                 <span class="secret-model-tip">!
                   <span class="secret-model-tip-popup">
                     当前只保留 DeepSeek 官方 API。<br/>
-                    本地重排模型固定为 Qwen/Qwen3-Reranker-0.6B。
+                    Reranker API Key 与 DeepSeek 分开配置。
                   </span>
                 </span>
               </div>
@@ -949,13 +1042,32 @@
 
           <div class="secret-setup-step2-col">
             <div class="secret-setup-step2-block">
-              <div class="secret-setup-step2-title">本地 Reranker</div>
+              <div class="secret-setup-step2-title">Reranker</div>
               <p class="secret-setup-step2-note">
-                Step 3 不再连接远端 rerank API，将在运行环境加载 <code>Qwen/Qwen3-Reranker-0.6B</code> 做本地重排。
+                Step 3 使用 Qwen3 reranker 对候选论文重排。请选择本地模型或远端服务。
               </p>
-              <div style="font-size:13px; color:#555; line-height:1.7;">
-                无需填写 reranker API Key。GitHub Actions 会写入 <code>LOCAL_RERANK_MODEL</code>。
+              <select id="secret-setup-reranker-profile" class="secret-setup-select" style="margin-bottom:8px;"></select>
+              <div id="secret-setup-reranker-remote-fields" style="display:none;">
+                <div class="secret-setup-input-row" style="margin-bottom:6px;">
+                  <input
+                    id="secret-setup-reranker-api-key"
+                    type="password"
+                    autocomplete="off"
+                    placeholder="Reranker API Key"
+                    style="width:100%; box-sizing:border-box; padding:6px 8px; font-size:13px;"
+                  />
+                </div>
+                <div class="secret-setup-input-row" style="margin-bottom:6px;">
+                  <input
+                    id="secret-setup-reranker-base-url"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Rerank Base URL，例如 https://api.siliconflow.cn/v1/rerank"
+                    style="width:100%; box-sizing:border-box; padding:6px 8px; font-size:13px;"
+                  />
+                </div>
               </div>
+              <div id="secret-setup-reranker-status" style="font-size:12px; color:#666; line-height:1.6;"></div>
               <input type="radio" name="secret-setup-provider" value="deepseek" checked style="display:none;" />
             </div>
 
@@ -993,6 +1105,11 @@
       const deepseekStatusEl = document.getElementById('secret-setup-deepseek-status');
       const deepseekModelsWrap = document.getElementById('secret-setup-deepseek-models');
       const deepseekModelSelect = document.getElementById('secret-setup-deepseek-model-select');
+      const rerankerProfileSelect = document.getElementById('secret-setup-reranker-profile');
+      const rerankerRemoteFields = document.getElementById('secret-setup-reranker-remote-fields');
+      const rerankerApiKeyInput = document.getElementById('secret-setup-reranker-api-key');
+      const rerankerBaseUrlInput = document.getElementById('secret-setup-reranker-base-url');
+      const rerankerStatusEl = document.getElementById('secret-setup-reranker-status');
       const errorEl = document.getElementById('secret-setup-error');
       const backBtn = document.getElementById('secret-setup-back');
       const closeBtn = document.getElementById('secret-setup-close');
@@ -1011,6 +1128,11 @@
         !deepseekStatusEl ||
         !deepseekModelsWrap ||
         !deepseekModelSelect ||
+        !rerankerProfileSelect ||
+        !rerankerRemoteFields ||
+        !rerankerApiKeyInput ||
+        !rerankerBaseUrlInput ||
+        !rerankerStatusEl ||
         !errorEl ||
         !backBtn ||
         !closeBtn ||
@@ -1033,6 +1155,18 @@
       if (!deepseekModelSelect.value) {
         deepseekModelSelect.value = 'deepseek-chat';
       }
+      rerankerProfileSelect.innerHTML = RERANKER_PROFILES
+        .map(
+          (item) =>
+            `<option value="${item.value}">${item.label}</option>`,
+        )
+        .join('');
+      rerankerProfileSelect.value = currentReranker.profile || 'local-qwen3-0.6b';
+      if (!rerankerProfileSelect.value) {
+        rerankerProfileSelect.value = 'local-qwen3-0.6b';
+      }
+      rerankerApiKeyInput.value = currentReranker.apiKey || '';
+      rerankerBaseUrlInput.value = currentReranker.baseUrl || '';
 
       let githubOk = !!initialGithubToken;
       let deepseekOk = !!initialApiKey;
@@ -1045,6 +1179,29 @@
 
       const selectedDeepSeekModel = () => {
         return normalizeText(deepseekModelSelect.value || '');
+      };
+      const selectedRerankerProfile = () => {
+        return findRerankerProfile(rerankerProfileSelect.value);
+      };
+      const syncRerankerFields = () => {
+        const profile = selectedRerankerProfile();
+        const isRemote = profile.provider !== 'local';
+        const previousProfile = findRerankerProfile(
+          rerankerBaseUrlInput.getAttribute('data-reranker-profile') || '',
+        );
+        const currentBaseUrl = normalizeText(rerankerBaseUrlInput.value || '');
+        rerankerRemoteFields.style.display = isRemote ? 'block' : 'none';
+        if (
+          isRemote &&
+          (!currentBaseUrl || currentBaseUrl === previousProfile.baseUrl)
+        ) {
+          rerankerBaseUrlInput.value = profile.baseUrl || '';
+        }
+        if (!isRemote) {
+          rerankerBaseUrlInput.value = '';
+        }
+        rerankerBaseUrlInput.setAttribute('data-reranker-profile', profile.value);
+        rerankerStatusEl.textContent = `${profile.note} 模型：${profile.model}`;
       };
 
       const syncProviderSections = () => {
@@ -1068,11 +1225,22 @@
       const collectProviderDraft = () => {
         const apiKey = normalizeText(deepseekInput.value);
         const model = selectedDeepSeekModel();
+        const rerankerProfile = selectedRerankerProfile();
+        const rerankerApiKey = normalizeText(rerankerApiKeyInput.value || '');
+        const rerankerBaseUrl = normalizeBaseUrlForStorage(rerankerBaseUrlInput.value || rerankerProfile.baseUrl || '');
         if (!apiKey) {
           throw new Error('请先输入 DeepSeek API Key。');
         }
         if (!model) {
           throw new Error('请选择用于工作流总结的大模型。');
+        }
+        if (rerankerProfile.provider !== 'local') {
+          if (!rerankerApiKey) {
+            throw new Error(`请选择 ${rerankerProfile.label} 时需要填写 Reranker API Key。`);
+          }
+          if (!rerankerBaseUrl) {
+            throw new Error(`请选择 ${rerankerProfile.label} 时需要填写 Rerank Base URL。`);
+          }
         }
         return {
           providerType: 'deepseek',
@@ -1082,8 +1250,12 @@
           chatModels: defaultDeepSeekModels,
           skipRerank: false,
           reranker: {
-            type: 'local',
-            model: 'Qwen/Qwen3-Reranker-0.6B',
+            profile: rerankerProfile.value,
+            type: rerankerProfile.provider,
+            provider: rerankerProfile.provider,
+            model: rerankerProfile.model,
+            apiKey: rerankerApiKey,
+            baseUrl: rerankerBaseUrl,
           },
         };
       };
@@ -1121,9 +1293,11 @@
       }
 
       syncProviderSections();
+      syncRerankerFields();
 
       bindResetOnInput([githubInput], resetGithubStatus);
       bindResetOnInput([deepseekInput, deepseekModelSelect], resetDeepSeekStatus);
+      rerankerProfileSelect.addEventListener('change', syncRerankerFields);
       providerInputs.forEach((input) => {
         input.addEventListener('change', () => {
           syncProviderSections();
@@ -1268,10 +1442,24 @@
             model: providerDraft.summaryModel,
           },
           rerankerLLM: {
-            type: 'local',
+            profile: providerDraft.reranker && providerDraft.reranker.profile
+              ? providerDraft.reranker.profile
+              : 'local-qwen3-0.6b',
+            provider: providerDraft.reranker && providerDraft.reranker.provider
+              ? providerDraft.reranker.provider
+              : 'local',
+            type: providerDraft.reranker && providerDraft.reranker.type
+              ? providerDraft.reranker.type
+              : 'local',
             model: providerDraft.reranker && providerDraft.reranker.model
               ? providerDraft.reranker.model
               : 'Qwen/Qwen3-Reranker-0.6B',
+            apiKey: providerDraft.reranker && providerDraft.reranker.apiKey
+              ? providerDraft.reranker.apiKey
+              : '',
+            baseUrl: providerDraft.reranker && providerDraft.reranker.baseUrl
+              ? providerDraft.reranker.baseUrl
+              : '',
           },
           chatLLMs: [
             {
@@ -1293,7 +1481,12 @@
               summarizedApiKey: providerDraft.summaryApiKey,
               summarizedBaseUrl: providerDraft.summaryBaseUrl,
               summarizedModel: providerDraft.summaryModel,
-              localRerankModel: providerDraft.reranker && providerDraft.reranker.model,
+              localRerankModel: 'Qwen/Qwen3-Reranker-0.6B',
+              rerankerProfile: providerDraft.reranker && providerDraft.reranker.profile,
+              rerankerProvider: providerDraft.reranker && providerDraft.reranker.provider,
+              rerankerModel: providerDraft.reranker && providerDraft.reranker.model,
+              rerankerApiKey: providerDraft.reranker && providerDraft.reranker.apiKey,
+              rerankerBaseUrl: providerDraft.reranker && providerDraft.reranker.baseUrl,
             },
             (current, total, secretName) => {
               setErrorText(`(${current}/${total}) 正在上传 GitHub Secret：${secretName}...`, '#666');

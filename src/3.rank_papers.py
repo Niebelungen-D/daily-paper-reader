@@ -28,6 +28,21 @@ GLOBAL_POOL_RRF_MIN = 60
 GLOBAL_POOL_RRF_MAX = 300
 DEFAULT_LOCAL_RERANK_MODEL = "Qwen/Qwen3-Reranker-0.6B"
 DEFAULT_LOCAL_RERANK_BATCH_SIZE = 8
+RERANK_PROFILE_CONFIGS: Dict[str, Dict[str, str]] = {
+  "local-qwen3-0.6b": {
+    "provider": "local",
+    "model": "Qwen/Qwen3-Reranker-0.6B",
+  },
+  "siliconflow-qwen3-0.6b": {
+    "provider": "siliconflow",
+    "model": "Qwen/Qwen3-Reranker-0.6B",
+    "base_url": "https://api.siliconflow.cn/v1/rerank",
+  },
+  "blt-qwen3-4b": {
+    "provider": "blt",
+    "model": "Qwen/Qwen3-Reranker-4B",
+  },
+}
 
 
 def _env_int(name: str, default: Optional[int] = None) -> Optional[int]:
@@ -38,6 +53,83 @@ def _env_int(name: str, default: Optional[int] = None) -> Optional[int]:
     return int(value)
   except ValueError:
     return default
+
+
+def _normalize_rerank_profile(value: str) -> str:
+  text = str(value or "").strip().lower().replace("_", "-")
+  aliases = {
+    "local": "local-qwen3-0.6b",
+    "local-0.6b": "local-qwen3-0.6b",
+    "qwen3-0.6b-local": "local-qwen3-0.6b",
+    "siliconflow": "siliconflow-qwen3-0.6b",
+    "siliconflow-0.6b": "siliconflow-qwen3-0.6b",
+    "sf-0.6b": "siliconflow-qwen3-0.6b",
+    "blt": "blt-qwen3-4b",
+    "blt-4b": "blt-qwen3-4b",
+  }
+  return aliases.get(text, text)
+
+
+def _normalize_rerank_provider(value: str) -> str:
+  text = str(value or "").strip().lower().replace("_", "-")
+  if text in {"", "local", "hf", "huggingface"}:
+    return "local"
+  if text in {"siliconflow", "sf"}:
+    return "siliconflow"
+  if text in {"blt", "remote"}:
+    return text
+  return text
+
+
+def _resolve_rerank_profile_config(profile: str) -> Dict[str, str]:
+  normalized = _normalize_rerank_profile(profile)
+  return dict(RERANK_PROFILE_CONFIGS.get(normalized) or {})
+
+
+def resolve_default_rerank_model() -> str:
+  profile_config = _resolve_rerank_profile_config(os.getenv("RERANK_PROFILE", ""))
+  if profile_config.get("model"):
+    return profile_config["model"]
+  provider = _normalize_rerank_provider(os.getenv("RERANK_PROVIDER", "local"))
+  if provider == "local":
+    return os.getenv("LOCAL_RERANK_MODEL") or os.getenv("RERANK_MODEL") or DEFAULT_LOCAL_RERANK_MODEL
+  return os.getenv("RERANK_MODEL") or DEFAULT_LOCAL_RERANK_MODEL
+
+
+def _resolve_remote_api_key(provider: str) -> str:
+  if provider == "siliconflow":
+    return (
+      os.getenv("SILICONFLOW_API_KEY")
+      or os.getenv("RERANK_API_KEY")
+      or ""
+    ).strip()
+  if provider == "blt":
+    return (
+      os.getenv("BLT_RERANK_API_KEY")
+      or os.getenv("RERANK_API_KEY")
+      or ""
+    ).strip()
+  return (os.getenv("RERANK_API_KEY") or "").strip()
+
+
+def _resolve_remote_base_url(provider: str, profile_config: Dict[str, str], explicit: str = "") -> str:
+  if explicit:
+    return explicit
+  if provider == "siliconflow":
+    return (
+      os.getenv("SILICONFLOW_RERANK_URL")
+      or os.getenv("RERANK_API_BASE_URL")
+      or profile_config.get("base_url")
+      or "https://api.siliconflow.cn/v1/rerank"
+    ).strip()
+  if provider == "blt":
+    return (
+      os.getenv("BLT_RERANK_BASE_URL")
+      or os.getenv("RERANK_API_BASE_URL")
+      or profile_config.get("base_url")
+      or ""
+    ).strip()
+  return (os.getenv("RERANK_API_BASE_URL") or profile_config.get("base_url") or "").strip()
 
 
 def log(message: str) -> None:
@@ -560,10 +652,28 @@ def main() -> None:
     help="最终保留的 Top N（默认保留全部候选）。",
   )
   parser.add_argument(
+    "--rerank-profile",
+    type=str,
+    default=os.getenv("RERANK_PROFILE", ""),
+    help="Rerank 预设：local-qwen3-0.6b / siliconflow-qwen3-0.6b / blt-qwen3-4b。",
+  )
+  parser.add_argument(
+    "--rerank-provider",
+    type=str,
+    default=os.getenv("RERANK_PROVIDER", ""),
+    help="Rerank provider：local / siliconflow / blt；默认由 --rerank-profile 推断。",
+  )
+  parser.add_argument(
     "--rerank-model",
     type=str,
-    default=os.getenv("LOCAL_RERANK_MODEL") or os.getenv("RERANK_MODEL") or DEFAULT_LOCAL_RERANK_MODEL,
-    help=f"本地 Rerank 模型名称（默认 {DEFAULT_LOCAL_RERANK_MODEL}）。",
+    default=os.getenv("RERANK_MODEL", ""),
+    help=f"Rerank 模型名称（默认 {DEFAULT_LOCAL_RERANK_MODEL}）。",
+  )
+  parser.add_argument(
+    "--rerank-api-base-url",
+    type=str,
+    default=os.getenv("RERANK_API_BASE_URL", ""),
+    help="远端 rerank API 地址；本地 reranker 会忽略。",
   )
   parser.add_argument(
     "--rerank-device",
@@ -610,23 +720,59 @@ def main() -> None:
     log(f"[WARN] 输入文件不存在（今天可能没有新论文）：{input_path}，将跳过 Step 3。")
     return
 
+  profile_config = _resolve_rerank_profile_config(args.rerank_profile)
+  provider = _normalize_rerank_provider(
+    args.rerank_provider or profile_config.get("provider") or os.getenv("RERANK_PROVIDER", "local")
+  )
+  rerank_model = (
+    args.rerank_model
+    or profile_config.get("model")
+    or (
+      os.getenv("LOCAL_RERANK_MODEL")
+      if provider == "local"
+      else os.getenv("RERANK_MODEL")
+    )
+    or DEFAULT_LOCAL_RERANK_MODEL
+  )
   log(
-    f"[INFO] 加载本地 reranker：model={args.rerank_model}，"
-    f"device={args.rerank_device or 'auto'}，batch_size={args.rerank_batch_size}，"
-    f"global_pool_limit={args.rerank_global_pool_limit or 'auto'}，"
+    f"[INFO] reranker 配置：profile={args.rerank_profile or 'custom'}，provider={provider}，"
+    f"model={rerank_model}，global_pool_limit={args.rerank_global_pool_limit or 'auto'}，"
     f"guaranteed_per_lane={args.rerank_guaranteed_per_lane if args.rerank_guaranteed_per_lane is not None else 'auto'}"
   )
-  reranker = LocalQwenReranker(
-    model_name=args.rerank_model,
-    device=args.rerank_device,
-    batch_size=args.rerank_batch_size,
-  )
+
+  if provider == "local":
+    log(
+      f"[INFO] 加载本地 reranker：device={args.rerank_device or 'auto'}，"
+      f"batch_size={args.rerank_batch_size}"
+    )
+    reranker = LocalQwenReranker(
+      model_name=rerank_model,
+      device=args.rerank_device,
+      batch_size=args.rerank_batch_size,
+    )
+  else:
+    try:
+      from reranker_api import SiliconFlowReranker  # type: ignore
+    except Exception as exc:
+      raise RuntimeError("远端 reranker 需要 src/reranker_api.py 可导入。") from exc
+
+    api_key = _resolve_remote_api_key(provider)
+    base_url = _resolve_remote_base_url(provider, profile_config, args.rerank_api_base_url)
+    if not api_key:
+      raise RuntimeError(f"远端 reranker provider={provider} 缺少 API Key。")
+    if not base_url:
+      raise RuntimeError(f"远端 reranker provider={provider} 缺少 API Base URL。")
+    log(f"[INFO] 使用远端 reranker：provider={provider}，base_url={base_url}")
+    reranker = SiliconFlowReranker(
+      api_key=api_key,
+      base_url=base_url,
+    )
   process_file(
     reranker=reranker,
     input_path=input_path,
     output_path=output_path,
     top_n=args.top_n,
-    rerank_model=args.rerank_model,
+    rerank_model=rerank_model,
     rerank_lane_top_k=args.rerank_lane_top_k,
     rerank_guaranteed_per_lane=args.rerank_guaranteed_per_lane,
     rerank_global_pool_limit=args.rerank_global_pool_limit,

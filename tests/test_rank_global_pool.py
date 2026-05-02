@@ -47,6 +47,21 @@ class RankGlobalPoolTest(unittest.TestCase):
             (120, 1, 80),
         )
 
+    def test_rerank_profile_resolves_remote_defaults(self):
+        self.assertEqual(
+            self.mod._normalize_rerank_profile("sf_0.6b"),
+            "siliconflow-qwen3-0.6b",
+        )
+        blt = self.mod._resolve_rerank_profile_config("blt-qwen3-4b")
+        self.assertEqual(blt["provider"], "blt")
+        self.assertEqual(blt["model"], "Qwen/Qwen3-Reranker-4B")
+        siliconflow = self.mod._resolve_rerank_profile_config("siliconflow-qwen3-0.6b")
+        self.assertEqual(siliconflow["provider"], "siliconflow")
+        self.assertEqual(
+            siliconflow["base_url"],
+            "https://api.siliconflow.cn/v1/rerank",
+        )
+
     def test_build_global_candidate_ids_keeps_lane_top_and_global_top(self):
         queries = [
             {
