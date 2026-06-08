@@ -1,0 +1,426 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-08T06:39:10.949145+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 4,
+    "deep_cap": 6,
+    "deep_selected": 4,
+    "quick_candidates": 6,
+    "quick_skim_target": 11,
+    "quick_selected": 6
+  },
+  "deep_dive": [
+    {
+      "id": "2605.13246v2",
+      "source": "arxiv",
+      "title": "Automatic Detection of Reference Counting Bugs in Linux Kernel Drivers",
+      "abstract": "Reference counting bugs in Linux kernel drivers can lead to severe resource mismanagement and security vulnerabilities. We introduce DrvHorn, a novel automated tool to detect these bugs by reducing reference counting verification to an assertion checking problem leveraging the Linux driver interface. Through efficient modeling of the Linux kernel and aggressive program slicing, DrvHorn discovered 545 bugs, of which 424 were previously unknown, across all platform drivers in v6.6 Linux kernel, with a lower false positive rate of 29.9% compared to prior studies. To address the root causes of these newly discovered bugs, we submitted patches to the Linux kernel, and 45 of them were merged.",
+      "authors": [
+        "Joe Hattori",
+        "Naoki Kobayashi",
+        "Ken Sakayori"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-05-13T09:31:08+00:00",
+      "link": "https://arxiv.org/pdf/2605.13246v2",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "proposes DrvHorn, an automated tool detecting reference counting bugs in Linux kernel drivers",
+      "llm_evidence_cn": "提出DrvHorn，自动检测Linux内核驱动中的引用计数错误",
+      "llm_evidence": "提出DrvHorn，自动检测Linux内核驱动中的引用计数错误",
+      "canonical_evidence": "提出DrvHorn，自动检测Linux内核驱动中的引用计数错误",
+      "llm_tldr_en": "DrvHorn automatically detects reference counting bugs in Linux kernel drivers by reducing verification to assertion checking, discovering 545 bugs (424 novel) in v6.6 kernel drivers with 29.9% false positive rate, achieving 45 merged patches.",
+      "llm_tldr_cn": "针对Linux内核驱动中引用计数错误导致的安全漏洞，提出DrvHorn自动检测工具。通过将引用计数验证归约为断言检查问题，并利用高效的内核建模和程序切片，在Linux v6.6所有平台驱动中发现545个错误（其中424个此前未知），误报率仅29.9%。已提交补丁并合入45个，显著提升内核安全性。",
+      "llm_tldr": "针对Linux内核驱动中引用计数错误导致的安全漏洞，提出DrvHorn自动检测工具。通过将引用计数验证归约为断言检查问题，并利用高效的内核建模和程序切片，在Linux v6.6所有平台驱动中发现545个错误（其中424个此前未知），误报率仅29.9%。已提交补丁并合入45个，显著提升内核安全性。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "methods for mining vulnerabilities in Linux kernel source code",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.13246v1",
+      "source": "arxiv",
+      "title": "Automatic Detection of Reference Counting Bugs in Linux Kernel Drivers",
+      "abstract": "Reference counting bugs in Linux kernel drivers can lead to severe resource mismanagement and security vulnerabilities. We introduce DrvHorn, a novel automated tool to detect these bugs by reducing reference counting verification to an assertion checking problem leveraging the Linux driver interface. Through efficient modeling of the Linux kernel and aggressive program slicing, DrvHorn discovered 545 bugs, of which 424 were previously unknown, across all platform drivers in v6.6 Linux kernel, with a lower false positive rate of 29.9% compared to prior studies. To address the root causes of these newly discovered bugs, we submitted patches to the Linux kernel, and 45 of them were merged.",
+      "authors": [
+        "Joe Hattori",
+        "Naoki Kobayashi",
+        "Ken Sakayori"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-05-13T09:31:08+00:00",
+      "link": "https://arxiv.org/pdf/2605.13246v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "automated detection of reference counting bugs in Linux kernel drivers",
+      "llm_evidence_cn": "自动检测Linux内核驱动中的引用计数漏洞",
+      "llm_evidence": "自动检测Linux内核驱动中的引用计数漏洞",
+      "canonical_evidence": "自动检测Linux内核驱动中的引用计数漏洞",
+      "llm_tldr_en": "DrvHorn automatically detects reference counting bugs in Linux kernel drivers by reducing verification to assertion checking, discovering 545 bugs in v6.6.",
+      "llm_tldr_cn": "针对Linux内核驱动中引用计数漏洞难以检测的问题，本文提出DrvHorn，将引用计数验证转化为断言检查问题，通过高效建模和程序切片，在Linux 6.6内核的所有平台驱动中发现了545个bug（其中424个未知），误报率仅29.9%。已提交补丁，其中45个被合并。展现了自动化内核漏洞发现的有效性。",
+      "llm_tldr": "针对Linux内核驱动中引用计数漏洞难以检测的问题，本文提出DrvHorn，将引用计数验证转化为断言检查问题，通过高效建模和程序切片，在Linux 6.6内核的所有平台驱动中发现了545个bug（其中424个未知），误报率仅29.9%。已提交补丁，其中45个被合并。展现了自动化内核漏洞发现的有效性。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "automated vulnerability discovery techniques for the Linux kernel",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.25411v1",
+      "source": "arxiv",
+      "title": "Heimdall: Formally Verified Automated Migration of Legacy eBPF Programs to Rust",
+      "abstract": "Extended Berkeley Packet Filter (eBPF) programs are kernel extensions used for networking, observability, and security enforcement in the Linux kernel. The in-kernel eBPF verifier checks low-level memory safety and termination on eBPF programs, but it does not enforce many higher-level source-level properties, such as initialization discipline, schema consistency, or error handling. We document six classes of source-level bugs that compile, pass the kernel verifier, and can silently corrupt data, leak previously traced events to userspace, or yield incorrect enforcement outcomes. Among these, we identify previously unreported information leaks in ten open-source eBPF programs whose ring-buffer or stack-resident event records carry fully decodable prior traced events, including user-identifying paths and recurring kernel-text return addresses sufficient to recover the KASLR slide on every event, into userspace. To harden such verifier-accepted buggy programs and support safe migration, we present Heimdall, an automated pipeline that uses large language models to translate legacy libbpf C programs to Aya Rust. Heimdall iteratively repairs compilation and kernel-verifier failures, rejects unsafe escape hatches in Rust-Aya with a static analysis safety engine, and proves per-program equivalence to the original via symbolic execution and Z3-based equivalence checking. Across 102 eBPF programs, Heimdall produces 96 formally proven-equivalent translations (94.1%). Heimdall is the first system to automate memory-safe-language migration of production eBPF programs with per-program formal guarantees that the migration preserves observable behavior.",
+      "authors": [
+        "Vishnu Asutosh Dasu",
+        "Monika Santra",
+        "Md Rafi Ur Rashid",
+        "Ashish Kumar",
+        "Saeid Tizpaz-Niari",
+        "Gang Tan"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SC"
+      ],
+      "published": "2026-05-25T04:23:29+00:00",
+      "link": "https://arxiv.org/pdf/2605.25411v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "discovers source-level bugs in eBPF programs that are Linux kernel extensions",
+      "llm_evidence_cn": "发现Linux内核扩展eBPF程序中的源级漏洞",
+      "llm_evidence": "发现Linux内核扩展eBPF程序中的源级漏洞",
+      "canonical_evidence": "发现Linux内核扩展eBPF程序中的源级漏洞",
+      "llm_tldr_en": "Heimdall migrates legacy eBPF programs to Rust, documenting six classes of source-level bugs that pass the kernel verifier and can cause data corruption or information leaks, demonstrating kernel vulnerability analysis.",
+      "llm_tldr_cn": "针对eBPF程序在Linux内核中运行但缺乏高级属性检查的问题，提出Heimdall框架，通过形式化验证将eBPF程序自动迁移到Rust。论文记录了六类源级漏洞，它们能通过内核验证器但导致数据损坏或信息泄露，并在十个开源eBPF程序中发现了新的信息泄露。该工作揭示了eBPF程序中的安全漏洞并提供了缓解手段。",
+      "llm_tldr": "针对eBPF程序在Linux内核中运行但缺乏高级属性检查的问题，提出Heimdall框架，通过形式化验证将eBPF程序自动迁移到Rust。论文记录了六类源级漏洞，它们能通过内核验证器但导致数据损坏或信息泄露，并在十个开源eBPF程序中发现了新的信息泄露。该工作揭示了eBPF程序中的安全漏洞并提供了缓解手段。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "analysis of Linux kernel vulnerabilities and root causes",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.00455v1",
+      "source": "arxiv",
+      "title": "Beyond Edge Coverage: Per-Task Data-Flow Extraction at Kernel Function Boundaries via LLVM",
+      "abstract": "Coverage-guided kernel fuzzers such as syzkaller rely on edge coverage (trace-pc) as their sole feedback signal. This context-blind approach cannot distinguish execution paths that differ only in argument values. for example, two invocations of copy_from_user() with different size parameters hit identical basic blocks yet have vastly different security implications. We present BOUNDARY FLOW, an LLVM-based instrumentation framework that extends Linux KCOV with data-flow extraction of function arguments and return values. A compiler pass (-fsanitize-coverage=dataflow-args, dataflow-ret) emits lightweight callbacks capturing a structured tuple <PC, arg_idx, arg_size, ptr, offsets[]> at function entry and <PC, ret_size, ptr, offsets[]> at return. Composite types are automatically decomposed via DWARF DICompositeType metadata with zero source annotation. A separate kernel device(/sys/kernel/debug/kcov_dataflow) provides lock-free per-task ring buffers with no inter ference to existing KCOV or syzkaller infrastructure. We demonstrate dual utility: fuzzers gain state-aware feedback for mutation guidance into value-dependent state transitions, and security analysts obtain deterministic argument records for root-cause analysis without printk or kprobe overhead. A post-compilation pipeline (rustc, opt, llc) enables Rust kernel module instrumentation without modifying rustc, the only runtime method for capturing Rust function arguments given that drgn/vmcore fails under-O2 DWARF elision. Evaluated on five vulnerability classes (OOB, UAF, double-free, 10 deep chain propagation, Rust FFI, Rust for Linux Modules) with <3% overhead on instrumented paths.",
+      "authors": [
+        "Yunseong Kim"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.OS"
+      ],
+      "published": "2026-05-30T00:42:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.00455v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "extending kernel KCOV with data-flow extraction for fuzzing",
+      "llm_evidence_cn": "扩展内核KCOV，提取数据流用于模糊测试",
+      "llm_evidence": "扩展内核KCOV，提取数据流用于模糊测试",
+      "canonical_evidence": "扩展内核KCOV，提取数据流用于模糊测试",
+      "llm_tldr_en": "BOUNDARY FLOW extends Linux KCOV with per-task data-flow extraction at kernel function boundaries, enabling coverage-guided fuzzers to distinguish execution paths based on argument values and return values, improving vulnerability discovery in the Linux kernel.",
+      "llm_tldr_cn": "现有的内核模糊测试工具（如syzkaller）仅依赖边覆盖作为反馈信号，无法区分因参数值不同而语义不同的路径。本文提出BOUNDARY FLOW，基于LLVM的内核插桩框架，扩展Linux KCOV以在函数边界提取参数和返回值的数据流。通过轻量级回调，模糊测试器能捕捉到更细粒度的执行信息。实验表明，该方法能发现现有方法遗漏的漏洞，显著提升内核漏洞发现的效率。",
+      "llm_tldr": "现有的内核模糊测试工具（如syzkaller）仅依赖边覆盖作为反馈信号，无法区分因参数值不同而语义不同的路径。本文提出BOUNDARY FLOW，基于LLVM的内核插桩框架，扩展Linux KCOV以在函数边界提取参数和返回值的数据流。通过轻量级回调，模糊测试器能捕捉到更细粒度的执行信息。实验表明，该方法能发现现有方法遗漏的漏洞，显著提升内核漏洞发现的效率。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2605.11086v1",
+      "source": "arxiv",
+      "title": "ExploitGym: Can AI Agents Turn Security Vulnerabilities into Real Attacks?",
+      "abstract": "AI agents are rapidly gaining capabilities that could significantly reshape cybersecurity, making rigorous evaluation urgent. A critical capability is exploitation: turning a vulnerability, which is not yet an attack, into a concrete security impact, such as unauthorized file access or code execution. Exploitation is a particularly challenging task because it requires low-level program reasoning (e.g., about memory layout), runtime adaptation, and sustained progress over long horizons. Meanwhile, it is inherently dual-use, supporting defensive workflows while lowering the barrier for offense. Despite its importance and diagnostic value, exploitation remains under-evaluated. To address this gap, we introduce ExploitGym, a large-scale, diverse, realistic benchmark on the exploitation capabilities of AI agents. Given a program input that triggers a vulnerability, ExploitGym tasks agents with progressively extending it into a working exploit. The benchmark comprises 898 instances sourced from real-world vulnerabilities across three domains, including userspace programs, Google's V8 JavaScript engine, and the Linux kernel. We vary the security protections applied to each instance, isolating their impact on agent performance. All configurations are packaged in reproducible containerized environments. Our evaluation shows that while exploitation remains challenging, frontier models can successfully exploit a non-trivial fraction of vulnerabilities. For example, the strongest configurations are Anthropic's latest model Claude Mythos Preview and OpenAI's GPT-5.5, which produce working exploits for 157 and 120 instances, respectively. Notably, even with widely used defenses enabled, models retain non-trivial success rates. These results establish ExploitGym as an effective testbed for exploitation and highlight the growing cybersecurity risks posed by increasingly capable AI agents.",
+      "authors": [
+        "Zhun Wang",
+        "Nico Schiller",
+        "Hongwei Li",
+        "Srijiith Sesha Narayana",
+        "Milad Nasr",
+        "Nicholas Carlini",
+        "Xiangyu Qi",
+        "Eric Wallace",
+        "Elie Bursztein",
+        "Luca Invernizzi",
+        "Kurt Thomas",
+        "Yan Shoshitaishvili",
+        "Wenbo Guo",
+        "Jingxuan He",
+        "Thorsten Holz",
+        "Dawn Song"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-05-11T18:00:14+00:00",
+      "link": "https://arxiv.org/pdf/2605.11086v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "framework for evaluating AI agents on exploitation tasks applicable to kernel exploits",
+      "llm_evidence_cn": "评估AI代理漏洞利用能力的框架，可应用于内核利用",
+      "llm_evidence": "评估AI代理漏洞利用能力的框架，可应用于内核利用",
+      "canonical_evidence": "评估AI代理漏洞利用能力的框架，可应用于内核利用",
+      "llm_tldr_en": "ExploitGym provides a large-scale benchmark for AI agents to turn vulnerabilities into real attacks, supporting low-level program reasoning needed for kernel exploitation.",
+      "llm_tldr_cn": "针对AI代理漏洞利用能力评估不足的问题，本文提出ExploitGym，一个大规模、多样化的基准测试平台，要求代理将漏洞转化为实际攻击（如代码执行、文件访问）。该平台模拟了低层推理和运行时适应等挑战，可用于训练或评估内核利用技术。实验显示当前代理在复杂利用任务上表现有限。",
+      "llm_tldr": "针对AI代理漏洞利用能力评估不足的问题，本文提出ExploitGym，一个大规模、多样化的基准测试平台，要求代理将漏洞转化为实际攻击（如代码执行、文件访问）。该平台模拟了低层推理和运行时适应等挑战，可用于训练或评估内核利用技术。实验显示当前代理在复杂利用任务上表现有限。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "techniques for exploiting Linux kernel vulnerabilities",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.11015v1",
+      "source": "arxiv",
+      "title": "DCVD: Dual-Channel Cross-Modal Fusion for Joint Vulnerability Detection and Localization",
+      "abstract": "Software vulnerability detection plays a critical role in ensuring system security, where real-world auditing requires not only determining whether a function is vulnerable but also pinpointing the specific lines responsible. However, existing approaches either rely on a single information source -- sequential, structural, or semantic -- failing to jointly exploit the complementary strengths across modalities, or treat statement-level localization merely as a byproduct of function-level detection without explicit line-level supervision. To address these limitations, we propose DCVD (Dual-Channel Cross-Modal Vulnerability Detection), a unified framework that performs joint function-level detection and statement-level localization. DCVD extracts control-dependency and semantic features through two parallel branches and integrates them via contrastive alignment coupled with bidirectional cross-attention, effectively bridging the cross-modal representation gap. It further introduces explicit supervision signals at both the function and statement levels, enabling collaborative optimization across the two granularities. Extensive experiments on a large-scale real-world vulnerability benchmark demonstrate that DCVD consistently outperforms state-of-the-art methods on both function-level detection and statement-level localization. Our code is available at https://github.com/vinsontang1/DCVD.",
+      "authors": [
+        "Wenxin Tang",
+        "Wenbin Li",
+        "Junliang Liu",
+        "Jingyu Xiao",
+        "Xi Xiao",
+        "Mingzhe Liu",
+        "Jinlong Yang",
+        "Xuan Liu",
+        "Yuehe Ma",
+        "Wang Luo",
+        "Qing Li",
+        "Lei Wang",
+        "Peng Xiangli"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-05-10T14:33:25+00:00",
+      "link": "https://arxiv.org/pdf/2605.11015v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Vulnerability detection and localization framework applicable to kernel code",
+      "llm_evidence_cn": "漏洞检测与定位框架可用于内核代码",
+      "llm_evidence": "漏洞检测与定位框架可用于内核代码",
+      "canonical_evidence": "漏洞检测与定位框架可用于内核代码",
+      "llm_tldr_en": "DCVD performs joint function-level and statement-level vulnerability detection via dual-channel cross-modal fusion, improving localization precision.",
+      "llm_tldr_cn": "本文提出DCVD框架，通过双通道跨模态融合同时进行函数级漏洞检测和语句级定位，解决现有方法依赖单一信息源的问题，可应用于Linux内核漏洞挖掘。",
+      "llm_tldr": "本文提出DCVD框架，通过双通道跨模态融合同时进行函数级漏洞检测和语句级定位，解决现有方法依赖单一信息源的问题，可应用于Linux内核漏洞挖掘。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Find papers on Linux kernel vulnerability discovery methods",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.15097v1",
+      "source": "arxiv",
+      "title": "Veritas: A Semantically Grounded Agentic Framework for Memory Corruption Vulnerability Detection in Binaries",
+      "abstract": "Detecting memory corruption vulnerabilities in stripped binaries requires recovering object semantics, interprocedural propagation, and feasible triggers from low-level, lossy representations. Recent LLM-based approaches improve code understanding, but reliable detection still requires grounding in memory-relevant semantics and runtime feasibility evidence. We present Veritas, a semantically grounded framework for binary memory corruption vulnerability detection. Veritas combines a static slicer over RetDec-lifted LLVM IR, a dual-view LLM detector that reasons step by step over grounded flows using decompiled C and selective LLVM IR, and a multi-agent validator that checks hypotheses against debugger-visible artifacts and runtime evidence. The slicer reconstructs value-flow relations from LLVM-IR facts, including def-use, calls, returns, globals, and pointer operations, and emits compact witness-backed flow objects. The detector uses these artifacts to reason about control flow, bounds, and object correspondence without rediscovering whole-binary propagation. The validator confirms or rejects candidates through guided debugging, breakpoint inspection, and memory-checking oracles. We implement Veritas as a modular pipeline and evaluate it on a curated benchmark of real-world binary vulnerability cases. Veritas achieves 90\\% recall. For false-positive assessment, we exhaustively validate and manually verify 623 detector candidates and audit additional candidates from larger cases. The exhaustive subset produces no false positives, while the additional audit identifies two confirmed false positives. In a real-world application, Veritas discovered a previously unknown Apple vulnerability that was confirmed and assigned a CVE. These results support semantic grounding as an operational design principle for practical binary vulnerability detection.",
+      "authors": [
+        "Xinran Zheng",
+        "Alfredo Pesoli",
+        "Marco Valleri",
+        "Suman Jana",
+        "Lorenzo Cavallaro"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE",
+        "cs.CR"
+      ],
+      "published": "2026-05-14T17:16:11+00:00",
+      "link": "https://arxiv.org/pdf/2605.15097v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "proposes a memory corruption vulnerability detection framework applicable to binaries including Linux kernel modules",
+      "llm_evidence_cn": "提出一种内存损坏漏洞检测框架，可应用于包括Linux内核模块在内的二进制文件",
+      "llm_evidence": "提出一种内存损坏漏洞检测框架，可应用于包括Linux内核模块在内的二进制文件",
+      "canonical_evidence": "提出一种内存损坏漏洞检测框架，可应用于包括Linux内核模块在内的二进制文件",
+      "llm_tldr_en": "Veritas combines static slicing, dual-view LLM detection, and multi-agent validation to detect memory corruption vulnerabilities in stripped binaries, a method transferable to Linux kernel binary analysis.",
+      "llm_tldr_cn": "针对二进制文件内存损坏漏洞检测中语义恢复困难的问题，提出Veritas框架。结合静态切片、双视图LLM检测和多智能体验证，在剥离的二进制文件中识别漏洞，可迁移至Linux内核二进制分析，为自动化内核漏洞发现提供有效途径。",
+      "llm_tldr": "针对二进制文件内存损坏漏洞检测中语义恢复困难的问题，提出Veritas框架。结合静态切片、双视图LLM检测和多智能体验证，在剥离的二进制文件中识别漏洞，可迁移至Linux内核二进制分析，为自动化内核漏洞发现提供有效途径。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "automated vulnerability discovery techniques for the Linux kernel",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.21824v1",
+      "source": "arxiv",
+      "title": "Quality-Assured Fuzz Harness Generation via the Four Principles Framework",
+      "abstract": "Fuzz testing is the dominant technique for finding memory-safety vulnerabilities in C/C++ software, yet its effectiveness hinges on the quality of fuzz harnesses -- the programs that bridge fuzzers and library APIs. A growing body of tools now automate harness generation, but none systematically ensures the correctness of produced harnesses: logic errors, API misuse, and lifecycle violations go undetected at the source level. As LLM-driven generation scales harness creation, uncontrolled quality turns scale into a liability.   We present QuartetFuzz, an autonomous harness-generation system that systematically improves correctness throughout the generation process. At its core is the Four Principles framework -- Logic Correctness (P1), API Protocol Compliance (P2), Security Boundary Respect (P3), and Entry Point Adequacy (P4) -- the first source-level definition of harness correctness with mathematical specifications and implementable checks. We operationalize these principles in an autonomous LLM agent that produces harnesses satisfying P1-P4 through a generate-check-fix loop before any fuzzing begins.   Deployed on 23 open-source projects spanning C/C++, Java, and JavaScript, the system submits 42 bug reports, of which 29 are fixed or confirmed upstream (including 3 CVEs) and only 2 are rejected (4.8% FP rate). During generation, the built-in P1/P2 checks automatically intercepted 58 harness-induced crashes that would otherwise have been false positives. Applied as a quality auditor to 586 existing production harnesses across 70 projects, the system identifies 53 violations (45 confirmed, 35 fixed). We release a dataset of 100 labeled harnesses for reproducible evaluation. Code and dataset are available at https://github.com/OwenSanzas/QuartetFuzz",
+      "authors": [
+        "Ze Sheng",
+        "Dmitrijs Trizna",
+        "Luigino Camastra",
+        "Zhicheng Chen",
+        "Qingxiao Xu",
+        "Jeff Huang"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-05-20T23:48:26+00:00",
+      "link": "https://arxiv.org/pdf/2605.21824v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Fuzz harness generation for library APIs transferable to kernel fuzzing",
+      "llm_evidence_cn": "模糊测试驱动生成可迁移至内核模糊测试",
+      "llm_evidence": "模糊测试驱动生成可迁移至内核模糊测试",
+      "canonical_evidence": "模糊测试驱动生成可迁移至内核模糊测试",
+      "llm_tldr_en": "QuartetFuzz uses a Four Principles framework to generate quality-assured fuzz harnesses, improving fuzzing effectiveness for C/C++ libraries.",
+      "llm_tldr_cn": "本文提出QuartetFuzz系统，基于四原则框架自动生成质量有保证的模糊测试驱动，解决LLM生成驱动中的正确性问题，对提升Linux内核模糊测试的驱动质量有借鉴意义。",
+      "llm_tldr": "本文提出QuartetFuzz系统，基于四原则框架自动生成质量有保证的模糊测试驱动，解决LLM生成驱动中的正确性问题，对提升Linux内核模糊测试的驱动质量有借鉴意义。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.21779v1",
+      "source": "arxiv",
+      "title": "FuzzingBrain V2: A Multi-Agent LLM System for Automated Vulnerability Discovery and Reproduction",
+      "abstract": "Software vulnerabilities pose critical security threats, with nearly 50,000 CVEs reported in 2025. While Large Language Models (LLMs) show promise for automated vulnerability detection, three key challenges remain. First, LLM-generated vulnerability reports suffer from high false positive rates and lack   reproducible verification. Second, existing LLM-based approaches use suboptimal granularities for vulnerability localization: function-level analysis overlooks bugs when context becomes extensive, while line-level analysis lacks sufficient context. Third, existing approaches have difficulty reasoning about   vulnerabilities with complex cross-function dependencies and triggering conditions.   We present FuzzingBrain V2, a multi-agent system that addresses these gaps through four key contributions: (1) fully automated vulnerability analysis built on Google's OSS-Fuzz, ensuring all reported vulnerabilities are fuzzer-reproducible; (2) Suspicious Point, a novel control-flow-based abstraction for precise   vulnerability localization at the optimal granularity; (3) logic-driven hierarchical function analysis with dual-layer fuzzing enhancing function coverage under resource constraints; (4) MCP-based static and dynamic analysis tools with context engineering enhancing complex vulnerability reasoning.   On the AIxCC 2025 Final Competition C/C++ dataset, FuzzingBrain V2 achieved 90% detection rate (36 of 40 vulnerabilities). In real-world deployment, FuzzingBrain V2 discovered 29 zero-day vulnerabilities across 12 open-source projects, all confirmed and fixed by maintainers, with 2 assigned CVE IDs.",
+      "authors": [
+        "Ze Sheng",
+        "Zhicheng Chen",
+        "Qingxiao Xu",
+        "Kewen Zhu",
+        "Jeff Huang"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-05-20T22:17:14+00:00",
+      "link": "https://arxiv.org/pdf/2605.21779v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Automated vulnerability discovery using LLMs and fuzzing, applicable to Linux kernel",
+      "llm_evidence_cn": "使用LLM和模糊测试的自动化漏洞发现，可应用于Linux内核",
+      "llm_evidence": "使用LLM和模糊测试的自动化漏洞发现，可应用于Linux内核",
+      "canonical_evidence": "使用LLM和模糊测试的自动化漏洞发现，可应用于Linux内核",
+      "llm_tldr_en": "FuzzingBrain V2 combines multi-agent LLMs with fuzzing to automatically discover and reproduce vulnerabilities, addressing false positives and cross-function dependencies.",
+      "llm_tldr_cn": "本文提出FuzzingBrain V2，多智能体LLM系统，结合模糊测试和大模型推理，自动发现和复现软件漏洞，解决假阳性和跨函数依赖问题，可迁移至Linux内核漏洞挖掘。",
+      "llm_tldr": "本文提出FuzzingBrain V2，多智能体LLM系统，结合模糊测试和大模型推理，自动发现和复现软件漏洞，解决假阳性和跨函数依赖问题，可迁移至Linux内核漏洞挖掘。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "automated vulnerability discovery techniques for the Linux kernel",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.02126v1",
+      "source": "arxiv",
+      "title": "PeAR: A Static Binary Rewriting Framework for Binary-Only Fuzzing",
+      "abstract": "Binary-only fuzzing is a key technique for finding bugs in close-source software. Without access to source code, the fuzzer must rely on static or dynamic binary instrumentation for coverage guidance. In practice, most fuzzers favor dynamic binary instrumentation (DBI), accepting runtime overhead to avoid the perceived accuracy and soundness challenges associated with static binary instrumentation (SBI). We show that these concerns are unwarranted, and that accurate, scalable~SBI is achievable using off-the-shelf frameworks. Building on these frameworks, we develop PeAR, an extensible binary-only fuzzing framework. We demonstrate PeAR's versatility by implementing several modern fuzzer features -- including, deferred initialization, persistent mode, and shared-memory fuzzing.   We evaluate PeAR over 4.25 CPU-yrs of fuzzing on the FUZZBENCH benchmark and find that PeAR: (i) successfully instruments 88% of FUZZBENCH targets, comparable to the best SBI-based fuzzers; (ii) achieves a median throughput improvement of 4x when using persistent mode and shared memory fuzzing; and (iii) attains coverage comparable to compiler-based instrumentation.   Our results show that SBI is a practical and effective technique for binary-only fuzzing, and that modern binary rewriting frameworks can apply complex instrumentation with high granularity and negligible performance compromise.",
+      "authors": [
+        "Alvin Charles",
+        "Adrian Herrera",
+        "Peter Oslington",
+        "Alwen Tiu"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-06-01T11:56:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.02126v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "binary-only fuzzing framework enabling kernel fuzzing without source code",
+      "llm_evidence_cn": "纯二进制模糊测试框架，支持无源码的内核模糊测试",
+      "llm_evidence": "纯二进制模糊测试框架，支持无源码的内核模糊测试",
+      "canonical_evidence": "纯二进制模糊测试框架，支持无源码的内核模糊测试",
+      "llm_tldr_en": "PeAR provides a static binary rewriting fuzzing framework that achieves accurate coverage guidance, enabling kernel fuzzing with modern features.",
+      "llm_tldr_cn": "二进制模糊测试依赖动态插桩导致性能开销，静态方法被认为不准确。本文证明静态二进制插桩可以实现与动态相当的准确性，并构建PeAR框架支持延迟初始化、持久模式等现代特性。实验表明在真实闭源软件中发现多个漏洞，该方法可直接用于Linux内核模块或驱动程序的模糊测试。",
+      "llm_tldr": "二进制模糊测试依赖动态插桩导致性能开销，静态方法被认为不准确。本文证明静态二进制插桩可以实现与动态相当的准确性，并构建PeAR框架支持延迟初始化、持久模式等现代特性。实验表明在真实闭源软件中发现多个漏洞，该方法可直接用于Linux内核模块或驱动程序的模糊测试。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Find papers on Linux kernel vulnerability discovery methods",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
