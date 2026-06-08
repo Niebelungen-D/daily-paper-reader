@@ -25,3 +25,65 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: linux-kernel
+      description: Linux内核漏洞利用与漏洞挖掘相关论文
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: Linux kernel vulnerability
+          keyword_cn: Linux内核漏洞
+          query: Linux kernel security vulnerability
+        - keyword: kernel exploitation
+          keyword_cn: 内核利用
+          query: techniques for exploiting Linux kernel vulnerabilities
+        - keyword: vulnerability mining
+          keyword_cn: 漏洞挖掘
+          query: methods for mining vulnerabilities in Linux kernel source code
+        - keyword: kernel vulnerability discovery
+          keyword_cn: 内核漏洞发现
+          query: methods for discovering vulnerabilities in the Linux kernel
+        - keyword: kernel exploitation techniques
+          keyword_cn: 内核利用技术
+          query: techniques for exploiting Linux kernel vulnerabilities
+        - keyword: kernel vulnerability analysis
+          keyword_cn: 内核漏洞分析
+          query: analysis of Linux kernel vulnerabilities and root causes
+      intent_queries:
+        - query: Find papers on Linux kernel vulnerability discovery methods
+          query_cn: 寻找关于Linux内核漏洞发现方法的论文
+          enabled: true
+          source: manual
+          note: ''
+        - query: research papers on Linux kernel vulnerability exploitation and mitigation bypass
+          query_cn: 关于Linux内核漏洞利用和绕过缓解措施的研究论文
+          enabled: true
+          source: manual
+          note: ''
+        - query: automated vulnerability discovery techniques for the Linux kernel
+          query_cn: Linux内核自动化漏洞发现技术
+          enabled: true
+          source: manual
+          note: ''
+        - query: Linux kernel fuzzing and crash analysis for exploit development
+          query_cn: 用于漏洞利用开发的Linux内核模糊测试和崩溃分析
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-06-08T05:48:23.156Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
