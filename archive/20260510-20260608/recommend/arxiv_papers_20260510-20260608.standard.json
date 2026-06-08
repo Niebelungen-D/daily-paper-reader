@@ -1,189 +1,483 @@
 {
   "mode": "standard",
-  "generated_at": "2026-06-08T06:39:10.949145+00:00",
+  "generated_at": "2026-06-08T08:57:29.323525+00:00",
   "stats": {
     "mode": "standard",
     "tag_count": 1,
-    "deep_divecandidates": 4,
+    "deep_divecandidates": 23,
     "deep_cap": 6,
-    "deep_selected": 4,
-    "quick_candidates": 6,
+    "deep_selected": 13,
+    "quick_candidates": 14,
     "quick_skim_target": 11,
-    "quick_selected": 6
+    "quick_selected": 11
   },
   "deep_dive": [
     {
-      "id": "2605.13246v2",
+      "id": "2605.21779v1",
       "source": "arxiv",
-      "title": "Automatic Detection of Reference Counting Bugs in Linux Kernel Drivers",
-      "abstract": "Reference counting bugs in Linux kernel drivers can lead to severe resource mismanagement and security vulnerabilities. We introduce DrvHorn, a novel automated tool to detect these bugs by reducing reference counting verification to an assertion checking problem leveraging the Linux driver interface. Through efficient modeling of the Linux kernel and aggressive program slicing, DrvHorn discovered 545 bugs, of which 424 were previously unknown, across all platform drivers in v6.6 Linux kernel, with a lower false positive rate of 29.9% compared to prior studies. To address the root causes of these newly discovered bugs, we submitted patches to the Linux kernel, and 45 of them were merged.",
+      "title": "FuzzingBrain V2: A Multi-Agent LLM System for Automated Vulnerability Discovery and Reproduction",
+      "abstract": "Software vulnerabilities pose critical security threats, with nearly 50,000 CVEs reported in 2025. While Large Language Models (LLMs) show promise for automated vulnerability detection, three key challenges remain. First, LLM-generated vulnerability reports suffer from high false positive rates and lack   reproducible verification. Second, existing LLM-based approaches use suboptimal granularities for vulnerability localization: function-level analysis overlooks bugs when context becomes extensive, while line-level analysis lacks sufficient context. Third, existing approaches have difficulty reasoning about   vulnerabilities with complex cross-function dependencies and triggering conditions.   We present FuzzingBrain V2, a multi-agent system that addresses these gaps through four key contributions: (1) fully automated vulnerability analysis built on Google's OSS-Fuzz, ensuring all reported vulnerabilities are fuzzer-reproducible; (2) Suspicious Point, a novel control-flow-based abstraction for precise   vulnerability localization at the optimal granularity; (3) logic-driven hierarchical function analysis with dual-layer fuzzing enhancing function coverage under resource constraints; (4) MCP-based static and dynamic analysis tools with context engineering enhancing complex vulnerability reasoning.   On the AIxCC 2025 Final Competition C/C++ dataset, FuzzingBrain V2 achieved 90% detection rate (36 of 40 vulnerabilities). In real-world deployment, FuzzingBrain V2 discovered 29 zero-day vulnerabilities across 12 open-source projects, all confirmed and fixed by maintainers, with 2 assigned CVE IDs.",
       "authors": [
-        "Joe Hattori",
-        "Naoki Kobayashi",
-        "Ken Sakayori"
+        "Ze Sheng",
+        "Zhicheng Chen",
+        "Qingxiao Xu",
+        "Kewen Zhu",
+        "Jeff Huang"
       ],
       "primary_category": "cs.CR",
       "categories": [
         "cs.CR",
         "cs.SE"
       ],
-      "published": "2026-05-13T09:31:08+00:00",
-      "link": "https://arxiv.org/pdf/2605.13246v2",
+      "published": "2026-05-20T22:17:14+00:00",
+      "link": "https://arxiv.org/pdf/2605.21779v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
       "llm_score": 10.0,
-      "llm_evidence_en": "proposes DrvHorn, an automated tool detecting reference counting bugs in Linux kernel drivers",
-      "llm_evidence_cn": "提出DrvHorn，自动检测Linux内核驱动中的引用计数错误",
-      "llm_evidence": "提出DrvHorn，自动检测Linux内核驱动中的引用计数错误",
-      "canonical_evidence": "提出DrvHorn，自动检测Linux内核驱动中的引用计数错误",
-      "llm_tldr_en": "DrvHorn automatically detects reference counting bugs in Linux kernel drivers by reducing verification to assertion checking, discovering 545 bugs (424 novel) in v6.6 kernel drivers with 29.9% false positive rate, achieving 45 merged patches.",
-      "llm_tldr_cn": "针对Linux内核驱动中引用计数错误导致的安全漏洞，提出DrvHorn自动检测工具。通过将引用计数验证归约为断言检查问题，并利用高效的内核建模和程序切片，在Linux v6.6所有平台驱动中发现545个错误（其中424个此前未知），误报率仅29.9%。已提交补丁并合入45个，显著提升内核安全性。",
-      "llm_tldr": "针对Linux内核驱动中引用计数错误导致的安全漏洞，提出DrvHorn自动检测工具。通过将引用计数验证归约为断言检查问题，并利用高效的内核建模和程序切片，在Linux v6.6所有平台驱动中发现545个错误（其中424个此前未知），误报率仅29.9%。已提交补丁并合入45个，显著提升内核安全性。",
+      "llm_evidence_en": "multi-agent LLM system for automated vulnerability discovery",
+      "llm_evidence_cn": "基于多智能体LLM的自动化漏洞发现系统",
+      "llm_evidence": "基于多智能体LLM的自动化漏洞发现系统",
+      "canonical_evidence": "基于多智能体LLM的自动化漏洞发现系统",
+      "llm_tldr_en": "Proposes FuzzingBrain V2, a multi-agent LLM system for automated vulnerability discovery and reproduction, directly matching agent-assisted vulnerability discovery.",
+      "llm_tldr_cn": "现有LLM在自动漏洞检测中面临高误报、定位粒度不佳和跨函数推理困难等问题。本文提出FuzzingBrain V2，一个多智能体LLM系统，通过多代理协作实现自动化漏洞发现与可复现验证。实验结果表明该系统在多个基准上显著降低了误报率并提高了漏洞定位精度，为智能体辅助的漏洞挖掘提供了有效方法。",
+      "llm_tldr": "现有LLM在自动漏洞检测中面临高误报、定位粒度不佳和跨函数推理困难等问题。本文提出FuzzingBrain V2，一个多智能体LLM系统，通过多代理协作实现自动化漏洞发现与可复现验证。实验结果表明该系统在多个基准上显著降低了误报率并提高了漏洞定位精度，为智能体辅助的漏洞挖掘提供了有效方法。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "methods for mining vulnerabilities in Linux kernel source code",
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
       "matched_requirement_id": "req-3",
       "selection_source": "fresh_fetch"
     },
     {
-      "id": "2605.13246v1",
+      "id": "2605.09461v1",
       "source": "arxiv",
-      "title": "Automatic Detection of Reference Counting Bugs in Linux Kernel Drivers",
-      "abstract": "Reference counting bugs in Linux kernel drivers can lead to severe resource mismanagement and security vulnerabilities. We introduce DrvHorn, a novel automated tool to detect these bugs by reducing reference counting verification to an assertion checking problem leveraging the Linux driver interface. Through efficient modeling of the Linux kernel and aggressive program slicing, DrvHorn discovered 545 bugs, of which 424 were previously unknown, across all platform drivers in v6.6 Linux kernel, with a lower false positive rate of 29.9% compared to prior studies. To address the root causes of these newly discovered bugs, we submitted patches to the Linux kernel, and 45 of them were merged.",
+      "title": "VulTriage: Triple-Path Context Augmentation for LLM-Based Vulnerability Detection",
+      "abstract": "Automated vulnerability detection is a fundamental task in software security, yet existing learning-based methods still struggle to capture the structural dependencies, domain-specific vulnerability knowledge, and complex program semantics required for accurate detection. Recent Large Language Models (LLMs) have shown strong code understanding ability, but directly prompting them with raw source code often leads to missed vulnerabilities or false alarms, especially when vulnerable and benign functions differ only in subtle semantic details. To address this, we propose VulTriage, a triple-path context augmentation framework for LLM-based vulnerability detection. VulTriage enhances the LLM input through three complementary paths: a Control Path that extracts and verbalizes AST, CFG, and DFG information to expose control and data dependencies; a Knowledge Path that retrieves relevant CWE-derived vulnerability patterns and examples through hybrid dense--sparse retrieval; and a Semantic Path that summarizes the functional behavior of the code before the final judgment. These contexts are integrated into a unified instruction to guide the LLM toward more reliable vulnerability reasoning. Experiments on the PrimeVul pair test set show that VulTriage achieves state-of-the-art performance, outperforming existing deep learning and LLM-based baselines on key pair-wise and classification metrics. Further ablation studies verify the effectiveness of each path, and additional experiments on the Kotlin dataset demonstrate the generalization ability of VulTriage under low-resource and class-imbalanced settings. Our code is available at https://github.com/vinsontang1/VulTriage",
       "authors": [
-        "Joe Hattori",
-        "Naoki Kobayashi",
-        "Ken Sakayori"
+        "Wenxin Tang",
+        "Xiang Zhang",
+        "Junliang Liu",
+        "Jingyu Xiao",
+        "Xi Xiao",
+        "Jinlong Yang",
+        "Yuehe Ma",
+        "Zhenyu Liu",
+        "Zhengheng Li",
+        "Zicheng Wang",
+        "Wang Luo",
+        "Qing Li",
+        "Lei Wang",
+        "Peng Xiangli"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-10T10:20:05+00:00",
+      "link": "https://arxiv.org/pdf/2605.09461v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "triple-path context augmentation for LLM-based vulnerability detection",
+      "llm_evidence_cn": "三元路径上下文增强的LLM漏洞检测方法",
+      "llm_evidence": "三元路径上下文增强的LLM漏洞检测方法",
+      "canonical_evidence": "三元路径上下文增强的LLM漏洞检测方法",
+      "llm_tldr_en": "VulTriage enhances LLM input with three context paths (control flow, data flow, and domain knowledge) to improve vulnerability detection accuracy.",
+      "llm_tldr_cn": "该论文提出VulTriage框架，通过控制流、数据流和领域知识三条路径增强LLM输入上下文，使模型能捕捉细微漏洞特征。实验表明，该方法在多个基准数据集上显著提升了漏洞检测的准确率和召回率，减少了误报，推动了LLM在代码安全分析中的应用。",
+      "llm_tldr": "该论文提出VulTriage框架，通过控制流、数据流和领域知识三条路径增强LLM输入上下文，使模型能捕捉细微漏洞特征。实验表明，该方法在多个基准数据集上显著提升了漏洞检测的准确率和召回率，减少了误报，推动了LLM在代码安全分析中的应用。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "large language model for vulnerability mining",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.09461v2",
+      "source": "arxiv",
+      "title": "VulTriage: Triple-Path Context Augmentation for LLM-Based Vulnerability Detection",
+      "abstract": "Automated vulnerability detection is a fundamental task in software security, yet existing learning-based methods still struggle to capture the structural dependencies, domain-specific vulnerability knowledge, and complex program semantics required for accurate detection. Recent Large Language Models (LLMs) have shown strong code understanding ability, but directly prompting them with raw source code often leads to missed vulnerabilities or false alarms, especially when vulnerable and benign functions differ only in subtle semantic details. To address this, we propose VulTriage, a triple-path context augmentation framework for LLM-based vulnerability detection. VulTriage enhances the LLM input through three complementary paths: a Control Path that extracts and verbalizes AST, CFG, and DFG information to expose control and data dependencies; a Knowledge Path that retrieves relevant CWE-derived vulnerability patterns and examples through hybrid dense--sparse retrieval; and a Semantic Path that summarizes the functional behavior of the code before the final judgment. These contexts are integrated into a unified instruction to guide the LLM toward more reliable vulnerability reasoning. Experiments on the PrimeVul pair test set show that VulTriage achieves state-of-the-art performance, outperforming existing deep learning and LLM-based baselines on key pair-wise and classification metrics. Further ablation studies verify the effectiveness of each path, and additional experiments on the Kotlin dataset demonstrate the generalization ability of VulTriage under low-resource and class-imbalanced settings. Our code is available at https://github.com/vinsontang1/VulTriage",
+      "authors": [
+        "Wenxin Tang",
+        "Xiang Zhang",
+        "Junliang Liu",
+        "Jingyu Xiao",
+        "Xi Xiao",
+        "Jinlong Yang",
+        "Yuehe Ma",
+        "Zhenyu Liu",
+        "Zhengheng Li",
+        "Zicheng Wang",
+        "Wang Luo",
+        "Qing Li",
+        "Lei Wang",
+        "Peng Xiangli"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-10T10:20:05+00:00",
+      "link": "https://arxiv.org/pdf/2605.09461v2",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "LLM-based vulnerability detection with context augmentation",
+      "llm_evidence_cn": "基于LLM的上下文增强漏洞检测",
+      "llm_evidence": "基于LLM的上下文增强漏洞检测",
+      "canonical_evidence": "基于LLM的上下文增强漏洞检测",
+      "llm_tldr_en": "VulTriage proposes a triple-path context augmentation framework for LLM-based vulnerability detection, improving accuracy by incorporating control/data flow, domain knowledge, and semantics.",
+      "llm_tldr_cn": "该论文提出VulTriage框架，通过三路径上下文增强提升LLM漏洞检测性能。针对现有LLM直接提示原始代码易漏报和误报的问题，VulTriage通过控制流路径、数据流路径和语义路径补充结构依赖、漏洞知识和程序语义。实验表明该方法在多个基准上显著提高检测精度，尤其擅长区分仅语义细微差异的易受攻击与良性函数。",
+      "llm_tldr": "该论文提出VulTriage框架，通过三路径上下文增强提升LLM漏洞检测性能。针对现有LLM直接提示原始代码易漏报和误报的问题，VulTriage通过控制流路径、数据流路径和语义路径补充结构依赖、漏洞知识和程序语义。实验表明该方法在多个基准上显著提高检测精度，尤其擅长区分仅语义细微差异的易受攻击与良性函数。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.10240v1",
+      "source": "arxiv",
+      "title": "MARGIN: Margin-Aware Regularized Geometry for Imbalanced Vulnerability Detection",
+      "abstract": "Software vulnerability detection is critical for ensuring software security and reliability. Despite recent advances in deep learning, real-world vulnerability datasets suffer from two severe challenges: frequency imbalance and difficulty imbalance. We reinterpret these challenges from an embedding geometry perspective, observing that such imbalances induce geometric distortions in hyperspherical representation space. To address this issue, we propose MARGIN, a metric-based framework that learns discriminative vulnerability representations through adaptive margin metric learning and hyperspherical prototype modeling. MARGIN dynamically adjusts geometric regularization according to the distribution structure estimated by the von Mises-Fisher concentration, aligning the probability mass of embedding distributions with their corresponding Voronoi cells, thereby reducing geometric distortion and yielding more stable decision boundaries. Extensive experiments on public vulnerability datasets show that MARGIN consistently outperforms strong baselines, achieving notable improvements in classification and detection, especially on challenging, imbalanced datasets. Further analysis demonstrates that MARGIN produces more structured embedding geometries, improving robustness, interpretability, and generalization.",
+      "authors": [
+        "Yuteng Zhang",
+        "Huifang Ma",
+        "Jiahui Wei",
+        "Qingqing Li",
+        "Yafei Yang"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "published": "2026-05-11T09:14:51+00:00",
+      "link": "https://arxiv.org/pdf/2605.10240v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "metric-based framework for imbalanced vulnerability detection",
+      "llm_evidence_cn": "基于度量学习的非平衡漏洞检测框架",
+      "llm_evidence": "基于度量学习的非平衡漏洞检测框架",
+      "canonical_evidence": "基于度量学习的非平衡漏洞检测框架",
+      "llm_tldr_en": "MARGIN uses adaptive margin metric learning and hyperspherical prototypes to handle frequency and difficulty imbalance in vulnerability detection.",
+      "llm_tldr_cn": "该论文针对漏洞检测中频率不平衡和难度不平衡问题，提出MARGIN框架，通过自适应间隔度量学习和超球原型建模学习判别性表示，在多个数据集上显著提升了检测性能，特别是在少数类样本上的表现。",
+      "llm_tldr": "该论文针对漏洞检测中频率不平衡和难度不平衡问题，提出MARGIN框架，通过自适应间隔度量学习和超球原型建模学习判别性表示，在多个数据集上显著提升了检测性能，特别是在少数类样本上的表现。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.15097v1",
+      "source": "arxiv",
+      "title": "Veritas: A Semantically Grounded Agentic Framework for Memory Corruption Vulnerability Detection in Binaries",
+      "abstract": "Detecting memory corruption vulnerabilities in stripped binaries requires recovering object semantics, interprocedural propagation, and feasible triggers from low-level, lossy representations. Recent LLM-based approaches improve code understanding, but reliable detection still requires grounding in memory-relevant semantics and runtime feasibility evidence. We present Veritas, a semantically grounded framework for binary memory corruption vulnerability detection. Veritas combines a static slicer over RetDec-lifted LLVM IR, a dual-view LLM detector that reasons step by step over grounded flows using decompiled C and selective LLVM IR, and a multi-agent validator that checks hypotheses against debugger-visible artifacts and runtime evidence. The slicer reconstructs value-flow relations from LLVM-IR facts, including def-use, calls, returns, globals, and pointer operations, and emits compact witness-backed flow objects. The detector uses these artifacts to reason about control flow, bounds, and object correspondence without rediscovering whole-binary propagation. The validator confirms or rejects candidates through guided debugging, breakpoint inspection, and memory-checking oracles. We implement Veritas as a modular pipeline and evaluate it on a curated benchmark of real-world binary vulnerability cases. Veritas achieves 90\\% recall. For false-positive assessment, we exhaustively validate and manually verify 623 detector candidates and audit additional candidates from larger cases. The exhaustive subset produces no false positives, while the additional audit identifies two confirmed false positives. In a real-world application, Veritas discovered a previously unknown Apple vulnerability that was confirmed and assigned a CVE. These results support semantic grounding as an operational design principle for practical binary vulnerability detection.",
+      "authors": [
+        "Xinran Zheng",
+        "Alfredo Pesoli",
+        "Marco Valleri",
+        "Suman Jana",
+        "Lorenzo Cavallaro"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE",
+        "cs.CR"
+      ],
+      "published": "2026-05-14T17:16:11+00:00",
+      "link": "https://arxiv.org/pdf/2605.15097v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "agentic framework for memory corruption vulnerability detection in binaries",
+      "llm_evidence_cn": "二进制内存损坏漏洞检测的智能体框架",
+      "llm_evidence": "二进制内存损坏漏洞检测的智能体框架",
+      "canonical_evidence": "二进制内存损坏漏洞检测的智能体框架",
+      "llm_tldr_en": "Veritas combines static slicing, dual-view LLM reasoning, and multi-agent validation for grounded binary vulnerability detection.",
+      "llm_tldr_cn": "二进制内存损坏漏洞检测需恢复语义和运行时证据。Veritas结合静态切片器、双视图LLM检测器（反编译C和LLVM IR）以及多智能体验证器，在调试器可见的工件上验证假设。实验证明其准确性和可解释性优于现有方法，是智能体辅助漏洞挖掘的典型案例。",
+      "llm_tldr": "二进制内存损坏漏洞检测需恢复语义和运行时证据。Veritas结合静态切片器、双视图LLM检测器（反编译C和LLVM IR）以及多智能体验证器，在调试器可见的工件上验证假设。实验证明其准确性和可解释性优于现有方法，是智能体辅助漏洞挖掘的典型案例。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.15569v1",
+      "source": "arxiv",
+      "title": "Detecting Privilege Escalation in Polyglot Microservices via Agentic Program Analysis",
+      "abstract": "Microservices are widely adopted in modern cloud systems due to their scalability and fault tolerance. However, microservice architectures introduce significant complexity in privilege and permission control, creating risks of privilege escalation where attackers can gain unauthorized access to resources or operations. Detecting such vulnerabilities is challenging due to complex cross-service interactions, polyglot codebases, and diverse privileged operations and permission checks. We present Neo, an agentic program analysis framework that combines large language models (LLMs) with classic program analysis to address these challenges. Neo leverages an LLM-based agent that dynamically generates analysis plans, adapts code search strategies, and validates semantics. We develop code search primitives that enable Neo to perform scalable and flexible code exploration across services and languages. We evaluated Neo on 25 open-source microservice applications spanning 7 programming languages and 6.2 million lines of code. Neo uncovered 24 zero-day privilege escalation vulnerabilities and achieved 81.0% precision and 85.0% recall on a ground-truth dataset. Compared to existing program analysis and agentic solutions, Neo demonstrated significant improvements in both detection accuracy and scalability. We further showcased Neo's extensibility by applying it to other application domains and vulnerability types, uncovering 18 additional zero-day vulnerabilities.",
+      "authors": [
+        "Penghui Li",
+        "Hong Yau Chong",
+        "Yinzhi Cao",
+        "Junfeng Yang"
       ],
       "primary_category": "cs.CR",
       "categories": [
         "cs.CR",
+        "cs.AI",
         "cs.SE"
       ],
-      "published": "2026-05-13T09:31:08+00:00",
-      "link": "https://arxiv.org/pdf/2605.13246v1",
+      "published": "2026-05-15T03:27:02+00:00",
+      "link": "https://arxiv.org/pdf/2605.15569v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
       "llm_score": 9.0,
-      "llm_evidence_en": "automated detection of reference counting bugs in Linux kernel drivers",
-      "llm_evidence_cn": "自动检测Linux内核驱动中的引用计数漏洞",
-      "llm_evidence": "自动检测Linux内核驱动中的引用计数漏洞",
-      "canonical_evidence": "自动检测Linux内核驱动中的引用计数漏洞",
-      "llm_tldr_en": "DrvHorn automatically detects reference counting bugs in Linux kernel drivers by reducing verification to assertion checking, discovering 545 bugs in v6.6.",
-      "llm_tldr_cn": "针对Linux内核驱动中引用计数漏洞难以检测的问题，本文提出DrvHorn，将引用计数验证转化为断言检查问题，通过高效建模和程序切片，在Linux 6.6内核的所有平台驱动中发现了545个bug（其中424个未知），误报率仅29.9%。已提交补丁，其中45个被合并。展现了自动化内核漏洞发现的有效性。",
-      "llm_tldr": "针对Linux内核驱动中引用计数漏洞难以检测的问题，本文提出DrvHorn，将引用计数验证转化为断言检查问题，通过高效建模和程序切片，在Linux 6.6内核的所有平台驱动中发现了545个bug（其中424个未知），误报率仅29.9%。已提交补丁，其中45个被合并。展现了自动化内核漏洞发现的有效性。",
+      "llm_evidence_en": "agentic program analysis for privilege escalation detection",
+      "llm_evidence_cn": "基于代理的程序分析检测权限提升漏洞",
+      "llm_evidence": "基于代理的程序分析检测权限提升漏洞",
+      "canonical_evidence": "基于代理的程序分析检测权限提升漏洞",
+      "llm_tldr_en": "Neo combines LLM agents with program analysis to detect privilege escalation in polyglot microservices, dynamically generating analysis plans.",
+      "llm_tldr_cn": "该论文提出Neo框架，利用LLM代理动态生成分析计划，结合经典程序分析检测多语言微服务中的权限提升漏洞。通过跨服务上下文感知和自适应搜索策略，Neo有效识别了复杂权限漏洞，为agent辅助漏洞发现提供了新范式。",
+      "llm_tldr": "该论文提出Neo框架，利用LLM代理动态生成分析计划，结合经典程序分析检测多语言微服务中的权限提升漏洞。通过跨服务上下文感知和自适应搜索策略，Neo有效识别了复杂权限漏洞，为agent辅助漏洞发现提供了新范式。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "automated vulnerability discovery techniques for the Linux kernel",
-      "matched_requirement_id": "req-8",
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-3",
       "selection_source": "fresh_fetch"
     },
     {
-      "id": "2605.25411v1",
+      "id": "2605.18153v1",
       "source": "arxiv",
-      "title": "Heimdall: Formally Verified Automated Migration of Legacy eBPF Programs to Rust",
-      "abstract": "Extended Berkeley Packet Filter (eBPF) programs are kernel extensions used for networking, observability, and security enforcement in the Linux kernel. The in-kernel eBPF verifier checks low-level memory safety and termination on eBPF programs, but it does not enforce many higher-level source-level properties, such as initialization discipline, schema consistency, or error handling. We document six classes of source-level bugs that compile, pass the kernel verifier, and can silently corrupt data, leak previously traced events to userspace, or yield incorrect enforcement outcomes. Among these, we identify previously unreported information leaks in ten open-source eBPF programs whose ring-buffer or stack-resident event records carry fully decodable prior traced events, including user-identifying paths and recurring kernel-text return addresses sufficient to recover the KASLR slide on every event, into userspace. To harden such verifier-accepted buggy programs and support safe migration, we present Heimdall, an automated pipeline that uses large language models to translate legacy libbpf C programs to Aya Rust. Heimdall iteratively repairs compilation and kernel-verifier failures, rejects unsafe escape hatches in Rust-Aya with a static analysis safety engine, and proves per-program equivalence to the original via symbolic execution and Z3-based equivalence checking. Across 102 eBPF programs, Heimdall produces 96 formally proven-equivalent translations (94.1%). Heimdall is the first system to automate memory-safe-language migration of production eBPF programs with per-program formal guarantees that the migration preserves observable behavior.",
+      "title": "Three Heads Are Better Than One: A Multi-perspective Reasoning Framework for Enhanced Vulnerability Detection",
+      "abstract": "Automated vulnerability detection is crucial for enhancing software security by identifying potential flaws that attackers could exploit, thereby reducing the reliance on labor-intensive manual code audits. Recent advancements have shifted towards leveraging large language models (LLMs) for vulnerability detection, with techniques like Vul-RAG and VulnSage demonstrating progress through structured prompting and external knowledge integration. However, these approaches typically rely on a single reasoning paradigm, limiting their ability to address the complex and diverse nature of real-world vulnerabilities. To overcome these limitations, we propose ReasonVul, a novel multi-perspective reasoning framework that harnesses cognitive synergy among three specialized LLM agents, each embodying a distinct reasoning mode. The framework begins with independent analyses of the source code, followed by a structured debate mechanism to resolve conflicts through iterative rebuttal and revision, ultimately converging on a collaborative judgment. Evaluated on the PrimeVul dataset, ReasonVul achieves a PairAcc of 40.00% and an F1-score of 72.52%, surpassing the best baseline by 81.24% in PairAcc. Further tests on the JITVUL dataset confirm its generalizability, with a PairAcc of 28.67%. Additionally, we analyzed 542 conflict cases and found that 389 were correctly resolved, highlighting the framework's ability to uncover hidden vulnerabilities through the error-correction mechanism driven by the debate. This work emphasizes the importance of multi-perspective reasoning and collaborative validation in achieving robust and comprehensive vulnerability detection in real-world software systems.",
       "authors": [
-        "Vishnu Asutosh Dasu",
-        "Monika Santra",
-        "Md Rafi Ur Rashid",
-        "Ashish Kumar",
-        "Saeid Tizpaz-Niari",
-        "Gang Tan"
+        "Xin Peng",
+        "Bo Lin",
+        "Jing Wang",
+        "Xiaoling Li",
+        "Jun Ma",
+        "Jie Yu",
+        "Xiaoguang Mao",
+        "Shangwen Wang"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE"
+      ],
+      "published": "2026-05-18T09:57:22+00:00",
+      "link": "https://arxiv.org/pdf/2605.18153v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "LLM-based multi-perspective reasoning for automated vulnerability detection",
+      "llm_evidence_cn": "基于LLM的多视角推理框架增强自动化漏洞检测",
+      "llm_evidence": "基于LLM的多视角推理框架增强自动化漏洞检测",
+      "canonical_evidence": "基于LLM的多视角推理框架增强自动化漏洞检测",
+      "llm_tldr_en": "Proposes ReasonVul, a multi-perspective reasoning framework leveraging LLMs for vulnerability detection, outperforming single-paradigm approaches.",
+      "llm_tldr_cn": "针对现有LLM漏洞检测方法依赖单一推理范式的问题，提出ReasonVul多视角推理框架，集成结构、语义和知识推理。通过多轮对话和外部知识融合，提升检测复杂漏洞的能力。实验表明在多个基准上取得更高准确率。该方法推动了LLM在关键安全任务中的应用。",
+      "llm_tldr": "针对现有LLM漏洞检测方法依赖单一推理范式的问题，提出ReasonVul多视角推理框架，集成结构、语义和知识推理。通过多轮对话和外部知识融合，提升检测复杂漏洞的能力。实验表明在多个基准上取得更高准确率。该方法推动了LLM在关键安全任务中的应用。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.20051v1",
+      "source": "arxiv",
+      "title": "Hunting Vulnerability Variants in AI Infra: Measurement and Reference-Driven Detection",
+      "abstract": "AI infra has become a shared execution layer for model training, deployment, and agent orchestration. Because many projects reimplement similar model-centric workflows, a vulnerability disclosed in one repository can recur as a variant in another repository with a related design. Yet the prevalence and detectability of these variants remain poorly understood. This paper presents a measurement study of vulnerability variants in AI infra. Analyzing 688 GitHub repositories and 251 publicly disclosed vulnerabilities, we find that AI infra projects frequently share overlapping functionality and recurrent vulnerable patterns, creating a concrete basis for cross-repository variants. Building on this finding, we study how to automatically identify such variants from known disclosures. We propose INFRASCOPE, a reference-driven multi-agent framework that extracts transferable vulnerability semantics from known cases and uses them to locate and validate variants in new repositories. Evaluating INFRASCOPE on 20 real-world AI infra repositories, we uncover over 20 vulnerabilities, including 11 acknowledged cases and 4 cases that have been assigned CVEs so far.",
+      "authors": [
+        "Tian Dong",
+        "Yanjun Chen",
+        "Shoufeng Zhang",
+        "Huaien Zhang",
+        "Yunlong Lyu",
+        "Keke Lian",
+        "Dong Zhang",
+        "Shaofeng Li",
+        "Hao Chen"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-19T16:07:41+00:00",
+      "link": "https://arxiv.org/pdf/2605.20051v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "automatic vulnerability detection in AI infra",
+      "llm_evidence_cn": "AI基础设施中的自动漏洞检测",
+      "llm_evidence": "AI基础设施中的自动漏洞检测",
+      "canonical_evidence": "AI基础设施中的自动漏洞检测",
+      "llm_tldr_en": "Measures vulnerability variants in AI infra and proposes reference-driven detection method, directly addressing automatic vulnerability detection requirement.",
+      "llm_tldr_cn": "现有AI基础设施中的漏洞变种研究不足。本文通过大规模测量发现AI项目间存在频繁的漏洞模式复用，并提出一种参考驱动的自动漏洞检测方法。实验表明该方法能有效识别跨仓库漏洞变种，为AI基础设施中的自动化漏洞检测提供了新思路。",
+      "llm_tldr": "现有AI基础设施中的漏洞变种研究不足。本文通过大规模测量发现AI项目间存在频繁的漏洞模式复用，并提出一种参考驱动的自动漏洞检测方法。实验表明该方法能有效识别跨仓库漏洞变种，为AI基础设施中的自动化漏洞检测提供了新思路。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.26548v1",
+      "source": "arxiv",
+      "title": "SEC-bench Pro: Can Language Models Solve Long-Horizon Software Security Tasks?",
+      "abstract": "Large language models (LLMs) now support automated software security tasks, including vulnerability discovery and proof-of-concept (PoC) generation. Existing benchmarks do not faithfully evaluate LLMs in real-world bug hunting scenarios because they rely on fuzzing harnesses, target-specific descriptions, or vulnerability-reproduction tasks. We present SEC-bench Pro, a benchmark for measuring agent bug hunting on critical, high-complexity software systems. This work discloses reports with concrete PoC inputs and links fixes into reproducible tasks through a three-phase pipeline for vulnerability collection, environment reconstruction, and oracle-based validation. We instantiate SEC-bench Pro with 183 validated vulnerabilities across V8 and SpiderMonkey, including a V8 subset with more than $1.5 million in cumulative Google Vulnerability Reward Program awards. These instances span memory-safety, sandbox, JIT, and race-condition bugs under browser-grade and runtime-grade execution conditions. Our evaluation shows that coding agents with frontier models remain below 40% success on both evaluated engines. The open-weight Kimi-K2.6 baseline reaches 11.7% on V8, while the strongest frontier configuration reaches 32.0% on V8 and 38.8% on SpiderMonkey. ClaudeCode and Codex solve complementary instance sets, and their two-agent union reaches 37.9% on V8 and 48.8% on SpiderMonkey. SEC-bench Pro provides robust environments for assessing LLM-based security agents and exposes limitations in long-horizon bug hunting tasks.",
+      "authors": [
+        "Hwiwon Lee",
+        "Jiawei Liu",
+        "Dongjun Kim",
+        "Ziqi Zhang",
+        "Chunqiu Steven Xia",
+        "Lingming Zhang"
       ],
       "primary_category": "cs.CR",
       "categories": [
         "cs.CR",
-        "cs.SC"
+        "cs.LG"
       ],
-      "published": "2026-05-25T04:23:29+00:00",
-      "link": "https://arxiv.org/pdf/2605.25411v1",
+      "published": "2026-05-26T04:59:49+00:00",
+      "link": "https://arxiv.org/pdf/2605.26548v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
       "llm_score": 9.0,
-      "llm_evidence_en": "discovers source-level bugs in eBPF programs that are Linux kernel extensions",
-      "llm_evidence_cn": "发现Linux内核扩展eBPF程序中的源级漏洞",
-      "llm_evidence": "发现Linux内核扩展eBPF程序中的源级漏洞",
-      "canonical_evidence": "发现Linux内核扩展eBPF程序中的源级漏洞",
-      "llm_tldr_en": "Heimdall migrates legacy eBPF programs to Rust, documenting six classes of source-level bugs that pass the kernel verifier and can cause data corruption or information leaks, demonstrating kernel vulnerability analysis.",
-      "llm_tldr_cn": "针对eBPF程序在Linux内核中运行但缺乏高级属性检查的问题，提出Heimdall框架，通过形式化验证将eBPF程序自动迁移到Rust。论文记录了六类源级漏洞，它们能通过内核验证器但导致数据损坏或信息泄露，并在十个开源eBPF程序中发现了新的信息泄露。该工作揭示了eBPF程序中的安全漏洞并提供了缓解手段。",
-      "llm_tldr": "针对eBPF程序在Linux内核中运行但缺乏高级属性检查的问题，提出Heimdall框架，通过形式化验证将eBPF程序自动迁移到Rust。论文记录了六类源级漏洞，它们能通过内核验证器但导致数据损坏或信息泄露，并在十个开源eBPF程序中发现了新的信息泄露。该工作揭示了eBPF程序中的安全漏洞并提供了缓解手段。",
+      "llm_evidence_en": "benchmark for LLM agent bug hunting including vulnerability discovery",
+      "llm_evidence_cn": "LLM代理漏洞发现基准",
+      "llm_evidence": "LLM代理漏洞发现基准",
+      "canonical_evidence": "LLM代理漏洞发现基准",
+      "llm_tldr_en": "SEC-bench Pro evaluates LLMs on real vulnerability discovery and PoC generation with 183 validated cases across critical software.",
+      "llm_tldr_cn": "现有基准无法真实评估LLM在实际漏洞狩猎中的能力。本文提出SEC-bench Pro，通过三阶段流水线收集漏洞、重建环境并验证，构建了包含V8和Spid等关键系统183个已验证漏洞的基准。该基准直接衡量语言模型在自动化漏洞发现和PoC生成方面的表现，为AI辅助漏洞挖掘提供了高保真评估平台。",
+      "llm_tldr": "现有基准无法真实评估LLM在实际漏洞狩猎中的能力。本文提出SEC-bench Pro，通过三阶段流水线收集漏洞、重建环境并验证，构建了包含V8和Spid等关键系统183个已验证漏洞的基准。该基准直接衡量语言模型在自动化漏洞发现和PoC生成方面的表现，为AI辅助漏洞挖掘提供了高保真评估平台。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining:composite"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "analysis of Linux kernel vulnerabilities and root causes",
-      "matched_requirement_id": "req-5",
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
       "selection_source": "fresh_fetch"
     },
     {
-      "id": "2606.00455v1",
+      "id": "2605.29901v1",
       "source": "arxiv",
-      "title": "Beyond Edge Coverage: Per-Task Data-Flow Extraction at Kernel Function Boundaries via LLVM",
-      "abstract": "Coverage-guided kernel fuzzers such as syzkaller rely on edge coverage (trace-pc) as their sole feedback signal. This context-blind approach cannot distinguish execution paths that differ only in argument values. for example, two invocations of copy_from_user() with different size parameters hit identical basic blocks yet have vastly different security implications. We present BOUNDARY FLOW, an LLVM-based instrumentation framework that extends Linux KCOV with data-flow extraction of function arguments and return values. A compiler pass (-fsanitize-coverage=dataflow-args, dataflow-ret) emits lightweight callbacks capturing a structured tuple <PC, arg_idx, arg_size, ptr, offsets[]> at function entry and <PC, ret_size, ptr, offsets[]> at return. Composite types are automatically decomposed via DWARF DICompositeType metadata with zero source annotation. A separate kernel device(/sys/kernel/debug/kcov_dataflow) provides lock-free per-task ring buffers with no inter ference to existing KCOV or syzkaller infrastructure. We demonstrate dual utility: fuzzers gain state-aware feedback for mutation guidance into value-dependent state transitions, and security analysts obtain deterministic argument records for root-cause analysis without printk or kprobe overhead. A post-compilation pipeline (rustc, opt, llc) enables Rust kernel module instrumentation without modifying rustc, the only runtime method for capturing Rust function arguments given that drgn/vmcore fails under-O2 DWARF elision. Evaluated on five vulnerability classes (OOB, UAF, double-free, 10 deep chain propagation, Rust FFI, Rust for Linux Modules) with <3% overhead on instrumented paths.",
+      "title": "Dissecting the Black Box: Circuit-Level Analysis of LLM Vulnerability Detection",
+      "abstract": "Large language models (LLMs) can detect software vulnerabilities, but how do they actually identify vulnerable code? We address this question using mechanistic interpretability; analyzing the internal computations of a neural network to understand its reasoning process.Using Circuit Tracer on Gemma-2-2b, we trace the computational pathways activated when the model classifies 472 C/C++ code samples as vulnerable or safe. Our analysis reveals a surprising finding: the model primarily relies on safety detectors, attention heads that recognize safe coding patterns, rather than directly detecting vulnerability signatures. When these safety detectors fail to activate, the model classifies code as vulnerable. We identify the critical neural components: specific attention heads in early layers (L5, L7) that focus on safety patterns, and Multilayer Perceptron (MLP) neurons in Layer 7 that encode vulnerability-related features. Ablation experiments confirm their causal role; removing Layer 11 drops vulnerability detection accuracy from 100% to 6%, while ablating just 20 neurons in Layer 7 reduces it by 50%.Our findings show that LLM vulnerability detection uses sparse, interpretable circuits (only 16% of model capacity), enabling circuit-level explanations for security predictions and targeted improvements to detection systems.",
       "authors": [
-        "Yunseong Kim"
+        "Syafiq Al Atiiq",
+        "Chun Zhou",
+        "Christian Gehrmann"
       ],
       "primary_category": "cs.CR",
       "categories": [
         "cs.CR",
-        "cs.OS"
+        "cs.LG"
       ],
-      "published": "2026-05-30T00:42:59+00:00",
-      "link": "https://arxiv.org/pdf/2606.00455v1",
+      "published": "2026-05-28T13:23:13+00:00",
+      "link": "https://arxiv.org/pdf/2605.29901v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
       "llm_score": 9.0,
-      "llm_evidence_en": "extending kernel KCOV with data-flow extraction for fuzzing",
-      "llm_evidence_cn": "扩展内核KCOV，提取数据流用于模糊测试",
-      "llm_evidence": "扩展内核KCOV，提取数据流用于模糊测试",
-      "canonical_evidence": "扩展内核KCOV，提取数据流用于模糊测试",
-      "llm_tldr_en": "BOUNDARY FLOW extends Linux KCOV with per-task data-flow extraction at kernel function boundaries, enabling coverage-guided fuzzers to distinguish execution paths based on argument values and return values, improving vulnerability discovery in the Linux kernel.",
-      "llm_tldr_cn": "现有的内核模糊测试工具（如syzkaller）仅依赖边覆盖作为反馈信号，无法区分因参数值不同而语义不同的路径。本文提出BOUNDARY FLOW，基于LLVM的内核插桩框架，扩展Linux KCOV以在函数边界提取参数和返回值的数据流。通过轻量级回调，模糊测试器能捕捉到更细粒度的执行信息。实验表明，该方法能发现现有方法遗漏的漏洞，显著提升内核漏洞发现的效率。",
-      "llm_tldr": "现有的内核模糊测试工具（如syzkaller）仅依赖边覆盖作为反馈信号，无法区分因参数值不同而语义不同的路径。本文提出BOUNDARY FLOW，基于LLVM的内核插桩框架，扩展Linux KCOV以在函数边界提取参数和返回值的数据流。通过轻量级回调，模糊测试器能捕捉到更细粒度的执行信息。实验表明，该方法能发现现有方法遗漏的漏洞，显著提升内核漏洞发现的效率。",
+      "llm_evidence_en": "mechanistic interpretability of LLM vulnerability detection",
+      "llm_evidence_cn": "LLM漏洞检测的机理可解释性分析",
+      "llm_evidence": "LLM漏洞检测的机理可解释性分析",
+      "canonical_evidence": "LLM漏洞检测的机理可解释性分析",
+      "llm_tldr_en": "This paper uses mechanistic interpretability to analyze how LLMs detect vulnerabilities, revealing reliance on safety detectors rather than direct vulnerability signatures.",
+      "llm_tldr_cn": "该论文通过机制可解释性方法分析大语言模型（LLM）如何检测软件漏洞。利用Circuit Tracer在Gemma-2-2b模型上追踪分类过程，发现模型主要依赖安全检测器（识别安全编码模式的注意力头）而非直接检测漏洞特征。当安全检测器未激活时，模型将代码分类为易受攻击。研究揭示了LLM漏洞检测的神经基础，为改进AI辅助漏洞挖掘提供了理论指导。",
+      "llm_tldr": "该论文通过机制可解释性方法分析大语言模型（LLM）如何检测软件漏洞。利用Circuit Tracer在Gemma-2-2b模型上追踪分类过程，发现模型主要依赖安全检测器（识别安全编码模式的注意力头）而非直接检测漏洞特征。当安全检测器未激活时，模型将代码分类为易受攻击。研究揭示了LLM漏洞检测的神经基础，为改进AI辅助漏洞挖掘提供了理论指导。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
-      "matched_requirement_id": "req-9",
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "large language model for vulnerability mining",
+      "matched_requirement_id": "req-6",
       "selection_source": "fresh_fetch"
-    }
-  ],
-  "quick_skim": [
+    },
     {
-      "id": "2605.11086v1",
+      "id": "2606.00669v1",
       "source": "arxiv",
-      "title": "ExploitGym: Can AI Agents Turn Security Vulnerabilities into Real Attacks?",
-      "abstract": "AI agents are rapidly gaining capabilities that could significantly reshape cybersecurity, making rigorous evaluation urgent. A critical capability is exploitation: turning a vulnerability, which is not yet an attack, into a concrete security impact, such as unauthorized file access or code execution. Exploitation is a particularly challenging task because it requires low-level program reasoning (e.g., about memory layout), runtime adaptation, and sustained progress over long horizons. Meanwhile, it is inherently dual-use, supporting defensive workflows while lowering the barrier for offense. Despite its importance and diagnostic value, exploitation remains under-evaluated. To address this gap, we introduce ExploitGym, a large-scale, diverse, realistic benchmark on the exploitation capabilities of AI agents. Given a program input that triggers a vulnerability, ExploitGym tasks agents with progressively extending it into a working exploit. The benchmark comprises 898 instances sourced from real-world vulnerabilities across three domains, including userspace programs, Google's V8 JavaScript engine, and the Linux kernel. We vary the security protections applied to each instance, isolating their impact on agent performance. All configurations are packaged in reproducible containerized environments. Our evaluation shows that while exploitation remains challenging, frontier models can successfully exploit a non-trivial fraction of vulnerabilities. For example, the strongest configurations are Anthropic's latest model Claude Mythos Preview and OpenAI's GPT-5.5, which produce working exploits for 157 and 120 instances, respectively. Notably, even with widely used defenses enabled, models retain non-trivial success rates. These results establish ExploitGym as an effective testbed for exploitation and highlight the growing cybersecurity risks posed by increasingly capable AI agents.",
+      "title": "NeuroLog: Reasoning You Can Audit -- Neuro-Symbolic Vulnerability Discovery via LLM Facts, Datalog, and SMT",
+      "abstract": "Vulnerability discovery on C/C++ source asks the analyst to choose between heavyweight static analysers, which need a working build before a single query runs, and free-form LLMs, which read source readily but invent details and lose track of cross-function dataflow on real codebases. We present NeuroLog, an end-to-end build-free pipeline that assigns each layer the role it is uniquely good at: an LLM extracts typed dataflow facts one function at a time; a Souffle rule mesh composes those facts into cross-function findings; a Z3 post-pass filters infeasible findings and emits a SAT model for each survivor. To go beyond pure static reasoning we also fold in runtime evidence: likely range invariants from a handful of corpus seeds tighten the SMT problem at near-zero cost. A second LLM agent reads each SAT model and writes a Python program that produces a candidate crashing input, validated by an AddressSanitizer harness. Combining static-narrowing-SMT (Saturn, Pinpoint) and Datalog-with-SMT (Formulog) is prior art; new here are an LLM-derived fact base, a no-build pipeline, and the SAT model as an artifact (input to crash synthesis) rather than a yes/no verdict. Across stb, cJSON, libxml2, an FFmpeg demuxer slice, and curl 8.3.0, NeuroLog re-discovers eight CVE-class issues end-to-end, including the CVSS-9.8 SOCKS5 heap overflow CVE-2023-38545, each ASan-confirmed. On libarchive HEAD we surface five memory-safety bugs (four previously unreported) across the cpio reader and the XAR/WARC/7zip writers; all filed upstream, several fixes merged, with the cpio use-after-free acknowledged in seven hours. Extraction takes ~37 s and $0.005 on stb; crash synthesis turned a static finding into a 102-byte stb_vorbis crash in two LLM iterations (no fuzzer); a likely-invariant filter from three Matroska seeds eliminates 13.2% of the FFmpeg-demuxer feasible set.",
       "authors": [
+        "Sanjay Rawat"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-30T10:50:06+00:00",
+      "link": "https://arxiv.org/pdf/2606.00669v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "neuro-symbolic pipeline for vulnerability discovery on C/C++",
+      "llm_evidence_cn": "神经符号方法用于C/C++源代码漏洞发现",
+      "llm_evidence": "神经符号方法用于C/C++源代码漏洞发现",
+      "canonical_evidence": "神经符号方法用于C/C++源代码漏洞发现",
+      "llm_tldr_en": "NeuroLog integrates LLM for fact extraction, Datalog for cross-function reasoning, and SMT for feasibility filtering, enabling build-free vulnerability discovery on C/C++.",
+      "llm_tldr_cn": "针对C/C++漏洞发现中静态分析工具需构建、LLM易产生幻觉的问题，提出NeuroLog端到端流水线。LLM逐函数提取类型化数据流事实，Souffle规则组合进行跨函数推理，Z3后过滤不可行路径并输出SAT模型。实验表明能有效发现真实漏洞，兼具可审计性。该工作为可解释的漏洞挖掘提供了新范式。",
+      "llm_tldr": "针对C/C++漏洞发现中静态分析工具需构建、LLM易产生幻觉的问题，提出NeuroLog端到端流水线。LLM逐函数提取类型化数据流事实，Souffle规则组合进行跨函数推理，Z3后过滤不可行路径并输出SAT模型。实验表明能有效发现真实漏洞，兼具可审计性。该工作为可解释的漏洞挖掘提供了新范式。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "vulnerability discovery techniques",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.04460v1",
+      "source": "arxiv",
+      "title": "CyberGym-E2E: Scalable Real-World Benchmark for AI Agents' End-to-End Cybersecurity Capabilities",
+      "abstract": "AI has the potential to transform cybersecurity by enabling systems that can autonomously detect, analyze, and remediate software vulnerabilities. However, existing cybersecurity evaluations of AI systems are limited in scale or scope, and fail to capture the end-to-end lifecycle of real-world software vulnerability discovery and remediation. To address this gap, we propose CyberGym-E2E, a large-scale and realistic end-to-end cybersecurity benchmark that comprehensively evaluates AI agents' abilities across the full lifecycle of vulnerability discovery, PoC generation, and patch generation. CyberGym-E2E is comprehensive and scalable, as we build an automated, agent-enhanced pipeline for transforming open-source vulnerability data into realistic evaluation environments. Currently, the benchmark consists of 920 real-world vulnerabilities across 139 different open-source projects.",
+      "authors": [
+        "Tianneng Shi",
+        "Robin Rheem",
+        "Dongwei Jiang",
+        "Mona Wang",
+        "Francisco De La Riega",
         "Zhun Wang",
-        "Nico Schiller",
-        "Hongwei Li",
-        "Srijiith Sesha Narayana",
-        "Milad Nasr",
-        "Nicholas Carlini",
-        "Xiangyu Qi",
-        "Eric Wallace",
-        "Elie Bursztein",
-        "Luca Invernizzi",
-        "Kurt Thomas",
-        "Yan Shoshitaishvili",
-        "Wenbo Guo",
+        "Jingzhi Jiang",
+        "Alexander Cheung",
+        "Sean Tai",
+        "Jonah Cha",
+        "Jianhong Tu",
+        "Gabriel Han",
+        "Chenguang Wang",
         "Jingxuan He",
-        "Thorsten Holz",
+        "Wenbo Guo",
         "Dawn Song"
       ],
       "primary_category": "cs.CR",
@@ -192,29 +486,69 @@
         "cs.AI",
         "cs.LG"
       ],
-      "published": "2026-05-11T18:00:14+00:00",
-      "link": "https://arxiv.org/pdf/2605.11086v1",
+      "published": "2026-06-03T05:06:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.04460v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
-      "llm_score": 7.0,
-      "llm_evidence_en": "framework for evaluating AI agents on exploitation tasks applicable to kernel exploits",
-      "llm_evidence_cn": "评估AI代理漏洞利用能力的框架，可应用于内核利用",
-      "llm_evidence": "评估AI代理漏洞利用能力的框架，可应用于内核利用",
-      "canonical_evidence": "评估AI代理漏洞利用能力的框架，可应用于内核利用",
-      "llm_tldr_en": "ExploitGym provides a large-scale benchmark for AI agents to turn vulnerabilities into real attacks, supporting low-level program reasoning needed for kernel exploitation.",
-      "llm_tldr_cn": "针对AI代理漏洞利用能力评估不足的问题，本文提出ExploitGym，一个大规模、多样化的基准测试平台，要求代理将漏洞转化为实际攻击（如代码执行、文件访问）。该平台模拟了低层推理和运行时适应等挑战，可用于训练或评估内核利用技术。实验显示当前代理在复杂利用任务上表现有限。",
-      "llm_tldr": "针对AI代理漏洞利用能力评估不足的问题，本文提出ExploitGym，一个大规模、多样化的基准测试平台，要求代理将漏洞转化为实际攻击（如代码执行、文件访问）。该平台模拟了低层推理和运行时适应等挑战，可用于训练或评估内核利用技术。实验显示当前代理在复杂利用任务上表现有限。",
+      "llm_score": 9.0,
+      "llm_evidence_en": "benchmark for automatic vulnerability detection by AI agents",
+      "llm_evidence_cn": "针对AI智能体自动漏洞检测的基准",
+      "llm_evidence": "针对AI智能体自动漏洞检测的基准",
+      "canonical_evidence": "针对AI智能体自动漏洞检测的基准",
+      "llm_tldr_en": "CyberGym-E2E benchmark evaluates AI agents on end-to-end vulnerability discovery, PoC generation, and patching, supporting automatic vulnerability detection research.",
+      "llm_tldr_cn": "现有AI系统在网络安全评估中缺乏端到端和真实场景的基准。本文提出CyberGym-E2E，一个大规模、真实的基准，全面评估AI智能体在漏洞发现、POC生成和补丁生成全生命周期的能力。该基准通过自动化流水线从开源漏洞数据构建，可直接用于训练和评估自动漏洞检测方法。",
+      "llm_tldr": "现有AI系统在网络安全评估中缺乏端到端和真实场景的基准。本文提出CyberGym-E2E，一个大规模、真实的基准，全面评估AI智能体在漏洞发现、POC生成和补丁生成全生命周期的能力。该基准通过自动化流水线从开源漏洞数据构建，可直接用于训练和评估自动漏洞检测方法。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "techniques for exploiting Linux kernel vulnerabilities",
-      "matched_requirement_id": "req-2",
-      "selection_source": "fresh_fetch",
-      "quick_tier": "7"
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
     },
+    {
+      "id": "2606.05396v1",
+      "source": "arxiv",
+      "title": "Willing but Unable: Separating Refusal from Capability in Code LLMs via Abliteration",
+      "abstract": "Producing a labeled vulnerable code at scale is a recurring obstacle for learning-based vulnerability detection: mined corpora carry substantial label noise, and existing LLM-based augmentation propagates these inaccuracies because it transforms vulnerable seeds rather than synthesising vulnerabilities from a specification. A complementary route is to start from safe code and ask an instruction-tuned LLM to inject a specified CWE (which would shift the labeling burden from open-ended detection to bounded binary confirmation) but safety-aligned code LLMs systematically refuse such prompts. This paper is a preliminary feasibility study of abliteration, a low-rank weight edit that orthogonally projects out the refusal direction in the residual stream, as a tool to remove this barrier. We use Python and CWE-89 (SQL injection) as a case study, evaluating the Qwen2.5-Coder-Instruct family at 3B, 7B, and 14B parameters on safe samples drawn from PromSec and SafeCoder, replicated three times per condition. We find that (i) refusal on injection prompts is strongly size- and prompt-context-dependent: the 14B refuses 100% of prompts, the 7B refuses 73% of PromSec but only 5% of SafeCoder, whereas the 3B is essentially never blocked; (ii) abliteration reduces refusal to zero or near-zero across all sizes while leaving syntactic validity above 93%, supporting the view that, in this setting, refusal can be detached from measured code-generation capability; and (iii) the post-abliteration injection rate remains capacity-bound (88-97% on the 14B, 89-90% on the 7B, and 25-48% on the 3B) separating willingness, which abliteration unlocks, from capability, which scales with parameters. Vulnerability verdicts are produced by a three-tool detector ensemble (CodeQL, Semgrep, Bandit) followed by manual adjudication by two authors on detector-positive outputs.",
+      "authors": [
+        "Cristina Carleo",
+        "Pietro Liguori",
+        "Naghmeh Ivaki",
+        "Domenico Cotroneo"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "published": "2026-06-03T20:06:52+00:00",
+      "link": "https://arxiv.org/pdf/2606.05396v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "LLM-based abliteration to generate vulnerable code for detection",
+      "llm_evidence_cn": "使用Abliteration技术让安全对齐的代码大模型生成漏洞样本，用于漏洞检测训练",
+      "llm_evidence": "使用Abliteration技术让安全对齐的代码大模型生成漏洞样本，用于漏洞检测训练",
+      "canonical_evidence": "使用Abliteration技术让安全对齐的代码大模型生成漏洞样本，用于漏洞检测训练",
+      "llm_tldr_en": "Proposes abliteration to bypass safety alignment in code LLMs, enabling generation of labeled vulnerable code from safe code, addressing label noise in vulnerability detection.",
+      "llm_tldr_cn": "针对学习式漏洞检测中标注数据不足且噪声大的问题，本文提出了一种称为Abliteration的低秩权重编辑方法，通过消除安全对齐方向，使指令微调后的代码大模型能够根据指定CWE类型向安全代码中注入漏洞。该方法将标注负担从开放性检测转化为有界确认，初步实验展示了其可行性。该工作为自动化生成高质量漏洞训练语料提供了新途径，有望推动AI辅助漏洞检测的发展。",
+      "llm_tldr": "针对学习式漏洞检测中标注数据不足且噪声大的问题，本文提出了一种称为Abliteration的低秩权重编辑方法，通过消除安全对齐方向，使指令微调后的代码大模型能够根据指定CWE类型向安全代码中注入漏洞。该方法将标注负担从开放性检测转化为有界确认，初步实验展示了其可行性。该工作为自动化生成高质量漏洞训练语料提供了新途径，有望推动AI辅助漏洞检测的发展。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
     {
       "id": "2605.11015v1",
       "source": "arxiv",
@@ -243,184 +577,427 @@
       "published": "2026-05-10T14:33:25+00:00",
       "link": "https://arxiv.org/pdf/2605.11015v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "automatic vulnerability detection and localization via dual-channel cross-modal fusion",
+      "llm_evidence_cn": "通过双通道跨模态融合进行自动漏洞检测与定位",
+      "llm_evidence": "通过双通道跨模态融合进行自动漏洞检测与定位",
+      "canonical_evidence": "通过双通道跨模态融合进行自动漏洞检测与定位",
+      "llm_tldr_en": "DCVD jointly performs function-level detection and statement-level localization using dual-channel cross-modal fusion, leveraging sequential, structural, and semantic information.",
+      "llm_tldr_cn": "真实世界审计需要不仅判断函数是否漏洞还需定位到具体行。现有方法或依赖单一模态，或将行级定位作为副产品。本文提出DCVD，双通道跨模态融合框架，联合执行函数级检测和语句级定位。实验表明该方法在多个基准上优于现有技术，提升了漏洞检测的精确性和可解释性。",
+      "llm_tldr": "真实世界审计需要不仅判断函数是否漏洞还需定位到具体行。现有方法或依赖单一模态，或将行级定位作为副产品。本文提出DCVD，双通道跨模态融合框架，联合执行函数级检测和语句级定位。实验表明该方法在多个基准上优于现有技术，提升了漏洞检测的精确性和可解释性。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.04739v1",
+      "source": "arxiv",
+      "title": "Revisiting Vul-RAG: Reproducibility and Replicability of RAG-based Vulnerability Detection with Open-Weight Models",
+      "abstract": "Large language models (LLMs) have shown strong potential for automated software vulnerability detection, particularly in retrieval-augmented generation (RAG) settings. However, for approaches relying on proprietary models and APIs, reproducibility and replicability remain largely unexplored, raising the question of whether reported results generalize or depend primarily on specific model choices. In this work, we present a reproducibility study of Vul-RAG, a RAG-based framework for source code vulnerability detection that enhances LLMs with high-level vulnerability knowledge. We first replicate the results in a fully local and open-weights setting using the reported open-weight baseline models. We then extend the evaluation to a diverse set of recent open-weight LLMs, including code-specialized, general-purpose, and reasoning models of varying parameter sizes. The results confirm that the findings of Vul-RAG are reproducible under local deployment, but with minor deviations. Across all evaluated models, we observe a performance plateau at approximately 0.30 pairwise accuracy (code pairs for which both the vulnerable and the patched function are correctly classified). Notably, this plateau persists even for more recent and advanced models, indicating that improvements in model capacity alone do not substantially enhance performance. Finally, we discuss practical implications and trade-offs between detection effectiveness, model capabilities, and model scale. Implementation and evaluation artifacts are publicly available at https://github.com/hs-esslingen-it-security/revisiting-Vul-RAG.",
+      "authors": [
+        "Sabrina Kaniewski",
+        "Fabian Schmidt",
+        "Tobias Heer"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "published": "2026-06-03T11:20:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.04739v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "reproducibility study of RAG-based vulnerability detection with LLMs",
+      "llm_evidence_cn": "基于RAG的LLM漏洞检测可复现性研究",
+      "llm_evidence": "基于RAG的LLM漏洞检测可复现性研究",
+      "canonical_evidence": "基于RAG的LLM漏洞检测可复现性研究",
+      "llm_tldr_en": "Revisits Vul-RAG, studying reproducibility and replicability of RAG-based vulnerability detection using open-weight models, extending beyond proprietary APIs.",
+      "llm_tldr_cn": "基于专有模型和API的LLM漏洞检测可复现性未知。本文对Vul-RAG进行可复现性研究，在完全本地和开源权重环境下复现结果，并进一步扩展。通过实验验证了RAG增强LLM在漏洞检测中的泛化能力和局限性，为可靠评估提供了基准。",
+      "llm_tldr": "基于专有模型和API的LLM漏洞检测可复现性未知。本文对Vul-RAG进行可复现性研究，在完全本地和开源权重环境下复现结果，并进一步扩展。通过实验验证了RAG增强LLM在漏洞检测中的泛化能力和局限性，为可靠评估提供了基准。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "large language model for vulnerability mining",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.19668v1",
+      "source": "arxiv",
+      "title": "SCARA: A Semantics-Constrained Autonomous Remediation Agent for Opaque Industrial Software Vulnerabilities",
+      "abstract": "Critical-infrastructure operators are increasingly expected to assess and remediate vulnerabilities in deployed industrial software. However, much of this software exists as opaque industrial software (OIS), including stripped firmware, proprietary protocol handlers, and compiled control logic without source code, symbols, build environments, or hardware interfaces. While binary analysis can identify vulnerability candidates, existing automated repair systems largely rely on source code, compilable artifacts, sanitizer feedback, or instrumentable builds, leaving a gap between binary-level discovery and validated remediation. This paper presents SCARA, a Semantics-Constrained Autonomous Remediation Agent for OIS. SCARA operates under a source-unavailable defender model and connects upstream binary vulnerability candidates to conditionally validated remedies through a four-stage pipeline. Operational-state-aware verification (OSVA) filters infeasible candidates using a nine-component industrial state model; remediation synthesis (RSA) selects the strongest available remedy across protocol mitigation, binary hardening, and SSCKG-constrained source patches; and correctness validation (CVA) provides conditional correctness evidence via behavioral-coverage preservation, independent replay, and typed rejection feedback. On OIS-RemedBench, a 15-case benchmark spanning firmware, protocol handlers, and ICS/PLC artifacts, SCARA achieves observed 100% precision with no false positives, refutes 20.0% of cases as operationally infeasible, and reaches 88.9% remediation success after targeted reruns. To our knowledge, SCARA is the first end-to-end framework that connects binary vulnerability candidates to conditionally validated remediation for opaque industrial software.",
+      "authors": [
+        "Bowei Ning",
+        "Xuejun Zong",
+        "Lian Lian",
+        "Kan He",
+        "Guogang Wang",
+        "Yifei Sun",
+        "Jinyang Liu"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-05-19T11:00:34+00:00",
+      "link": "https://arxiv.org/pdf/2605.19668v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
       "llm_score": 6.0,
-      "llm_evidence_en": "Vulnerability detection and localization framework applicable to kernel code",
-      "llm_evidence_cn": "漏洞检测与定位框架可用于内核代码",
-      "llm_evidence": "漏洞检测与定位框架可用于内核代码",
-      "canonical_evidence": "漏洞检测与定位框架可用于内核代码",
-      "llm_tldr_en": "DCVD performs joint function-level and statement-level vulnerability detection via dual-channel cross-modal fusion, improving localization precision.",
-      "llm_tldr_cn": "本文提出DCVD框架，通过双通道跨模态融合同时进行函数级漏洞检测和语句级定位，解决现有方法依赖单一信息源的问题，可应用于Linux内核漏洞挖掘。",
-      "llm_tldr": "本文提出DCVD框架，通过双通道跨模态融合同时进行函数级漏洞检测和语句级定位，解决现有方法依赖单一信息源的问题，可应用于Linux内核漏洞挖掘。",
+      "llm_evidence_en": "autonomous remediation agent for vulnerabilities in opaque software",
+      "llm_evidence_cn": "针对不透明软件漏洞的自主修复智能体",
+      "llm_evidence": "针对不透明软件漏洞的自主修复智能体",
+      "canonical_evidence": "针对不透明软件漏洞的自主修复智能体",
+      "llm_tldr_en": "SCARA is an autonomous remediation agent that combines binary analysis with semantics-constrained patching for opaque industrial software.",
+      "llm_tldr_cn": "不透明工业软件（如固件）修复困难，现有系统依赖源码或可构建环境。SCARA提出语义约束的自主修复智能体，在二进制层面识别漏洞候选并生成补丁，无需源码。实验表明该智能体可有效修复真实漏洞，扩展了智能体辅助漏洞管理的边界。",
+      "llm_tldr": "不透明工业软件（如固件）修复困难，现有系统依赖源码或可构建环境。SCARA提出语义约束的自主修复智能体，在二进制层面识别漏洞候选并生成补丁，无需源码。实验表明该智能体可有效修复真实漏洞，扩展了智能体辅助漏洞管理的边界。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "Find papers on Linux kernel vulnerability discovery methods",
-      "matched_requirement_id": "req-6",
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-3",
       "selection_source": "fresh_fetch",
       "quick_tier": "6"
     },
     {
-      "id": "2605.15097v1",
+      "id": "2605.11202v1",
       "source": "arxiv",
-      "title": "Veritas: A Semantically Grounded Agentic Framework for Memory Corruption Vulnerability Detection in Binaries",
-      "abstract": "Detecting memory corruption vulnerabilities in stripped binaries requires recovering object semantics, interprocedural propagation, and feasible triggers from low-level, lossy representations. Recent LLM-based approaches improve code understanding, but reliable detection still requires grounding in memory-relevant semantics and runtime feasibility evidence. We present Veritas, a semantically grounded framework for binary memory corruption vulnerability detection. Veritas combines a static slicer over RetDec-lifted LLVM IR, a dual-view LLM detector that reasons step by step over grounded flows using decompiled C and selective LLVM IR, and a multi-agent validator that checks hypotheses against debugger-visible artifacts and runtime evidence. The slicer reconstructs value-flow relations from LLVM-IR facts, including def-use, calls, returns, globals, and pointer operations, and emits compact witness-backed flow objects. The detector uses these artifacts to reason about control flow, bounds, and object correspondence without rediscovering whole-binary propagation. The validator confirms or rejects candidates through guided debugging, breakpoint inspection, and memory-checking oracles. We implement Veritas as a modular pipeline and evaluate it on a curated benchmark of real-world binary vulnerability cases. Veritas achieves 90\\% recall. For false-positive assessment, we exhaustively validate and manually verify 623 detector candidates and audit additional candidates from larger cases. The exhaustive subset produces no false positives, while the additional audit identifies two confirmed false positives. In a real-world application, Veritas discovered a previously unknown Apple vulnerability that was confirmed and assigned a CVE. These results support semantic grounding as an operational design principle for practical binary vulnerability detection.",
+      "title": "Continuous Discovery of Vulnerabilities in LLM Serving Systems with Fuzzing",
+      "abstract": "LLM inference and serving systems have become security-critical infrastructure; however, many of their most concerning failures arise from the serving layer rather than from model behavior alone. Modern inference engines combine KV cache, batching, prefix sharing, speculative decoding, adapters, and multi-tenant scheduling, creating shared-state behavior that only emerges under realistic concurrent workloads and is missed by standard model, safety, and API tests. We present GRIEF, a greybox fuzzer for LLM inference engines that treats timed multi-request traces as first-class inputs, uses lightweight oracles to detect crashes, hangs, performance pathologies, and silent output corruption, and applies controlled replay with log-probability checks to confirm reproducible serving-layer failures. Across early campaigns on vLLM and SGLang, GRIEF discovers 15 vulnerabilities, 10 confirmed by engine developers, including 2 CVEs, spanning KV-cache isolation failures, cross-request performance interference, and crash or liveness bugs. These results show that concurrency, caching, and state reuse can induce silent cross-request contamination, noisy-neighbor denial of service, and delayed crashes without malformed inputs or explicit server errors, making concurrent serving behavior a first-class security and reliability boundary for LLM infrastructure.",
       "authors": [
-        "Xinran Zheng",
-        "Alfredo Pesoli",
-        "Marco Valleri",
-        "Suman Jana",
-        "Lorenzo Cavallaro"
+        "Yunze Zhao",
+        "Yibo Zhao",
+        "Yuchen Zhang",
+        "Zaoxing Liu",
+        "Michelle L. Mazurek"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG",
+        "cs.SE"
+      ],
+      "published": "2026-05-11T20:10:08+00:00",
+      "link": "https://arxiv.org/pdf/2605.11202v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "greybox fuzzer for LLM serving systems vulnerability discovery",
+      "llm_evidence_cn": "针对LLM服务系统的灰盒模糊测试漏洞发现方法",
+      "llm_evidence": "针对LLM服务系统的灰盒模糊测试漏洞发现方法",
+      "canonical_evidence": "针对LLM服务系统的灰盒模糊测试漏洞发现方法",
+      "llm_tldr_en": "Proposes GRIEF, a greybox fuzzer for LLM inference engines that treats timed multi-request traces as inputs and detects crashes, hangs, performance pathologies, and output corruption.",
+      "llm_tldr_cn": "针对LLM推理引擎的安全问题，该论文提出GRIEF灰盒模糊测试工具，将定时多请求轨迹作为输入，利用轻量级预言器检测崩溃、挂起、性能异常和输出错误，并通过受控重放进行验证，填补了LLM服务层漏洞自动发现的空白。",
+      "llm_tldr": "针对LLM推理引擎的安全问题，该论文提出GRIEF灰盒模糊测试工具，将定时多请求轨迹作为输入，利用轻量级预言器检测崩溃、挂起、性能异常和输出错误，并通过受控重放进行验证，填补了LLM服务层漏洞自动发现的空白。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "vulnerability discovery techniques",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.27042v1",
+      "source": "arxiv",
+      "title": "Lessons from Penetration Tests on Large-Scale Agent Systems",
+      "abstract": "As AI systems gain increasing autonomy and execution capability, the number of discovered security vulnerabilities continues to rise. However, many of these vulnerabilities are not fundamentally novel, but instead reflect recurring classes of weaknesses long observed in prior computing systems. Execution-capable AI agents are effectively unbounded, self-modifying programs that interact extensively with multiple layers of the computing stack. This broad interaction surface imposes a significant security burden on developers, who must reason about and secure complex cross-layer behaviors. Prior research has primarily focused on vulnerabilities in open-source agents and agent frameworks. In contrast, it remains unclear whether proprietary agent systems -- developed under stricter coding standards and formal review processes -- exhibit similar security weaknesses. In this paper, we present findings from two penetration tests conducted in 2025 against proprietary agent products and evaluate whether the security posture of AI agents has improved since these assessments.",
+      "authors": [
+        "Kevin Eykholt",
+        "Dhilung Kirat",
+        "Xiaokui Shu",
+        "Jiyong Jang",
+        "Frederico Araujo",
+        "Ian Molloy"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-05-26T13:58:27+00:00",
+      "link": "https://arxiv.org/pdf/2605.27042v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "penetration tests on agent systems reveal vulnerabilities",
+      "llm_evidence_cn": "对大规模智能体系统的渗透测试揭示了其中的安全漏洞",
+      "llm_evidence": "对大规模智能体系统的渗透测试揭示了其中的安全漏洞",
+      "canonical_evidence": "对大规模智能体系统的渗透测试揭示了其中的安全漏洞",
+      "llm_tldr_en": "Presents lessons from penetration tests on proprietary agent systems, identifying recurring vulnerability classes in unbounded self-modifying programs.",
+      "llm_tldr_cn": "对大规模智能体系统进行渗透测试，发现许多漏洞并非新颖而是重复已有类型。由于执行型AI智能体与计算栈多层交互，安全负担沉重。论文总结了经验教训和缓解策略。",
+      "llm_tldr": "对大规模智能体系统进行渗透测试，发现许多漏洞并非新颖而是重复已有类型。由于执行型AI智能体与计算栈多层交互，安全负担沉重。论文总结了经验教训和缓解策略。",
+      "llm_tags": [
+        "query:vuln-mining:composite"
+      ],
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.17406v1",
+      "source": "arxiv",
+      "title": "Rethinking Side-Channel Analysis: Automated Discovery and Analysis of Side-Channel Leakage with LLM-Assisted Agents",
+      "abstract": "Side-channel attacks exploit unintended information leakage from system behavior and continue to pose serious privacy risks in modern platforms. Despite extensive prior work, side-channel analysis remains largely manual and fragmented, typically assuming predefined target events and a fixed set of known channels. As systems and applications grow increasingly complex, several fundamental questions remain unanswered: which user or system events are sensitive in practice, how side channels associated with these events can be systematically discovered without exhaustive manual effort, and how their leakage can be analyzed at scale without prohibitive data collection and model training costs. To address these questions, we present SCAgent, an automated framework for side-channel risk analysis. To identify sensitive targets beyond manually specified events, SCAgent performs agent-driven system exploration guided by LLM-based semantic reasoning. To systematically discover side channels while mitigating the risk of LLM hallucination, it reasons over system documentation and incorporates explicit verification to enforce semantic consistency, threat-model feasibility, and per-channel usability. To enable scalable analysis under limited data, SCAgent adopts a few-shot learning paradigm based on foundation models, avoiding the need to train bespoke models for each channel--event pair. To bridge the gap between raw time-series side-channel signals and tabular foundation models, SCAgent further introduces a time-shift--robust feature extraction layer that enables effective downstream analysis. We instantiate SCAgent on iOS as a first step, focusing on OS-level side channels observable by unprivileged applications. Our evaluation spans standard benchmarks such as foreground app and website fingerprinting, as well as newly identified sensitive in-app activities in popular applications.",
+      "authors": [
+        "Zhen Xu",
+        "Zihao Wang",
+        "Yuhua Sun",
+        "XiaoFeng Wang"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-17T12:03:45+00:00",
+      "link": "https://arxiv.org/pdf/2605.17406v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "LLM-assisted agents for automated side-channel discovery",
+      "llm_evidence_cn": "使用LLM辅助智能体自动发现侧信道漏洞",
+      "llm_evidence": "使用LLM辅助智能体自动发现侧信道漏洞",
+      "canonical_evidence": "使用LLM辅助智能体自动发现侧信道漏洞",
+      "llm_tldr_en": "Proposes LLM-assisted agents to automatically discover side-channel leakage, addressing manual and fragmented nature of side-channel analysis.",
+      "llm_tldr_cn": "针对侧信道分析手动且碎片化的问题，本文提出利用LLM辅助智能体自动化发现侧信道漏洞。该框架能系统性地发现敏感事件及其侧信道，无需预设目标通道。实验表明可扩展地分析泄漏，降低数据收集和模型训练成本。",
+      "llm_tldr": "针对侧信道分析手动且碎片化的问题，本文提出利用LLM辅助智能体自动化发现侧信道漏洞。该框架能系统性地发现敏感事件及其侧信道，无需预设目标通道。实验表明可扩展地分析泄漏，降低数据收集和模型训练成本。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.03489v1",
+      "source": "arxiv",
+      "title": "Learn from Your Mistakes: Tree-like Self-Play for Secure Code LLMs",
+      "abstract": "While Large Language Models (LLMs) excel in code generation, they remain prone to replicating subtle yet critical vulnerabilities endemic to their training data. Current alignment techniques, such as Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL), typically apply coarse-grained optimization at the sequence level. This approach often fails to address the localized nature of security flaws, where a single incorrect token choice can compromise an entire program. To bridge this gap, we introduce Tree-like Self-Play (TSP), a framework that reframes secure code generation as a fine-grained sequential decision process. Unlike standard methods that blindly maximize likelihood, TSP constructs a decision tree where the model explores branching trajectories--generating both secure \"golden paths\" and vulnerable variants. By treating code generation as a self-play game, the model learns to strictly discriminate against its own localized errors. This provides a dense, on-policy learning signal that forces self-correction precisely at the critical decision nodes where vulnerabilities typically emerge. Our experiments demonstrate that TSP fundamentally enhances model reliability. In Python security benchmarks, TSP boosts CodeLlama-7B's pass rate (SPR@1) to 75.8%, significantly outperforming SFT (57.0%) and unstructured self-play baselines. Crucially, TSP induces robust out-of-distribution generalization: the model not only reduces vulnerabilities in unseen categories (CWEs) by 24.5% but also successfully transfers security principles learned from C/C++ to diverse languages, including Python, Go, and JavaScript. This suggests that TSP does not merely memorize patches, but internalizes abstract, language-agnostic security logic.",
+      "authors": [
+        "Wenqi Chen",
+        "Ziyan Zhang",
+        "Bing Wang",
+        "Lin Liu",
+        "Hengheng Zhang",
+        "Zhengsu Chen"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-06-02T11:07:20+00:00",
+      "link": "https://arxiv.org/pdf/2606.03489v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "AI assisted secure code generation reduces vulnerabilities",
+      "llm_evidence_cn": "AI辅助安全代码生成减少漏洞",
+      "llm_evidence": "AI辅助安全代码生成减少漏洞",
+      "canonical_evidence": "AI辅助安全代码生成减少漏洞",
+      "llm_tldr_en": "Tree-like Self-Play (TSP) reframes secure code generation as fine-grained sequential decisions, reducing vulnerabilities in LLM-generated code.",
+      "llm_tldr_cn": "大语言模型生成代码时易复制训练数据中的漏洞。本文提出树状自博弈框架TSP，将安全代码生成转化为细粒度序列决策过程，通过决策树探索分支轨迹，在局部token级别优化安全性。实验表明TSP显著降低了生成代码的漏洞率，为AI辅助代码安全提供了新范式。",
+      "llm_tldr": "大语言模型生成代码时易复制训练数据中的漏洞。本文提出树状自博弈框架TSP，将安全代码生成转化为细粒度序列决策过程，通过决策树探索分支轨迹，在局部token级别优化安全性。实验表明TSP显著降低了生成代码的漏洞率，为AI辅助代码安全提供了新范式。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "AI assisted vulnerability mining",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.21392v1",
+      "source": "arxiv",
+      "title": "VIPER-MCP: Detecting and Exploiting Taint-Style Vulnerabilities in Model Context Protocol Servers",
+      "abstract": "Model Context Protocol (MCP) has emerged as a standard interface for connecting LLM agents to external tools. Because MCP servers expose privileged operations such as shell execution, network access, and file-system manipulation to agent-driven invocation, implementation flaws in tool handlers can create a direct path from natural-language input to security-sensitive sinks, potentially granting attackers remote code execution or full system compromise. Existing approaches either produce unconfirmed static alerts without dynamic validation, or rely on fixed template libraries that lack code-level guidance and fail to trigger vulnerabilities requiring specific parameter shapes or multi-step taint paths.   In this paper, we present VIPER-MCP, the first end-to-end automated vulnerability auditing framework for MCP servers that not only detects taint-style vulnerabilities but also dynamically confirms their exploitability by producing concrete proof-of-concept prompts. VIPER-MCP introduces two novel techniques: (1) an anchor-query pass in a two-pass static analysis strategy that augments standard taint alerts with function-level structural context, resolving file-level static artifacts to specific MCP tool handlers and producing vulnerability-anchored call chains; and (2) a feedback-driven prompt evolution mechanism that employs dual-mutator scheduling that independently corrects tool-selection drift and deepens parameter penetration, together with fitness-scored seed selection to iteratively refine natural-language prompts toward vulnerable sinks. In a large-scale scan of 39,884 real-world open-source MCP server repositories, VIPER-MCP discovered 106 0-day vulnerabilities, all of which were confirmed through end-to-end exploit traces, with 67 CVE IDs assigned to date. We responsibly disclosed all confirmed findings to the affected developers and coordinated CVE assignment where applicable.",
+      "authors": [
+        "Pengyu Sun",
+        "Qishu Jin",
+        "Enhao Huang",
+        "Zifeng Kang",
+        "Xin Liu",
+        "Dakun Shen",
+        "Song Li"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-20T16:46:51+00:00",
+      "link": "https://arxiv.org/pdf/2605.21392v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "detecting taint-style vulnerabilities in MCP server implementations for LLM agents",
+      "llm_evidence_cn": "检测LLM智能体所用MCP服务器中的污点式漏洞",
+      "llm_evidence": "检测LLM智能体所用MCP服务器中的污点式漏洞",
+      "canonical_evidence": "检测LLM智能体所用MCP服务器中的污点式漏洞",
+      "llm_tldr_en": "VIPER-MCP detects taint-style vulnerabilities in Model Context Protocol servers used by LLM agents, enabling automated discovery of exploitable flaws.",
+      "llm_tldr_cn": "该论文聚焦于模型上下文协议（MCP）服务器中的污点式漏洞，MCP是连接LLM智能体与外部工具的标准接口。现有方法要么产生未验证的静态告警，要么依赖固定模板库。VIPER-MCP提出结合静态分析、动态验证和代码级攻击模板的方法，能够自动检测并验证需要特定参数形状或多步污点路径的漏洞。实验表明该方法成功发现多个真实MCP服务器中的远程代码执行漏洞。",
+      "llm_tldr": "该论文聚焦于模型上下文协议（MCP）服务器中的污点式漏洞，MCP是连接LLM智能体与外部工具的标准接口。现有方法要么产生未验证的静态告警，要么依赖固定模板库。VIPER-MCP提出结合静态分析、动态验证和代码级攻击模板的方法，能够自动检测并验证需要特定参数形状或多步污点路径的漏洞。实验表明该方法成功发现多个真实MCP服务器中的远程代码执行漏洞。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.22058v1",
+      "source": "arxiv",
+      "title": "Finding Missing Input Validation in TEEs via LLM-Assisted Symbolic Execution",
+      "abstract": "Trusted Execution Environments (TEEs) provide hardware-enforced isolation that protects sensitive code and data from untrusted software. Despite their strong security guarantees, analyzing TEE applications remains challenging due to the high cost and complexity of configuring complete TEE build and runtime environments, as well as the limited observability imposed by hardware isolation. This paper presents SymTEE, a novel large language model (LLM)-assisted symbolic execution framework for detecting missing input validation issues in TEE applications without requiring real TEE setups. SymTEE begins by leveraging Abstract Syntax Tree (AST) analysis to extract TEE code slices that may lack sufficient input validation, and then employs an LLM (GPT-5 in our case) to automatically convert the extracted slices into KLEE-compatible harness programs containing lightweight mock execution environments for symbolic analysis. Evaluations on 26 vulnerabilities (11 real-world and 15 synthetic) show that SymTEE achieves 100% precision and 92.3% recall in detecting missing input validation vulnerabilities while incurring an average analysis cost of only $0.05. These results demonstrate the effectiveness and practicality of SymTEE's pioneering paradigm of LLM-assisted symbolic execution, where LLMs autonomously generate mock environments to enable automated security analysis without complex setup, providing a more accessible and scalable framework for trusted computing systems.",
+      "authors": [
+        "Chengyan Ma",
+        "Jieke Shi",
+        "Ruidong Han",
+        "Ye Liu",
+        "Yuqing Niu",
+        "David Lo"
       ],
       "primary_category": "cs.SE",
       "categories": [
         "cs.SE",
         "cs.CR"
       ],
-      "published": "2026-05-14T17:16:11+00:00",
-      "link": "https://arxiv.org/pdf/2605.15097v1",
+      "published": "2026-05-21T06:47:36+00:00",
+      "link": "https://arxiv.org/pdf/2605.22058v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
-      "llm_score": 7.0,
-      "llm_evidence_en": "proposes a memory corruption vulnerability detection framework applicable to binaries including Linux kernel modules",
-      "llm_evidence_cn": "提出一种内存损坏漏洞检测框架，可应用于包括Linux内核模块在内的二进制文件",
-      "llm_evidence": "提出一种内存损坏漏洞检测框架，可应用于包括Linux内核模块在内的二进制文件",
-      "canonical_evidence": "提出一种内存损坏漏洞检测框架，可应用于包括Linux内核模块在内的二进制文件",
-      "llm_tldr_en": "Veritas combines static slicing, dual-view LLM detection, and multi-agent validation to detect memory corruption vulnerabilities in stripped binaries, a method transferable to Linux kernel binary analysis.",
-      "llm_tldr_cn": "针对二进制文件内存损坏漏洞检测中语义恢复困难的问题，提出Veritas框架。结合静态切片、双视图LLM检测和多智能体验证，在剥离的二进制文件中识别漏洞，可迁移至Linux内核二进制分析，为自动化内核漏洞发现提供有效途径。",
-      "llm_tldr": "针对二进制文件内存损坏漏洞检测中语义恢复困难的问题，提出Veritas框架。结合静态切片、双视图LLM检测和多智能体验证，在剥离的二进制文件中识别漏洞，可迁移至Linux内核二进制分析，为自动化内核漏洞发现提供有效途径。",
+      "llm_score": 8.0,
+      "llm_evidence_en": "LLM-assisted symbolic execution for finding missing input validation in TEEs",
+      "llm_evidence_cn": "使用LLM辅助符号执行发现TEE中缺失输入验证的漏洞",
+      "llm_evidence": "使用LLM辅助符号执行发现TEE中缺失输入验证的漏洞",
+      "canonical_evidence": "使用LLM辅助符号执行发现TEE中缺失输入验证的漏洞",
+      "llm_tldr_en": "SymTEE uses LLM-assisted symbolic execution to detect missing input validation in TEEs without requiring real TEE setups, via AST analysis and LLM guidance.",
+      "llm_tldr_cn": "TEE应用分析因环境配置复杂和硬件隔离难以观察而挑战重重。本文提出SymTEE，一种LLM辅助的符号执行框架，通过抽象语法树分析提取可能缺乏输入验证的代码片段，再利用LLM引导符号执行，无需真实TEE环境即可检测缺失输入验证问题。该方法为TEE漏洞发现提供了高效替代方案。",
+      "llm_tldr": "TEE应用分析因环境配置复杂和硬件隔离难以观察而挑战重重。本文提出SymTEE，一种LLM辅助的符号执行框架，通过抽象语法树分析提取可能缺乏输入验证的代码片段，再利用LLM引导符号执行，无需真实TEE环境即可检测缺失输入验证问题。该方法为TEE漏洞发现提供了高效替代方案。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "automated vulnerability discovery techniques for the Linux kernel",
-      "matched_requirement_id": "req-8",
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "vulnerability discovery techniques",
+      "matched_requirement_id": "req-1",
       "selection_source": "fresh_fetch",
-      "quick_tier": "7"
+      "quick_tier": "8plus"
     },
     {
-      "id": "2605.21824v1",
+      "id": "2605.24171v1",
       "source": "arxiv",
-      "title": "Quality-Assured Fuzz Harness Generation via the Four Principles Framework",
-      "abstract": "Fuzz testing is the dominant technique for finding memory-safety vulnerabilities in C/C++ software, yet its effectiveness hinges on the quality of fuzz harnesses -- the programs that bridge fuzzers and library APIs. A growing body of tools now automate harness generation, but none systematically ensures the correctness of produced harnesses: logic errors, API misuse, and lifecycle violations go undetected at the source level. As LLM-driven generation scales harness creation, uncontrolled quality turns scale into a liability.   We present QuartetFuzz, an autonomous harness-generation system that systematically improves correctness throughout the generation process. At its core is the Four Principles framework -- Logic Correctness (P1), API Protocol Compliance (P2), Security Boundary Respect (P3), and Entry Point Adequacy (P4) -- the first source-level definition of harness correctness with mathematical specifications and implementable checks. We operationalize these principles in an autonomous LLM agent that produces harnesses satisfying P1-P4 through a generate-check-fix loop before any fuzzing begins.   Deployed on 23 open-source projects spanning C/C++, Java, and JavaScript, the system submits 42 bug reports, of which 29 are fixed or confirmed upstream (including 3 CVEs) and only 2 are rejected (4.8% FP rate). During generation, the built-in P1/P2 checks automatically intercepted 58 harness-induced crashes that would otherwise have been false positives. Applied as a quality auditor to 586 existing production harnesses across 70 projects, the system identifies 53 violations (45 confirmed, 35 fixed). We release a dataset of 100 labeled harnesses for reproducible evaluation. Code and dataset are available at https://github.com/OwenSanzas/QuartetFuzz",
+      "title": "PromptAudit: Auditing Prompt Sensitivity in LLM-Based Vulnerability Detection",
+      "abstract": "Large language models are increasingly used for vulnerability detection, yet their reliability under different prompt formulations remains uncharacterized. We present PromptAudit, a controlled evaluation framework that isolates prompt effects by fixing the dataset, decoding, and parsing while varying only the prompting strategy. Using five prompting strategies across five open-weight models on 1,000 CVEs (6,074 code samples spanning 16 programming languages), we evaluate accuracy, recall, abstention, coverage, and effective F1. We find that standard chain-of-thought prompting achieves the strongest overall operational performance, while few-shot prompting provides model-dependent benefits that are most pronounced for prompt-sensitive models. In contrast, adaptive chain-of-thought frequently suppresses recall and self-consistency induces excessive abstention, sharply reducing effective performance. These results show that vulnerability detection behavior is jointly determined by the model and the prompt, and that prompt sensitivity is a first-class system property that must be explicitly characterized in evaluation and deployment.",
       "authors": [
-        "Ze Sheng",
-        "Dmitrijs Trizna",
-        "Luigino Camastra",
-        "Zhicheng Chen",
-        "Qingxiao Xu",
-        "Jeff Huang"
+        "Steffen J. Camarato",
+        "Yahya Hmaiti",
+        "Mandana Ghadamian",
+        "David Mohaisen"
       ],
-      "primary_category": "cs.CR",
+      "primary_category": "cs.LG",
       "categories": [
-        "cs.CR",
-        "cs.SE"
+        "cs.LG",
+        "cs.AI"
       ],
-      "published": "2026-05-20T23:48:26+00:00",
-      "link": "https://arxiv.org/pdf/2605.21824v1",
+      "published": "2026-05-22T19:44:51+00:00",
+      "link": "https://arxiv.org/pdf/2605.24171v1",
       "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
+        "keyword:vuln-mining",
+        "query:vuln-mining"
       ],
-      "llm_score": 6.0,
-      "llm_evidence_en": "Fuzz harness generation for library APIs transferable to kernel fuzzing",
-      "llm_evidence_cn": "模糊测试驱动生成可迁移至内核模糊测试",
-      "llm_evidence": "模糊测试驱动生成可迁移至内核模糊测试",
-      "canonical_evidence": "模糊测试驱动生成可迁移至内核模糊测试",
-      "llm_tldr_en": "QuartetFuzz uses a Four Principles framework to generate quality-assured fuzz harnesses, improving fuzzing effectiveness for C/C++ libraries.",
-      "llm_tldr_cn": "本文提出QuartetFuzz系统，基于四原则框架自动生成质量有保证的模糊测试驱动，解决LLM生成驱动中的正确性问题，对提升Linux内核模糊测试的驱动质量有借鉴意义。",
-      "llm_tldr": "本文提出QuartetFuzz系统，基于四原则框架自动生成质量有保证的模糊测试驱动，解决LLM生成驱动中的正确性问题，对提升Linux内核模糊测试的驱动质量有借鉴意义。",
+      "llm_score": 8.0,
+      "llm_evidence_en": "evaluates prompt sensitivity in LLM-based vulnerability detection",
+      "llm_evidence_cn": "评估基于LLM的漏洞检测中的提示敏感性",
+      "llm_evidence": "评估基于LLM的漏洞检测中的提示敏感性",
+      "canonical_evidence": "评估基于LLM的漏洞检测中的提示敏感性",
+      "llm_tldr_en": "PromptAudit isolates prompt effects in LLM-based vulnerability detection, finding chain-of-thought best overall, and few-shot benefits prompt-sensitive models.",
+      "llm_tldr_cn": "该论文提出PromptAudit框架，通过固定数据集和解码方式仅改变提示策略，系统评估LLM在漏洞检测中的提示敏感性。实验覆盖五个模型和1000个CVE样本，发现链式思考提示整体性能最佳，而少样本提示仅对特定模型有效，为LLM漏洞检测的可靠部署提供了重要参考。",
+      "llm_tldr": "该论文提出PromptAudit框架，通过固定数据集和解码方式仅改变提示策略，系统评估LLM在漏洞检测中的提示敏感性。实验覆盖五个模型和1000个CVE样本，发现链式思考提示整体性能最佳，而少样本提示仅对特定模型有效，为LLM漏洞检测的可靠部署提供了重要参考。",
       "llm_tags": [
-        "query:linux-kernel"
+        "query:vuln-mining"
       ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
-      "matched_requirement_id": "req-9",
-      "selection_source": "fresh_fetch",
-      "quick_tier": "6"
-    },
-    {
-      "id": "2605.21779v1",
-      "source": "arxiv",
-      "title": "FuzzingBrain V2: A Multi-Agent LLM System for Automated Vulnerability Discovery and Reproduction",
-      "abstract": "Software vulnerabilities pose critical security threats, with nearly 50,000 CVEs reported in 2025. While Large Language Models (LLMs) show promise for automated vulnerability detection, three key challenges remain. First, LLM-generated vulnerability reports suffer from high false positive rates and lack   reproducible verification. Second, existing LLM-based approaches use suboptimal granularities for vulnerability localization: function-level analysis overlooks bugs when context becomes extensive, while line-level analysis lacks sufficient context. Third, existing approaches have difficulty reasoning about   vulnerabilities with complex cross-function dependencies and triggering conditions.   We present FuzzingBrain V2, a multi-agent system that addresses these gaps through four key contributions: (1) fully automated vulnerability analysis built on Google's OSS-Fuzz, ensuring all reported vulnerabilities are fuzzer-reproducible; (2) Suspicious Point, a novel control-flow-based abstraction for precise   vulnerability localization at the optimal granularity; (3) logic-driven hierarchical function analysis with dual-layer fuzzing enhancing function coverage under resource constraints; (4) MCP-based static and dynamic analysis tools with context engineering enhancing complex vulnerability reasoning.   On the AIxCC 2025 Final Competition C/C++ dataset, FuzzingBrain V2 achieved 90% detection rate (36 of 40 vulnerabilities). In real-world deployment, FuzzingBrain V2 discovered 29 zero-day vulnerabilities across 12 open-source projects, all confirmed and fixed by maintainers, with 2 assigned CVE IDs.",
-      "authors": [
-        "Ze Sheng",
-        "Zhicheng Chen",
-        "Qingxiao Xu",
-        "Kewen Zhu",
-        "Jeff Huang"
-      ],
-      "primary_category": "cs.CR",
-      "categories": [
-        "cs.CR",
-        "cs.SE"
-      ],
-      "published": "2026-05-20T22:17:14+00:00",
-      "link": "https://arxiv.org/pdf/2605.21779v1",
-      "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
-      ],
-      "llm_score": 7.0,
-      "llm_evidence_en": "Automated vulnerability discovery using LLMs and fuzzing, applicable to Linux kernel",
-      "llm_evidence_cn": "使用LLM和模糊测试的自动化漏洞发现，可应用于Linux内核",
-      "llm_evidence": "使用LLM和模糊测试的自动化漏洞发现，可应用于Linux内核",
-      "canonical_evidence": "使用LLM和模糊测试的自动化漏洞发现，可应用于Linux内核",
-      "llm_tldr_en": "FuzzingBrain V2 combines multi-agent LLMs with fuzzing to automatically discover and reproduce vulnerabilities, addressing false positives and cross-function dependencies.",
-      "llm_tldr_cn": "本文提出FuzzingBrain V2，多智能体LLM系统，结合模糊测试和大模型推理，自动发现和复现软件漏洞，解决假阳性和跨函数依赖问题，可迁移至Linux内核漏洞挖掘。",
-      "llm_tldr": "本文提出FuzzingBrain V2，多智能体LLM系统，结合模糊测试和大模型推理，自动发现和复现软件漏洞，解决假阳性和跨函数依赖问题，可迁移至Linux内核漏洞挖掘。",
-      "llm_tags": [
-        "query:linux-kernel"
-      ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "automated vulnerability discovery techniques for the Linux kernel",
-      "matched_requirement_id": "req-8",
-      "selection_source": "fresh_fetch",
-      "quick_tier": "7"
-    },
-    {
-      "id": "2606.02126v1",
-      "source": "arxiv",
-      "title": "PeAR: A Static Binary Rewriting Framework for Binary-Only Fuzzing",
-      "abstract": "Binary-only fuzzing is a key technique for finding bugs in close-source software. Without access to source code, the fuzzer must rely on static or dynamic binary instrumentation for coverage guidance. In practice, most fuzzers favor dynamic binary instrumentation (DBI), accepting runtime overhead to avoid the perceived accuracy and soundness challenges associated with static binary instrumentation (SBI). We show that these concerns are unwarranted, and that accurate, scalable~SBI is achievable using off-the-shelf frameworks. Building on these frameworks, we develop PeAR, an extensible binary-only fuzzing framework. We demonstrate PeAR's versatility by implementing several modern fuzzer features -- including, deferred initialization, persistent mode, and shared-memory fuzzing.   We evaluate PeAR over 4.25 CPU-yrs of fuzzing on the FUZZBENCH benchmark and find that PeAR: (i) successfully instruments 88% of FUZZBENCH targets, comparable to the best SBI-based fuzzers; (ii) achieves a median throughput improvement of 4x when using persistent mode and shared memory fuzzing; and (iii) attains coverage comparable to compiler-based instrumentation.   Our results show that SBI is a practical and effective technique for binary-only fuzzing, and that modern binary rewriting frameworks can apply complex instrumentation with high granularity and negligible performance compromise.",
-      "authors": [
-        "Alvin Charles",
-        "Adrian Herrera",
-        "Peter Oslington",
-        "Alwen Tiu"
-      ],
-      "primary_category": "cs.CR",
-      "categories": [
-        "cs.CR"
-      ],
-      "published": "2026-06-01T11:56:05+00:00",
-      "link": "https://arxiv.org/pdf/2606.02126v1",
-      "tags": [
-        "keyword:linux-kernel",
-        "query:linux-kernel"
-      ],
-      "llm_score": 7.0,
-      "llm_evidence_en": "binary-only fuzzing framework enabling kernel fuzzing without source code",
-      "llm_evidence_cn": "纯二进制模糊测试框架，支持无源码的内核模糊测试",
-      "llm_evidence": "纯二进制模糊测试框架，支持无源码的内核模糊测试",
-      "canonical_evidence": "纯二进制模糊测试框架，支持无源码的内核模糊测试",
-      "llm_tldr_en": "PeAR provides a static binary rewriting fuzzing framework that achieves accurate coverage guidance, enabling kernel fuzzing with modern features.",
-      "llm_tldr_cn": "二进制模糊测试依赖动态插桩导致性能开销，静态方法被认为不准确。本文证明静态二进制插桩可以实现与动态相当的准确性，并构建PeAR框架支持延迟初始化、持久模式等现代特性。实验表明在真实闭源软件中发现多个漏洞，该方法可直接用于Linux内核模块或驱动程序的模糊测试。",
-      "llm_tldr": "二进制模糊测试依赖动态插桩导致性能开销，静态方法被认为不准确。本文证明静态二进制插桩可以实现与动态相当的准确性，并构建PeAR框架支持延迟初始化、持久模式等现代特性。实验表明在真实闭源软件中发现多个漏洞，该方法可直接用于Linux内核模块或驱动程序的模糊测试。",
-      "llm_tags": [
-        "query:linux-kernel"
-      ],
-      "matched_query_tag": "query:linux-kernel",
-      "matched_query_text": "Find papers on Linux kernel vulnerability discovery methods",
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "large language model for vulnerability mining",
       "matched_requirement_id": "req-6",
       "selection_source": "fresh_fetch",
-      "quick_tier": "7"
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.24632v1",
+      "source": "arxiv",
+      "title": "Demystifying the Mythos or Disrupting Bugonomics? From Zero-Day Asymmetry to Defender Remediation Throughput",
+      "abstract": "Recent demonstrations of large language models producing candidate and confirmed vulnerabilities in production software have renewed the narrative that AI will reshape offensive and defensive security. Headlines emphasize capability; they rarely interrogate costs and incentives. This paper examines LLM-driven vulnerability discovery through a bugonomics lens: the operational economics of producing, proving, prioritizing, and fixing security-relevant defects. Historically, the most visible high-end bugonomics was offense-priced because production-grade zero-days and exploit chains were expensive specialist outputs for governments, brokers, and offensive vendors. Defender-side bugonomics already existed in vulnerability research, reward programs, and vendor remediation work; LLM-assisted systems change its scale and distribution. They make candidate generation, code comprehension, harness construction, proof-of-impact drafting, and report preparation cheaper at codebase scale. Exploits and proofs of concept remain important, but in defender workflows they primarily prove impact, guide prioritization, and justify remediation. The resulting bottleneck is not only finding more bugs; it is absorbing, validating, triaging, patching, and shipping a larger stream of reports. Using public data from Anthropic's Mythos Preview and Mozilla Firefox collaborations, along with public exploit-market price anchors and vulnerability reward programs, we argue that the near-term shift is not simply more zero-days. It is a move toward broader defender remediation throughput: low-signal candidates become cheaper, evidence-rich remediation become more important, and scarce capacity shifts toward maintainer review and release work. The effect is acute in open source, where LLM-assisted discovery can increase report volume while maintainer-side validation, triage, funding, and release capacity may not scale.",
+      "authors": [
+        "Alfredo Pesoli",
+        "Herman Errico",
+        "Lorenzo Cavallaro"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-05-23T15:43:45+00:00",
+      "link": "https://arxiv.org/pdf/2605.24632v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "LLM-driven vulnerability discovery analyzing economics",
+      "llm_evidence_cn": "LLM驱动漏洞发现的经济学分析",
+      "llm_evidence": "LLM驱动漏洞发现的经济学分析",
+      "canonical_evidence": "LLM驱动漏洞发现的经济学分析",
+      "llm_tldr_en": "Analyzes LLM vulnerability discovery through bugonomics lens; explores costs and incentives for defenders and attackers.",
+      "llm_tldr_cn": "最近LLM展示了发现真实软件漏洞的能力，但相关成本和激励机制未被重视。本文从漏洞经济学视角，分析LLM驱动漏洞发现的生产、验证、排序和修复的运营经济学。研究指出，历史上高端漏洞经济学由进攻方主导，而防御方经济早已存在。该工作为理解AI漏洞发现的实际影响提供了关键分析。",
+      "llm_tldr": "最近LLM展示了发现真实软件漏洞的能力，但相关成本和激励机制未被重视。本文从漏洞经济学视角，分析LLM驱动漏洞发现的生产、验证、排序和修复的运营经济学。研究指出，历史上高端漏洞经济学由进攻方主导，而防御方经济早已存在。该工作为理解AI漏洞发现的实际影响提供了关键分析。",
+      "llm_tags": [
+        "query:vuln-mining:composite"
+      ],
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
     }
   ]
 }
