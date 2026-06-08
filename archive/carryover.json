@@ -1,138 +1,17 @@
 {
-  "generated_at": "2026-06-08T08:57:29.325384+00:00",
-  "updated_date": "20260510-20260608",
+  "generated_at": "2026-06-08T22:04:28.654053+00:00",
+  "updated_date": "20260608",
   "carryover_days": 9,
   "tag_states": {
     "linux-kernel": {
-      "updated_date": "20260510-20260608",
+      "updated_date": "20260608",
       "carryover_days": 9,
       "items": []
     },
     "vuln-mining": {
-      "updated_date": "20260510-20260608",
+      "updated_date": "20260608",
       "carryover_days": 9,
-      "items": [
-        {
-          "id": "2606.01364v1",
-          "source": "arxiv",
-          "title": "Needles at Scale: LLM-Assisted Target Selection for Windows Vulnerability Research",
-          "abstract": "The attack surface of a modern operating system is a haystack: thousands of signed binaries and millions of functions, almost none relevant to any given vulnerability. A human analyst or an LLM agent must pick the function worth reading before analyzing it. At whole-OS scope, this target selection, not the analysis, is the binding constraint. We present Symbolicate-Enrich-Sample, a low-cost batch pipeline that turns a corpus of production Windows binaries into a queryable, priority-ranked research queue. We (i) recover function-level symbols for stripped vendor binaries by auto-fetching the public symbol files and joining them to a recovered call graph; (ii) attach cheap, deterministic structural features to each named function and, conditioned on those features, use a low-cost language model to assign a reachability tier, a risk level, a bug-class hypothesis, and a rationale; and (iii) draw diverse, prioritized batches via a priority-weighted importance sampler. The contribution is a selection substrate: the prioritization layer a downstream detector or LLM agent runs on top of. Across a whole Windows image of 7,231,419 functions, the labels are markedly selective, and stacking deterministic filters on them leaves a ~22K-function shortlist: the candidate needles, few enough for a human or agent to work through. We characterize the pipeline's selectivity and its failure modes, describe the methodology, and report aggregate statistics; we withhold the derived dataset for legal and dual-use reasons.",
-          "authors": [
-            "Michael J. Bommarito"
-          ],
-          "primary_category": "cs.CR",
-          "categories": [
-            "cs.CR",
-            "cs.AI",
-            "cs.SE"
-          ],
-          "published": "2026-05-31T17:46:13+00:00",
-          "link": "https://arxiv.org/pdf/2606.01364v1",
-          "tags": [
-            "keyword:vuln-mining",
-            "query:vuln-mining"
-          ],
-          "llm_score": 8.0,
-          "llm_evidence_en": "LLM-assisted target selection for vulnerability research",
-          "llm_evidence_cn": "LLM辅助的漏洞研究目标选择",
-          "llm_evidence": "LLM辅助的漏洞研究目标选择",
-          "canonical_evidence": "LLM辅助的漏洞研究目标选择",
-          "llm_tldr_en": "Proposes Symbolicate-Enrich-Sample pipeline to prioritize Windows binary functions for vulnerability analysis, reducing analyst workload.",
-          "llm_tldr_cn": "该论文针对Windows系统漏洞分析中目标选择效率低的问题，提出了Symbolicate-Enrich-Sample流水线，通过自动恢复符号信息、附加结构特征和优先级排序，将海量二进制函数转化为可查询的研究队列。实验表明该方法能有效帮助分析师聚焦潜在漏洞函数，提升漏洞发现效率。",
-          "llm_tldr": "该论文针对Windows系统漏洞分析中目标选择效率低的问题，提出了Symbolicate-Enrich-Sample流水线，通过自动恢复符号信息、附加结构特征和优先级排序，将海量二进制函数转化为可查询的研究队列。实验表明该方法能有效帮助分析师聚焦潜在漏洞函数，提升漏洞发现效率。",
-          "llm_tags": [
-            "query:vuln-mining"
-          ],
-          "matched_query_tag": "query:vuln-mining",
-          "matched_query_text": "vulnerability discovery techniques",
-          "matched_requirement_id": "req-1",
-          "selection_source": "carryover_cache",
-          "paper_id": "2606.01364v1",
-          "carry_days": 1
-        },
-        {
-          "id": "2606.03128v1",
-          "source": "arxiv",
-          "title": "Decoupled Smart Contract Audits: Lightweight LLM Framework via Distillation and Aggregation",
-          "abstract": "Smart contracts face critical security challenges that require thorough auditing in decentralized web services. While Large Language Models (LLMs) have shown promise in automated vulnerability detection, existing approaches lack severity evaluations with actionable remediation and demand unnecessarily massive computational overhead. In this study, we introduce an efficient end-to-end smart contract security audit framework utilizing lightweight, highly optimized open-source LLMs (0.6B-4B parameters). Our framework decouples comprehensive audit tasks into four interconnected components: vulnerability detection, explanation, severity classification, and remediation recommendation. To maintain high accuracy without massive parameters, we implement Rank-Stabilized Low-Rank Adapters (rsLoRA), knowledge distillation, and a custom Chain-of-Verification (CoVe) aggregation strategy to systematically screen and consolidate multiple draft responses from the model into a highly accurate audit report. Experimental results demonstrate that our lightweight pipeline consistently outperforms state-of-the-art open-source coder dense LLMs (7B to 34B parameters), achieving 98.25% accuracy in vulnerability detection and an alignment score of 0.4375 in generative explanation tasks. Furthermore, our extensive ablation studies empirically validate the superiority of our decoupled audit processes over unified prompting and uncover a novel severity centrality bias, establishing a critical benchmark for future research in LLM-assisted auditing.",
-          "authors": [
-            "Bagus Rakadyanto Oktavianto Putra",
-            "Muhamad Risqi Utama Saputra",
-            "Widyawan",
-            "Guntur Dharma Putra"
-          ],
-          "primary_category": "cs.CR",
-          "categories": [
-            "cs.CR",
-            "cs.AI",
-            "cs.CL",
-            "cs.LG"
-          ],
-          "published": "2026-06-02T04:13:43+00:00",
-          "link": "https://arxiv.org/pdf/2606.03128v1",
-          "tags": [
-            "keyword:vuln-mining",
-            "query:vuln-mining"
-          ],
-          "llm_score": 8.0,
-          "llm_evidence_en": "automated vulnerability detection for smart contracts using LLM",
-          "llm_evidence_cn": "使用LLM对智能合约进行自动漏洞检测",
-          "llm_evidence": "使用LLM对智能合约进行自动漏洞检测",
-          "canonical_evidence": "使用LLM对智能合约进行自动漏洞检测",
-          "llm_tldr_en": "LLM-based smart contract audit framework performing vulnerability detection, explanation, severity classification, and remediation with lightweight open-source models (0.6B-4B).",
-          "llm_tldr_cn": "针对智能合约安全审计，现有LLM方法缺乏严重性评估且计算开销大。本文提出解耦审计框架，利用轻量级开源LLM（0.6B-4B参数）执行漏洞检测、解释、严重性分类和修复建议。实验表明该方法在保持高准确率的同时大幅降低计算成本，为智能合约漏洞检测提供了高效解决方案。",
-          "llm_tldr": "针对智能合约安全审计，现有LLM方法缺乏严重性评估且计算开销大。本文提出解耦审计框架，利用轻量级开源LLM（0.6B-4B参数）执行漏洞检测、解释、严重性分类和修复建议。实验表明该方法在保持高准确率的同时大幅降低计算成本，为智能合约漏洞检测提供了高效解决方案。",
-          "llm_tags": [
-            "query:vuln-mining"
-          ],
-          "matched_query_tag": "query:vuln-mining",
-          "matched_query_text": "automatic vulnerability detection",
-          "matched_requirement_id": "req-4",
-          "selection_source": "carryover_cache",
-          "paper_id": "2606.03128v1",
-          "carry_days": 1
-        },
-        {
-          "id": "2605.24949v1",
-          "source": "arxiv",
-          "title": "APT-Agent: Automated Penetration Testing using Large Language Models",
-          "abstract": "Penetration testing is essential to securing modern web infrastructures, yet traditional manual methods struggle to keep pace with their scale and complexity. Large Language Models (LLMs) offer new opportunities for automating these tasks, but existing approaches face two persistent challenges: hallucination of technical entities and insufficient long-term contextual memory. To address these issues, we present APT-Agent, a fully automated LLM-driven penetration testing framework that systematically orchestrates reconnaissance, exploitation, and exfiltration. APT-Agent introduces a hybrid rectification module to recover hallucinated commands and a command-specific memory architecture to preserve operational context across multi-step attack sequences. We evaluate our APT-Agent on Metasploitable 2 against seven vulnerable services spanning web, database, and network protocols. APT-Agent achieves an 84.29% end-to-end exploitation success rate, compared to 48.57% (Script Kiddie) and 18.57% (PentestGPT) under matched conditions. By reducing cognitive burden and minimizing reliance on human intervention, APT-Agent represents a step toward scalable, reliable, and cognitively efficient automation for penetration testing.",
-          "authors": [
-            "William Guanting Li",
-            "Alsharif Abuadbba",
-            "Kristen Moore",
-            "Dan Dongseong Kim"
-          ],
-          "primary_category": "cs.CR",
-          "categories": [
-            "cs.CR",
-            "cs.AI"
-          ],
-          "published": "2026-05-24T08:54:33+00:00",
-          "link": "https://arxiv.org/pdf/2605.24949v1",
-          "tags": [
-            "keyword:vuln-mining",
-            "query:vuln-mining"
-          ],
-          "llm_score": 8.0,
-          "llm_evidence_en": "agent assisted penetration testing using LLM for vulnerability exploitation",
-          "llm_evidence_cn": "使用LLM的自动化渗透测试代理，辅助漏洞利用",
-          "llm_evidence": "使用LLM的自动化渗透测试代理，辅助漏洞利用",
-          "canonical_evidence": "使用LLM的自动化渗透测试代理，辅助漏洞利用",
-          "llm_tldr_en": "APT-Agent is a fully automated LLM-driven penetration testing framework that orchestrates reconnaissance, exploitation, and exfiltration with hybrid rectification and memory architecture.",
-          "llm_tldr_cn": "传统渗透测试难以应对现代Web基础设施的规模和复杂性。本文提出APT-Agent，一种全自动LLM驱动的渗透测试框架，系统性地协调侦察、利用和窃取阶段。它通过混合修正模块恢复幻觉命令，并通过命令特定记忆架构保持多步攻击上下文。该工作展示了agent辅助漏洞利用的自动化潜力。",
-          "llm_tldr": "传统渗透测试难以应对现代Web基础设施的规模和复杂性。本文提出APT-Agent，一种全自动LLM驱动的渗透测试框架，系统性地协调侦察、利用和窃取阶段。它通过混合修正模块恢复幻觉命令，并通过命令特定记忆架构保持多步攻击上下文。该工作展示了agent辅助漏洞利用的自动化潜力。",
-          "llm_tags": [
-            "query:vuln-mining"
-          ],
-          "matched_query_tag": "query:vuln-mining",
-          "matched_query_text": "agent assisted vulnerability discovery",
-          "matched_requirement_id": "req-3",
-          "selection_source": "carryover_cache",
-          "paper_id": "2605.24949v1",
-          "carry_days": 1
-        }
-      ]
+      "items": []
     }
   }
 }

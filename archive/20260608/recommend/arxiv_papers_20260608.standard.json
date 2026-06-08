@@ -1,0 +1,386 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-08T22:04:28.653035+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 2,
+    "deep_divecandidates": 4,
+    "deep_cap": 7,
+    "deep_selected": 4,
+    "quick_candidates": 5,
+    "quick_skim_target": 12,
+    "quick_selected": 5
+  },
+  "deep_dive": [
+    {
+      "id": "2606.03811v1",
+      "source": "arxiv",
+      "title": "AI Agents Enable Adaptive Computer Worms",
+      "abstract": "A computer worm is malware that spreads on a network by replicating itself from one machine to another. Traditional worms, like WannaCry, exploited predetermined vulnerabilities, and their spread can be halted by patching those vulnerabilities. Here we show that artificial intelligence (AI) agents enable a fundamentally new threat: a worm that generates tailored attack strategies to each target it encounters. The worm parasitically uses compromised machines to run open-weight large language models (LLMs) to sustain its reasoning, or extend its reach for further attacks. Deployed on a network of machines spanning Linux, Windows, and IoT (Internet of Things) devices, the worm propagated by exploiting common, real-world corporate network vulnerabilities. Since the worm is powered by stolen compute, the attacker's marginal cost per new infection is zero. This creates a destabilizing economic asymmetry between attackers and defenders. Moreover, because the worm requires no commercial AI platform, centralized safety controls, such as service refusals or rate limiting, are structurally irrelevant. Our results demonstrate that self-sustaining AI-driven cyber-threats are no longer theoretical. We must prepare for autonomous generative adversaries: malware systems that propagate without human operators and are defined not by fixed exploit code, but by the capacity to reason about targets, adapt to observations, and synthesize attack logic in real time.",
+      "authors": [
+        "Jonas Guan",
+        "Tom Blanchard",
+        "Hanna Foerster",
+        "Hengrui Jia",
+        "Gabriel Huang",
+        "Nicolas Papernot"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-02T15:54:39+00:00",
+      "link": "https://arxiv.org/pdf/2606.03811v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "AI worm exploits Linux vulnerabilities for propagation; demonstrates exploitation techniques",
+      "llm_evidence_cn": "AI蠕虫利用Linux漏洞传播；展示利用技术",
+      "llm_evidence": "AI蠕虫利用Linux漏洞传播；展示利用技术",
+      "canonical_evidence": "AI蠕虫利用Linux漏洞传播；展示利用技术",
+      "llm_tldr_en": "Demonstrates AI agent worms that exploit Linux and other OS vulnerabilities to spread adaptively, showing new exploitation capabilities.",
+      "llm_tldr_cn": "该论文展示了由AI代理驱动的自适应计算机蠕虫，它能利用常见的真实企业网络漏洞（包括Linux系统）进行传播。该蠕虫寄生性地在受感染机器上运行开源大语言模型，生成针对每个目标的攻击策略，显著提升了传统蠕虫的适应性和危害性。研究凸显了AI在漏洞利用中的新威胁，并对Linux内核安全提出了挑战。",
+      "llm_tldr": "该论文展示了由AI代理驱动的自适应计算机蠕虫，它能利用常见的真实企业网络漏洞（包括Linux系统）进行传播。该蠕虫寄生性地在受感染机器上运行开源大语言模型，生成针对每个目标的攻击策略，显著提升了传统蠕虫的适应性和危害性。研究凸显了AI在漏洞利用中的新威胁，并对Linux内核安全提出了挑战。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "research papers on Linux kernel vulnerability exploitation and mitigation bypass",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.01364v1",
+      "source": "arxiv",
+      "title": "Needles at Scale: LLM-Assisted Target Selection for Windows Vulnerability Research",
+      "abstract": "The attack surface of a modern operating system is a haystack: thousands of signed binaries and millions of functions, almost none relevant to any given vulnerability. A human analyst or an LLM agent must pick the function worth reading before analyzing it. At whole-OS scope, this target selection, not the analysis, is the binding constraint. We present Symbolicate-Enrich-Sample, a low-cost batch pipeline that turns a corpus of production Windows binaries into a queryable, priority-ranked research queue. We (i) recover function-level symbols for stripped vendor binaries by auto-fetching the public symbol files and joining them to a recovered call graph; (ii) attach cheap, deterministic structural features to each named function and, conditioned on those features, use a low-cost language model to assign a reachability tier, a risk level, a bug-class hypothesis, and a rationale; and (iii) draw diverse, prioritized batches via a priority-weighted importance sampler. The contribution is a selection substrate: the prioritization layer a downstream detector or LLM agent runs on top of. Across a whole Windows image of 7,231,419 functions, the labels are markedly selective, and stacking deterministic filters on them leaves a ~22K-function shortlist: the candidate needles, few enough for a human or agent to work through. We characterize the pipeline's selectivity and its failure modes, describe the methodology, and report aggregate statistics; we withhold the derived dataset for legal and dual-use reasons.",
+      "authors": [
+        "Michael J. Bommarito"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "published": "2026-05-31T17:46:13+00:00",
+      "link": "https://arxiv.org/pdf/2606.01364v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "LLM-assisted target selection for vulnerability research",
+      "llm_evidence_cn": "LLM辅助漏洞研究的目标选择",
+      "llm_evidence": "LLM辅助漏洞研究的目标选择",
+      "canonical_evidence": "LLM辅助漏洞研究的目标选择",
+      "llm_tldr_en": "This paper presents Symbolicate-Enrich-Sample, a pipeline that recovers function symbols from stripped Windows binaries and uses LLM to prioritize target functions for vulnerability research, significantly reducing the search space and analyst effort.",
+      "llm_tldr_cn": "针对操作系统漏洞研究中目标选择耗时的问题，该论文提出了Symbolicate-Enrich-Sample流水线，通过公共符号文件和调用图恢复函数级符号，并附加结构特征，利用LLM进行优先级排序，从而高效筛选值得分析的函数。在Windows二进制文件上的实验表明该方法能有效缩减分析范围，提高漏洞研究效率。该工作展示了LLM在漏洞发现流程中的辅助潜力，对自动化漏洞挖掘具有借鉴意义。",
+      "llm_tldr": "针对操作系统漏洞研究中目标选择耗时的问题，该论文提出了Symbolicate-Enrich-Sample流水线，通过公共符号文件和调用图恢复函数级符号，并附加结构特征，利用LLM进行优先级排序，从而高效筛选值得分析的函数。在Windows二进制文件上的实验表明该方法能有效缩减分析范围，提高漏洞研究效率。该工作展示了LLM在漏洞发现流程中的辅助潜力，对自动化漏洞挖掘具有借鉴意义。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-12",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.05567v1",
+      "source": "arxiv",
+      "title": "ZERO-APT: A Closed-Loop Adversarial Framework for LLM-Driven Automated Penetration Testing under Intelligent Defense",
+      "abstract": "LLM-driven automated penetration testing agents are typically evaluated against static targets that neither detect nor respond to attacks, so their behavior under intelligent defense remains untested. The causal consistency of multi-step attack chains likewise hinges on unstable LLM reasoning, and agent decisions remain opaque to human analysts. These three shortcomings, in realism, consistency, and auditability, are usually patched in isolation. We present ZERO-APT, a turn-based attacker-defender-judge framework that addresses them within a single architecture. For realism, ZERO-APT embeds a configurable LLM Defender that consumes Sysmon telemetry and detects attacks in real time, exposing the attacker to a live opponent rather than a passive target. For consistency, three architectural mechanisms move causal consistency from unstable LLM reasoning into enforced system architecture: separation of planning from execution, multi-dimensional ReAct feedback, and a hard-constraint-filtered action library. For auditability, a dedicated Judge agent adjudicates each round, maintains global state, and emits structured post-hoc CTI reports that make every decision traceable. We evaluate a Windows Server 2022 post-exploitation prototype across five scenarios with three Defender configurations. ZERO-APT reaches 79\\% attack success rate (Aurora 22\\%, PentestGPT 39\\%), a Causal Consistency Score of 0.860 (Aurora 0.930, Claude Code 0.520), and end-to-end decision auditability through structured CTI reports. We release the benchmark to support evaluation of penetration agents under intelligent defense.",
+      "authors": [
+        "Anlan Zheng",
+        "Tiantian Zhu"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.MA"
+      ],
+      "published": "2026-06-04T01:28:36+00:00",
+      "link": "https://arxiv.org/pdf/2606.05567v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "LLM-driven automated penetration testing with defender and judge agents",
+      "llm_evidence_cn": "LLM驱动的自动化渗透测试，包含防御者和裁判智能体",
+      "llm_evidence": "LLM驱动的自动化渗透测试，包含防御者和裁判智能体",
+      "canonical_evidence": "LLM驱动的自动化渗透测试，包含防御者和裁判智能体",
+      "llm_tldr_en": "ZERO-APT introduces an attacker-defender-judge framework for realistic, consistent, and auditable LLM-driven penetration testing under intelligent defense.",
+      "llm_tldr_cn": "现有的LLM驱动渗透测试代理通常在静态目标上评估，缺乏智能防御，且因果一致性和可审计性不足。ZERO-APT提出一个回合制攻击-防御-裁判框架，通过可配置的LLM防御者实时检测攻击，确保多步攻击链的因果一致性，并提供可审计的决策记录。实验证明该框架在现实性、一致性和可审计性方面均优于现有方法。",
+      "llm_tldr": "现有的LLM驱动渗透测试代理通常在静态目标上评估，缺乏智能防御，且因果一致性和可审计性不足。ZERO-APT提出一个回合制攻击-防御-裁判框架，通过可配置的LLM防御者实时检测攻击，确保多步攻击链的因果一致性，并提供可审计的决策记录。实验证明该框架在现实性、一致性和可审计性方面均优于现有方法。",
+      "llm_tags": [
+        "query:vuln-mining:composite"
+      ],
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.24949v1",
+      "source": "arxiv",
+      "title": "APT-Agent: Automated Penetration Testing using Large Language Models",
+      "abstract": "Penetration testing is essential to securing modern web infrastructures, yet traditional manual methods struggle to keep pace with their scale and complexity. Large Language Models (LLMs) offer new opportunities for automating these tasks, but existing approaches face two persistent challenges: hallucination of technical entities and insufficient long-term contextual memory. To address these issues, we present APT-Agent, a fully automated LLM-driven penetration testing framework that systematically orchestrates reconnaissance, exploitation, and exfiltration. APT-Agent introduces a hybrid rectification module to recover hallucinated commands and a command-specific memory architecture to preserve operational context across multi-step attack sequences. We evaluate our APT-Agent on Metasploitable 2 against seven vulnerable services spanning web, database, and network protocols. APT-Agent achieves an 84.29% end-to-end exploitation success rate, compared to 48.57% (Script Kiddie) and 18.57% (PentestGPT) under matched conditions. By reducing cognitive burden and minimizing reliance on human intervention, APT-Agent represents a step toward scalable, reliable, and cognitively efficient automation for penetration testing.",
+      "authors": [
+        "William Guanting Li",
+        "Alsharif Abuadbba",
+        "Kristen Moore",
+        "Dan Dongseong Kim"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-05-24T08:54:33+00:00",
+      "link": "https://arxiv.org/pdf/2605.24949v1",
+      "tags": [
+        "keyword:vuln-mining",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "agent assisted penetration testing using LLM for vulnerability exploitation",
+      "llm_evidence_cn": "使用LLM的自动化渗透测试代理，辅助漏洞利用",
+      "llm_evidence": "使用LLM的自动化渗透测试代理，辅助漏洞利用",
+      "canonical_evidence": "使用LLM的自动化渗透测试代理，辅助漏洞利用",
+      "llm_tldr_en": "APT-Agent is a fully automated LLM-driven penetration testing framework that orchestrates reconnaissance, exploitation, and exfiltration with hybrid rectification and memory architecture.",
+      "llm_tldr_cn": "传统渗透测试难以应对现代Web基础设施的规模和复杂性。本文提出APT-Agent，一种全自动LLM驱动的渗透测试框架，系统性地协调侦察、利用和窃取阶段。它通过混合修正模块恢复幻觉命令，并通过命令特定记忆架构保持多步攻击上下文。该工作展示了agent辅助漏洞利用的自动化潜力。",
+      "llm_tldr": "传统渗透测试难以应对现代Web基础设施的规模和复杂性。本文提出APT-Agent，一种全自动LLM驱动的渗透测试框架，系统性地协调侦察、利用和窃取阶段。它通过混合修正模块恢复幻觉命令，并通过命令特定记忆架构保持多步攻击上下文。该工作展示了agent辅助漏洞利用的自动化潜力。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-3",
+      "selection_source": "carryover_cache",
+      "paper_id": "2605.24949v1"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.00918v2",
+      "source": "arxiv",
+      "title": "One (Thread) Can Keep a (PRNG) Secret, but not Two",
+      "abstract": "We present a novel, practical attack on the IPv6 Fragment ID generation algorithm of XNU, which is the kernel used by Apple products such as macOS and iOS. This attack exploits a race-condition vulnerability in the algorithm's pseudorandom number generator (PRNG) to cryptanalytically break, learn the internal state of the generator, and consequently predict fragment IDs, which, in turn, facilitates an IPv6 fragment spoofing attack. As far as we know, this is the first cryptanalytic attack that is based on exploiting race-conditions. With fragment spoofing, it is possible to partially manipulate UDP datagrams and TCP segments. We showcase a new type of attack on NFS (UDP) where an off-path attacker modifies a file as it is written, and an attack on HTTP (TCP) where an off-path attacker modifies an HTTP request. Apple assigned this vulnerability the CVE identifier CVE-2024-27823 and patched all its XNU-based products against the attack.",
+      "authors": [
+        "Ehood Porat",
+        "Amit Klein",
+        "Benny Pinkas"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-30T23:00:31+00:00",
+      "link": "https://arxiv.org/pdf/2606.00918v2",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "race condition exploit on kernel PRNG",
+      "llm_evidence_cn": "针对内核PRNG的竞态条件利用",
+      "llm_evidence": "针对内核PRNG的竞态条件利用",
+      "canonical_evidence": "针对内核PRNG的竞态条件利用",
+      "llm_tldr_en": "Presents a race-condition attack on XNU kernel's IPv6 Fragment ID PRNG, enabling prediction and spoofing; showcases cryptanalytic exploitation of kernel race conditions.",
+      "llm_tldr_cn": "该论文提出一种针对XNU内核IPv6 Fragment ID生成算法中伪随机数生成器的竞态条件攻击，通过利用多线程竞争导致的状态不一致，破解并学习生成器内部状态，从而预测片段ID并实施IPv6片段欺骗攻击。这是首个基于竞态条件的密码分析攻击，展示了利用内核竞争条件进行漏洞利用的方法，对Linux内核的类似漏洞挖掘和利用具有重要的方法论参考价值。",
+      "llm_tldr": "该论文提出一种针对XNU内核IPv6 Fragment ID生成算法中伪随机数生成器的竞态条件攻击，通过利用多线程竞争导致的状态不一致，破解并学习生成器内部状态，从而预测片段ID并实施IPv6片段欺骗攻击。这是首个基于竞态条件的密码分析攻击，展示了利用内核竞争条件进行漏洞利用的方法，对Linux内核的类似漏洞挖掘和利用具有重要的方法论参考价值。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "techniques for exploiting Linux kernel vulnerabilities",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.03128v1",
+      "source": "arxiv",
+      "title": "Decoupled Smart Contract Audits: Lightweight LLM Framework via Distillation and Aggregation",
+      "abstract": "Smart contracts face critical security challenges that require thorough auditing in decentralized web services. While Large Language Models (LLMs) have shown promise in automated vulnerability detection, existing approaches lack severity evaluations with actionable remediation and demand unnecessarily massive computational overhead. In this study, we introduce an efficient end-to-end smart contract security audit framework utilizing lightweight, highly optimized open-source LLMs (0.6B-4B parameters). Our framework decouples comprehensive audit tasks into four interconnected components: vulnerability detection, explanation, severity classification, and remediation recommendation. To maintain high accuracy without massive parameters, we implement Rank-Stabilized Low-Rank Adapters (rsLoRA), knowledge distillation, and a custom Chain-of-Verification (CoVe) aggregation strategy to systematically screen and consolidate multiple draft responses from the model into a highly accurate audit report. Experimental results demonstrate that our lightweight pipeline consistently outperforms state-of-the-art open-source coder dense LLMs (7B to 34B parameters), achieving 98.25% accuracy in vulnerability detection and an alignment score of 0.4375 in generative explanation tasks. Furthermore, our extensive ablation studies empirically validate the superiority of our decoupled audit processes over unified prompting and uncover a novel severity centrality bias, establishing a critical benchmark for future research in LLM-assisted auditing.",
+      "authors": [
+        "Bagus Rakadyanto Oktavianto Putra",
+        "Muhamad Risqi Utama Saputra",
+        "Widyawan",
+        "Guntur Dharma Putra"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "published": "2026-06-02T04:13:43+00:00",
+      "link": "https://arxiv.org/pdf/2606.03128v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "LLM-based automatic vulnerability detection framework for smart contracts",
+      "llm_evidence_cn": "基于LLM的自动化漏洞检测框架，针对智能合约",
+      "llm_evidence": "基于LLM的自动化漏洞检测框架，针对智能合约",
+      "canonical_evidence": "基于LLM的自动化漏洞检测框架，针对智能合约",
+      "llm_tldr_en": "Proposes a lightweight LLM framework for smart contract vulnerability detection, decoupling tasks into detection, explanation, severity, and remediation, achieving efficiency with small models.",
+      "llm_tldr_cn": "现有智能合约审计中，大规模语言模型虽然能检测漏洞，但缺乏严重性评估和修复建议，且计算开销巨大。本文提出一个轻量级端到端审计框架，使用0.6B-4B参数的开源语言模型，将审计任务解耦为漏洞检测、解释、严重性分类和修复推荐四个组件。实验表明，在保持高精度的同时大幅降低了计算需求。",
+      "llm_tldr": "现有智能合约审计中，大规模语言模型虽然能检测漏洞，但缺乏严重性评估和修复建议，且计算开销巨大。本文提出一个轻量级端到端审计框架，使用0.6B-4B参数的开源语言模型，将审计任务解耦为漏洞检测、解释、严重性分类和修复推荐四个组件。实验表明，在保持高精度的同时大幅降低了计算需求。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-13",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.05844v1",
+      "source": "arxiv",
+      "title": "GenTI: Benchmarking LLMs for Autonomous IDPS Rule Generation for Unseen Attacks",
+      "abstract": "Rule-based Intrusion Detection and Prevention Systems (IDPS) offer precise attack detection as well as mitigation, however their manually crafted, signature-driven rules limit adaptability to emerging and zero-day threats. Additionally, existing public datasets (e.g., CICIDS2017, UNSW-NB15) focus on traffic classification and provide little structured information to support automatic rule synthesis or prevention logic. To address this gap, we propose Generative Thread Intelligence (GenTI) \\footnote{GenTI refers to the proposed framework, and GTI refers to the dataset.} an LLM-driven benchmark for automatic generation of IDPS rules targeting unseen attacks. The dataset (GTI) aggregates over 150k detection and prevention rules from Snort, Suricata, Emerging Threats, as well as 50k YARA, each annotated with protocol behavior, payload signatures, contextual relationships, mappings to Cyber Threat Intelligence (CTI), along with actionable response types (alert, drop, reject). Moreover, on top of this corpus we design an LLM-based pipeline that transforms analyst prompts and representative payloads into deployable rules via structured prompt engineering, Chain-of-Thought (CoT) reasoning, as well as a Chain-of-Verification (CoVe) loop for syntactic, semantic, and security validation. The generated rules are executed in real time on (Snort/Suricata) and evaluated by syntax accuracy, semantic similarity, CTI coverage, security effectiveness as well as unseen attacks detection. Furthermore, our GenTI instantiation achieves a composite rule-quality score of 89.4\\%, with 94.8\\% CTI coverage, improving unseen attacks detection from 45\\% to 87.4\\% and reducing the false-positive rate from 8.5\\% to 2.3\\%. Overall, GenTI establishes the first large-scale benchmark that tightly couples rule-level CTI with LLM-based automation, enabling adaptive, self-evolving IDPS.",
+      "authors": [
+        "Hassan Jalil Hadi",
+        "Rehana Yasmin",
+        "Ali Shoker"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-06-04T08:19:52+00:00",
+      "link": "https://arxiv.org/pdf/2606.05844v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "uses LLMs to generate IDPS rules for unseen attacks; aligns with LLM-based vulnerability mining",
+      "llm_evidence_cn": "利用大语言模型为未见攻击生成入侵检测规则；与基于LLM的漏洞挖掘一致",
+      "llm_evidence": "利用大语言模型为未见攻击生成入侵检测规则；与基于LLM的漏洞挖掘一致",
+      "canonical_evidence": "利用大语言模型为未见攻击生成入侵检测规则；与基于LLM的漏洞挖掘一致",
+      "llm_tldr_en": "Proposes an LLM-driven benchmark for automatic generation of IDPS rules targeting unseen attacks, enabling proactive defense against zero-day threats.",
+      "llm_tldr_cn": "该论文提出GenTI框架，一个由大语言模型驱动的基准测试，用于自动生成针对未知攻击的入侵检测和防御规则。现有的入侵检测系统依赖人工签名规则，难以应对新型和零日攻击。GenTI通过聚合超过15万条Snort和Suricata规则，构建数据集GTI，并利用LLM学习规则生成逻辑，为自动规则合成提供基准。该方法展示了LLM在漏洞挖掘和防御中的潜力。",
+      "llm_tldr": "该论文提出GenTI框架，一个由大语言模型驱动的基准测试，用于自动生成针对未知攻击的入侵检测和防御规则。现有的入侵检测系统依赖人工签名规则，难以应对新型和零日攻击。GenTI通过聚合超过15万条Snort和Suricata规则，构建数据集GTI，并利用LLM学习规则生成逻辑，为自动规则合成提供基准。该方法展示了LLM在漏洞挖掘和防御中的潜力。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "large language model for vulnerability mining",
+      "matched_requirement_id": "req-15",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.05986v1",
+      "source": "arxiv",
+      "title": "AttackPathGNN: Cross-function vulnerability detection in smart contracts using state interference graphs and conjunction pooling",
+      "abstract": "Existing learning-based detectors for Solidity smart-contracts reduce vulnerability detection to syntactic pattern matching within single functions, yet many of the most consequential exploits (The DAO, Cream Finance) exist not in any individual function but in the relationship between functions and in the combination of conditions that made the attack feasible. Thus, we propose AttackPathGNN, a graph neural network (GNN) that reframes detection as reasoning over explicit attack paths. Two architectural choices distinguish it from prior GNN-based detectors: (1)a State Interference Graph that links every pair of functions sharing mutable storage through typed, weighted edges and through directed reentrancy-path edges defined by an explicit five-condition predicate; (2)conjunction pooling, a differentiable AND-aggregator over eight named exploit preconditions whose log-sigmoid form causes the per-function exploit score to collapse whenever any single mitigation (a reentrancy guard, an access-control modifier or SafeMath) is in place. Across five independent training runs, AttackPathGNN attains 92.3+/-0.2% F1 on the SmartBugs Wild held-out test partition (4.3+/-0.3% false-negative rate, 90.8+/-2.5% detection rate on the independently human-labelled SmartBugs Curated benchmark), recovering 6/10 DASP10 categories at 100% on every seed and Reentrancy at 98.7+/-1.8%. Each prediction is emitted with a structured remediation report, turning each verdict into an actionable, function-level audit finding.",
+      "authors": [
+        "Gabriela Dobrita",
+        "Simona-Vasilica Oprea",
+        "Adela Bara"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-06-04T10:30:24+00:00",
+      "link": "https://arxiv.org/pdf/2606.05986v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "GNN-based cross-function vulnerability detection in smart contracts",
+      "llm_evidence_cn": "基于图神经网络的智能合约跨函数漏洞检测",
+      "llm_evidence": "基于图神经网络的智能合约跨函数漏洞检测",
+      "canonical_evidence": "基于图神经网络的智能合约跨函数漏洞检测",
+      "llm_tldr_en": "AttackPathGNN proposes a graph neural network to detect vulnerabilities in smart contracts by reasoning over explicit attack paths, outperforming single-function pattern matching.",
+      "llm_tldr_cn": "该论文指出当前基于学习的智能合约漏洞检测局限于单函数模式匹配，无法捕捉跨函数攻击路径。为此提出AttackPathGNN，通过构建状态干扰图链接共享存储的函数，并利用连接池化进行攻击路径推理。实验表明该方法在多个真实智能合约漏洞数据集上显著优于基线，能够有效检测如The DAO等复杂跨函数漏洞。该工作为智能合约安全提供了新的图学习视角。",
+      "llm_tldr": "该论文指出当前基于学习的智能合约漏洞检测局限于单函数模式匹配，无法捕捉跨函数攻击路径。为此提出AttackPathGNN，通过构建状态干扰图链接共享存储的函数，并利用连接池化进行攻击路径推理。实验表明该方法在多个真实智能合约漏洞数据集上显著优于基线，能够有效检测如The DAO等复杂跨函数漏洞。该工作为智能合约安全提供了新的图学习视角。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-13",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.07297v1",
+      "source": "arxiv",
+      "title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+      "abstract": "Repository-level coding benchmarks such as SWE-bench have driven a rapid surge in the capabilities of coding agents. Yet they usually treat coding tasks as a holistic, binary prediction problem (e.g., resolved or unresolved), neglecting fine-grained agent capabilities such as repository understanding, context retrieval, code localization, and bug diagnosis. In this paper, we introduce SWE-Explore, a benchmark that isolates the evaluation of repository exploration, a critical capability of coding agents. Given a repository and an issue, SWE-Explore asks an explorer to return a ranked list of relevant code regions under a fixed line budget. SWE-Explore covers 848 issues across 10 programming languages and 203 open-source repositories. For each instance, we derive line-level ground truth from independent agent trajectories that successfully solved the same issue, distilling the specific code regions their solution paths actually consulted. We evaluate exploration along coverage, ranking, and context-efficiency dimensions, showing that these metrics strongly track downstream repair behavior. Across a broad set of retrieval methods, general coding agents, and specialized localizers, we find that agentic explorers form a clear tier above classical retrieval. While file-level localization is already strong for modern methods, line-level coverage and efficient ranking remain the key axes differentiating state-of-the-art explorers.",
+      "authors": [
+        "Shaoqiu Zhang",
+        "Yuhang Wang",
+        "Jialiang Liang",
+        "Yuling Shi",
+        "Wenhao Zeng",
+        "Maoquan Wang",
+        "Shilin He",
+        "Ningyuan Xu",
+        "Siyu Ye",
+        "Kai Cai",
+        "Xiaodong Gu"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE",
+        "cs.CL"
+      ],
+      "published": "2026-06-05T14:08:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.07297v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "benchmark for coding agents' repository exploration including bug diagnosis, relevant to agent-assisted vulnerability discovery",
+      "llm_evidence_cn": "编码代理仓库探索基准，包含错误诊断，与代理辅助漏洞发现相关",
+      "llm_evidence": "编码代理仓库探索基准，包含错误诊断，与代理辅助漏洞发现相关",
+      "canonical_evidence": "编码代理仓库探索基准，包含错误诊断，与代理辅助漏洞发现相关",
+      "llm_tldr_en": "SWE-Explore benchmarks coding agents on repository exploration, isolating capabilities like code localization and bug diagnosis. Covers 848 issues across 10 languages, providing a fine-grained evaluation useful for vulnerability discovery agent assessment.",
+      "llm_tldr_cn": "现有编码基准测试如SWE-bench将任务视为二元结果，忽略了代理的仓库探索等细粒度能力。为此提出SWE-Explore基准，通过要求代理在固定行预算内返回相关代码区域排名来隔离评估其探索能力。覆盖848个问题、10种语言和203个仓库，并提供人工标注。该基准可用于评估面向漏洞发现的代理能力，为自动化漏洞挖掘提供评价标准。",
+      "llm_tldr": "现有编码基准测试如SWE-bench将任务视为二元结果，忽略了代理的仓库探索等细粒度能力。为此提出SWE-Explore基准，通过要求代理在固定行预算内返回相关代码区域排名来隔离评估其探索能力。覆盖848个问题、10种语言和203个仓库，并提供人工标注。该基准可用于评估面向漏洞发现的代理能力，为自动化漏洞挖掘提供评价标准。",
+      "llm_tags": [
+        "query:vuln-mining:composite"
+      ],
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
