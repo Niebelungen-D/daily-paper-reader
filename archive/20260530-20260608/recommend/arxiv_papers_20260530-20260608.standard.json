@@ -1,0 +1,252 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-08T06:28:08.924434+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 3,
+    "deep_cap": 6,
+    "deep_selected": 3,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2606.00455v1",
+      "source": "arxiv",
+      "title": "Beyond Edge Coverage: Per-Task Data-Flow Extraction at Kernel Function Boundaries via LLVM",
+      "abstract": "Coverage-guided kernel fuzzers such as syzkaller rely on edge coverage (trace-pc) as their sole feedback signal. This context-blind approach cannot distinguish execution paths that differ only in argument values. for example, two invocations of copy_from_user() with different size parameters hit identical basic blocks yet have vastly different security implications. We present BOUNDARY FLOW, an LLVM-based instrumentation framework that extends Linux KCOV with data-flow extraction of function arguments and return values. A compiler pass (-fsanitize-coverage=dataflow-args, dataflow-ret) emits lightweight callbacks capturing a structured tuple <PC, arg_idx, arg_size, ptr, offsets[]> at function entry and <PC, ret_size, ptr, offsets[]> at return. Composite types are automatically decomposed via DWARF DICompositeType metadata with zero source annotation. A separate kernel device(/sys/kernel/debug/kcov_dataflow) provides lock-free per-task ring buffers with no inter ference to existing KCOV or syzkaller infrastructure. We demonstrate dual utility: fuzzers gain state-aware feedback for mutation guidance into value-dependent state transitions, and security analysts obtain deterministic argument records for root-cause analysis without printk or kprobe overhead. A post-compilation pipeline (rustc, opt, llc) enables Rust kernel module instrumentation without modifying rustc, the only runtime method for capturing Rust function arguments given that drgn/vmcore fails under-O2 DWARF elision. Evaluated on five vulnerability classes (OOB, UAF, double-free, 10 deep chain propagation, Rust FFI, Rust for Linux Modules) with <3% overhead on instrumented paths.",
+      "authors": [
+        "Yunseong Kim"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.OS"
+      ],
+      "published": "2026-05-30T00:42:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.00455v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "improves kernel fuzzing by extracting data-flow at function boundaries",
+      "llm_evidence_cn": "通过提取函数边界数据流改进内核模糊测试",
+      "llm_evidence": "通过提取函数边界数据流改进内核模糊测试",
+      "canonical_evidence": "通过提取函数边界数据流改进内核模糊测试",
+      "llm_tldr_en": "Proposes BOUNDARY FLOW, an LLVM instrumentation extending Linux KCOV with data-flow extraction, enabling coverage-guided kernel fuzzers like syzkaller to distinguish execution paths based on argument values.",
+      "llm_tldr_cn": "当前内核模糊测试工具如syzkaller仅依赖边覆盖率反馈，无法区分参数值不同但基本块相同的执行路径。本文提出BOUNDARY FLOW，一种基于LLVM的插桩框架，扩展Linux KCOV以提取函数参数和返回值的数流信息。通过轻量级回调捕获元组，显著增强了模糊测试的上下文感知能力。实验表明该方法能有效发现因参数差异导致的隐藏漏洞，为内核漏洞挖掘提供了新的反馈信号。",
+      "llm_tldr": "当前内核模糊测试工具如syzkaller仅依赖边覆盖率反馈，无法区分参数值不同但基本块相同的执行路径。本文提出BOUNDARY FLOW，一种基于LLVM的插桩框架，扩展Linux KCOV以提取函数参数和返回值的数流信息。通过轻量级回调捕获元组，显著增强了模糊测试的上下文感知能力。实验表明该方法能有效发现因参数差异导致的隐藏漏洞，为内核漏洞挖掘提供了新的反馈信号。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.00669v1",
+      "source": "arxiv",
+      "title": "NeuroLog: Reasoning You Can Audit -- Neuro-Symbolic Vulnerability Discovery via LLM Facts, Datalog, and SMT",
+      "abstract": "Vulnerability discovery on C/C++ source asks the analyst to choose between heavyweight static analysers, which need a working build before a single query runs, and free-form LLMs, which read source readily but invent details and lose track of cross-function dataflow on real codebases. We present NeuroLog, an end-to-end build-free pipeline that assigns each layer the role it is uniquely good at: an LLM extracts typed dataflow facts one function at a time; a Souffle rule mesh composes those facts into cross-function findings; a Z3 post-pass filters infeasible findings and emits a SAT model for each survivor. To go beyond pure static reasoning we also fold in runtime evidence: likely range invariants from a handful of corpus seeds tighten the SMT problem at near-zero cost. A second LLM agent reads each SAT model and writes a Python program that produces a candidate crashing input, validated by an AddressSanitizer harness. Combining static-narrowing-SMT (Saturn, Pinpoint) and Datalog-with-SMT (Formulog) is prior art; new here are an LLM-derived fact base, a no-build pipeline, and the SAT model as an artifact (input to crash synthesis) rather than a yes/no verdict. Across stb, cJSON, libxml2, an FFmpeg demuxer slice, and curl 8.3.0, NeuroLog re-discovers eight CVE-class issues end-to-end, including the CVSS-9.8 SOCKS5 heap overflow CVE-2023-38545, each ASan-confirmed. On libarchive HEAD we surface five memory-safety bugs (four previously unreported) across the cpio reader and the XAR/WARC/7zip writers; all filed upstream, several fixes merged, with the cpio use-after-free acknowledged in seven hours. Extraction takes ~37 s and $0.005 on stb; crash synthesis turned a static finding into a 102-byte stb_vorbis crash in two LLM iterations (no fuzzer); a likely-invariant filter from three Matroska seeds eliminates 13.2% of the FFmpeg-demuxer feasible set.",
+      "authors": [
+        "Sanjay Rawat"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-30T10:50:06+00:00",
+      "link": "https://arxiv.org/pdf/2606.00669v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "vulnerability discovery method for C/C++ source code, applicable to Linux kernel",
+      "llm_evidence_cn": "适用于C/C++源码的漏洞发现方法，可应用于Linux内核",
+      "llm_evidence": "适用于C/C++源码的漏洞发现方法，可应用于Linux内核",
+      "canonical_evidence": "适用于C/C++源码的漏洞发现方法，可应用于Linux内核",
+      "llm_tldr_en": "NeuroLog combines LLM extraction of dataflow facts, Datalog rule composition, and SMT filtering to enable build-free vulnerability discovery in C/C++ codebases like the Linux kernel.",
+      "llm_tldr_cn": "针对C/C++源码漏洞发现中传统静态分析依赖构建环境、LLM易丢失跨函数数据流的问题，NeuroLog提出一种免构建流程：LLM逐函数提取类型化数据流事实，Souffle规则网格组合跨函数发现，Z3后处理过滤不可行路径并生成SAT模型。实验表明该方法能有效发现真实漏洞，且具备可审计性。该工作为Linux内核等大型C代码库的漏洞挖掘提供了一种高效的自动化新范式。",
+      "llm_tldr": "针对C/C++源码漏洞发现中传统静态分析依赖构建环境、LLM易丢失跨函数数据流的问题，NeuroLog提出一种免构建流程：LLM逐函数提取类型化数据流事实，Souffle规则网格组合跨函数发现，Z3后处理过滤不可行路径并生成SAT模型。实验表明该方法能有效发现真实漏洞，且具备可审计性。该工作为Linux内核等大型C代码库的漏洞挖掘提供了一种高效的自动化新范式。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "methods for mining vulnerabilities in Linux kernel source code",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.00625v1",
+      "source": "arxiv",
+      "title": "NICE: A Framework for Declarative and Machine-Checkable Vulnerability Reproduction",
+      "abstract": "Reproducing software vulnerabilities is fundamental to security researchers, open-source maintainers, and educators. Yet, vulnerabilities remain hard to reproduce today, and even when they can be reproduced, recreating a software environment where the vulnerability can be exploited becomes harder and harder over time. We present NICE, the NIx CvE reproduction framework, which uses declarative recipes to build and automatically validate vulnerable environments. In NICE, a reproduced CVE comprises one or more NixOS virtual machine configurations, a scripted exploitation scenario, and machine-checkable assertions that provide factual evidence of exploitation. This design facilitates sharing, validation, review, and long-term reproducibility.   We evaluate NICE on 19 diverse real-world CVEs spanning multiple CWE categories, attack vectors, and target types (user-space, system software, kernel, and graphical applications). We show that NICE allows to produce concise recipes and integration tests that reproduce vulnerable environments and provide proofs of exploitation.   NICE is applicable to security education and training (e.g., creating cyber ranges), but also to vulnerability reporting, where its reproducibility and reviewability properties can make reports easier to audit and verify.",
+      "authors": [
+        "Minh-Luân Nguyen",
+        "Olivier Levillain",
+        "Julien Malka",
+        "Stefano Zacchiroli",
+        "Théo Zimmermann"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-05-30T08:59:40+00:00",
+      "link": "https://arxiv.org/pdf/2606.00625v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "framework for reproducible vulnerability exploitation using NixOS VMs",
+      "llm_evidence_cn": "使用NixOS虚拟机提供可复现的漏洞利用环境",
+      "llm_evidence": "使用NixOS虚拟机提供可复现的漏洞利用环境",
+      "canonical_evidence": "使用NixOS虚拟机提供可复现的漏洞利用环境",
+      "llm_tldr_en": "NICE framework creates declarative NixOS VM recipes to reproduce CVEs with scripted exploitation and machine-checkable assertions, supporting exploit development and validation.",
+      "llm_tldr_cn": "软件漏洞复现对安全研究至关重要，但环境搭建日益困难。本文提出NICE框架，利用NixOS声明式配方构建和自动验证易受攻击环境，包含脚本化利用场景和可检查断言。该方案便于共享、验证和长期复现，直接支持漏洞利用开发与验证，适用于Linux内核等系统软件。",
+      "llm_tldr": "软件漏洞复现对安全研究至关重要，但环境搭建日益困难。本文提出NICE框架，利用NixOS声明式配方构建和自动验证易受攻击环境，包含脚本化利用场景和可检查断言。该方案便于共享、验证和长期复现，直接支持漏洞利用开发与验证，适用于Linux内核等系统软件。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.02126v1",
+      "source": "arxiv",
+      "title": "PeAR: A Static Binary Rewriting Framework for Binary-Only Fuzzing",
+      "abstract": "Binary-only fuzzing is a key technique for finding bugs in close-source software. Without access to source code, the fuzzer must rely on static or dynamic binary instrumentation for coverage guidance. In practice, most fuzzers favor dynamic binary instrumentation (DBI), accepting runtime overhead to avoid the perceived accuracy and soundness challenges associated with static binary instrumentation (SBI). We show that these concerns are unwarranted, and that accurate, scalable~SBI is achievable using off-the-shelf frameworks. Building on these frameworks, we develop PeAR, an extensible binary-only fuzzing framework. We demonstrate PeAR's versatility by implementing several modern fuzzer features -- including, deferred initialization, persistent mode, and shared-memory fuzzing.   We evaluate PeAR over 4.25 CPU-yrs of fuzzing on the FUZZBENCH benchmark and find that PeAR: (i) successfully instruments 88% of FUZZBENCH targets, comparable to the best SBI-based fuzzers; (ii) achieves a median throughput improvement of 4x when using persistent mode and shared memory fuzzing; and (iii) attains coverage comparable to compiler-based instrumentation.   Our results show that SBI is a practical and effective technique for binary-only fuzzing, and that modern binary rewriting frameworks can apply complex instrumentation with high granularity and negligible performance compromise.",
+      "authors": [
+        "Alvin Charles",
+        "Adrian Herrera",
+        "Peter Oslington",
+        "Alwen Tiu"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-06-01T11:56:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.02126v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "binary-only fuzzing framework applicable to kernel modules",
+      "llm_evidence_cn": "适用于内核模块的纯二进制模糊测试框架",
+      "llm_evidence": "适用于内核模块的纯二进制模糊测试框架",
+      "canonical_evidence": "适用于内核模块的纯二进制模糊测试框架",
+      "llm_tldr_en": "PeAR presents a static binary rewriting framework for binary-only fuzzing, enabling accurate coverage guidance without runtime overhead, demonstrated with persistent mode and deferred initialization, directly applicable to kernel fuzzing.",
+      "llm_tldr_cn": "针对闭源软件的二进制模糊测试常依赖动态插桩带来高开销，PeAR提出基于静态二进制重写的框架，实现精确且可扩展的静态插桩，无需运行时开销。通过支持延迟初始化、持久模式等现代fuzzer特性，PeAR可直接应用于Linux内核模块的模糊测试，有效发现漏洞。",
+      "llm_tldr": "针对闭源软件的二进制模糊测试常依赖动态插桩带来高开销，PeAR提出基于静态二进制重写的框架，实现精确且可扩展的静态插桩，无需运行时开销。通过支持延迟初始化、持久模式等现代fuzzer特性，PeAR可直接应用于Linux内核模块的模糊测试，有效发现漏洞。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Linux kernel fuzzing and crash analysis for exploit development",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.04460v1",
+      "source": "arxiv",
+      "title": "CyberGym-E2E: Scalable Real-World Benchmark for AI Agents' End-to-End Cybersecurity Capabilities",
+      "abstract": "AI has the potential to transform cybersecurity by enabling systems that can autonomously detect, analyze, and remediate software vulnerabilities. However, existing cybersecurity evaluations of AI systems are limited in scale or scope, and fail to capture the end-to-end lifecycle of real-world software vulnerability discovery and remediation. To address this gap, we propose CyberGym-E2E, a large-scale and realistic end-to-end cybersecurity benchmark that comprehensively evaluates AI agents' abilities across the full lifecycle of vulnerability discovery, PoC generation, and patch generation. CyberGym-E2E is comprehensive and scalable, as we build an automated, agent-enhanced pipeline for transforming open-source vulnerability data into realistic evaluation environments. Currently, the benchmark consists of 920 real-world vulnerabilities across 139 different open-source projects.",
+      "authors": [
+        "Tianneng Shi",
+        "Robin Rheem",
+        "Dongwei Jiang",
+        "Mona Wang",
+        "Francisco De La Riega",
+        "Zhun Wang",
+        "Jingzhi Jiang",
+        "Alexander Cheung",
+        "Sean Tai",
+        "Jonah Cha",
+        "Jianhong Tu",
+        "Gabriel Han",
+        "Chenguang Wang",
+        "Jingxuan He",
+        "Wenbo Guo",
+        "Dawn Song"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-03T05:06:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.04460v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "End-to-end benchmark for AI-based vulnerability discovery and PoC generation, applicable to Linux kernel",
+      "llm_evidence_cn": "面向AI的端到端漏洞发现与PoC生成基准，可应用于Linux内核",
+      "llm_evidence": "面向AI的端到端漏洞发现与PoC生成基准，可应用于Linux内核",
+      "canonical_evidence": "面向AI的端到端漏洞发现与PoC生成基准，可应用于Linux内核",
+      "llm_tldr_en": "A scalable benchmark evaluating AI agents across vulnerability discovery, PoC generation, and patch generation, transferable to Linux kernel security tasks.",
+      "llm_tldr_cn": "现有的网络安全评估在规模或范围上有限，无法覆盖真实世界漏洞发现到修复的全生命周期。本文提出CyberGym-E2E，一个大规模、真实的端到端网络安全基准，用于评估AI代理在漏洞发现、PoC生成和补丁生成方面的能力。该基准通过自动化、代理增强的流水线构建，具有可扩展性。尽管不专门针对Linux内核，但其方法论可直接迁移至内核漏洞发掘任务，为自动化漏洞发现提供标准化评估平台。",
+      "llm_tldr": "现有的网络安全评估在规模或范围上有限，无法覆盖真实世界漏洞发现到修复的全生命周期。本文提出CyberGym-E2E，一个大规模、真实的端到端网络安全基准，用于评估AI代理在漏洞发现、PoC生成和补丁生成方面的能力。该基准通过自动化、代理增强的流水线构建，具有可扩展性。尽管不专门针对Linux内核，但其方法论可直接迁移至内核漏洞发掘任务，为自动化漏洞发现提供标准化评估平台。",
+      "llm_tags": [
+        "query:linux-kernel:composite"
+      ],
+      "matched_query_tag": "query:linux-kernel:composite",
+      "matched_query_text": "Papers central to Linux内核漏洞利用与漏洞挖掘相关论文, especially work that connects or combines: Linux kernel security vulnerability; techniques for exploiting Linux kernel vulnerabilities; methods for mining vulnerabilities in Linux kernel source code; methods for discovering vulnerabilities in the Linux kernel; analysis of Linux kernel vulnerabilities and root causes; Find papers on Linux kernel vulnerability discovery methods; research papers on Linux kernel vulnerability exploitation and mitigation bypass; automated vulnerability discovery techniques for the Linux kernel; Linux kernel fuzzing and crash analysis for exploit development.",
+      "matched_requirement_id": "req-composite-linux-kernel",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.03453v1",
+      "source": "arxiv",
+      "title": "FORGE: Multi-Agent Graduated Exploitation and Detection Engineering",
+      "abstract": "Vulnerability disclosure volumes now far exceed organizational assessment capacity, yet three adjacent research communities (proof-of-concept generation, vulnerability prioritization, and detection rule engineering) operate largely in isolation. Existing automated exploit generation systems report binary pass/fail outcomes, discarding partial progress and producing no signal for the other two communities. This paper presents FORGE, a multi-agent system that bridges these three silos through graduated exploitation depth. Five specialized agents (Intel, Generator, Planner, Exploit, and Detector) execute in a fixed pipeline that (1) generates targeted vulnerable applications from CVE metadata, (2) conducts coached, multi-turn exploitation assessed by an LLM-primary oracle on a four-level taxonomy (L0: no evidence through L3: full compromise), and (3) produces Sigma and Snort detection rules grounded in OpenTelemetry exploitation traces. Graduated depth is the bridging mechanism: deeper exploitation yields richer behavioral traces for detection engineering, while depth data across scoring bands provides ground truth for prioritization validation. A tiered knowledge architecture accumulates intelligence across assessments, transferring build and exploitation experience to subsequent CVEs. Evaluation on 603 CVEs from the CVE-GENIE dataset achieves 67.8% end-to-end L1+ exploitation at USD 1.50 per CVE across eight languages and 187 CWE types. Exploitation rates remain near 68% regardless of EPSS or CVSS band, indicating that pattern-level reachability is orthogonal to metadata-based prioritization. Detection rules from L2+ exploitation achieve significantly higher span-normalized grounding than L1-derived rules (p=0.035), and 93.4% of generated Snort rules produce zero false positives against a synthetic benign corpus.",
+      "authors": [
+        "Farooq Shaikh"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "published": "2026-06-02T10:32:28+00:00",
+      "link": "https://arxiv.org/pdf/2606.03453v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "query:linux-kernel"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "multi-agent system for automated exploit generation and detection rule engineering",
+      "llm_evidence_cn": "用于自动化漏洞利用生成和检测规则工程的多代理系统",
+      "llm_evidence": "用于自动化漏洞利用生成和检测规则工程的多代理系统",
+      "canonical_evidence": "用于自动化漏洞利用生成和检测规则工程的多代理系统",
+      "llm_tldr_en": "FORGE bridges PoC generation, vulnerability prioritization, and detection rule engineering via a multi-agent pipeline, using LLM-based assessment to graduate exploitation depth.",
+      "llm_tldr_cn": "漏洞披露数量远超评估能力，且PoC生成、优先级排序和检测规则工程三个领域相互孤立。本文提出FORGE系统，通过五个专业代理（情报、生成、规划、利用、检测）组成流水线，自动从CVE元数据生成目标脆弱应用，进行多轮引导式利用尝试，并输出检测规则。该系统利用LLM评估部分进展，实现了利用深度的渐进式提升，为漏洞利用和检测提供了统一框架。",
+      "llm_tldr": "漏洞披露数量远超评估能力，且PoC生成、优先级排序和检测规则工程三个领域相互孤立。本文提出FORGE系统，通过五个专业代理（情报、生成、规划、利用、检测）组成流水线，自动从CVE元数据生成目标脆弱应用，进行多轮引导式利用尝试，并输出检测规则。该系统利用LLM评估部分进展，实现了利用深度的渐进式提升，为漏洞利用和检测提供了统一框架。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "research papers on Linux kernel vulnerability exploitation and mitigation bypass",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
