@@ -1,0 +1,58 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-09T21:30:25.427182+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 2,
+    "deep_divecandidates": 1,
+    "deep_cap": 7,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 12,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2606.08553v1",
+      "source": "arxiv",
+      "title": "FusionVul: A Multimodal Feature Fusion Framework for Source Code Vulnerability Detection",
+      "abstract": "Source code vulnerability detection remains a long-standing challenge due to the increasing scale, structural complexity, and semantic diversity of modern codebases. Conventional static-analysis or rule-based approaches often fail to capture subtle execution dependencies, while single-modality learning models tend to overlook critical structural information embedded beyond the lexical surface of source code. To improve robustness across heterogeneous code patterns, we propose FusionVul, a joint representation learning framework that integrates sequential syntactic representations extracted by a pretrained Transformer encoder with structural semantics propagated through a graph neural network. The framework further incorporates a cross-attention-based feature fusion network to enable fine-grained cross-modal interaction and employs a sample-aware weighting mechanism to integrate multiple predictive branches. Experimental results on four datasets demonstrate that FusionVul achieves superior F1 scores on datasets with highly dispersed function size distributions and broader vulnerability-type coverage, such as SVulD and DiverseVul, reflecting its capability to capture complex and diverse vulnerability patterns.",
+      "authors": [
+        "Hongyu Yang",
+        "Yaping Zhu",
+        "Jingchuan Luo",
+        "Hiroshi Nomaguchi",
+        "Chunhua Su",
+        "Willy Susilo"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE"
+      ],
+      "published": "2026-06-07T10:14:00+00:00",
+      "link": "https://arxiv.org/pdf/2606.08553v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "multimodal feature fusion for automatic source code vulnerability detection",
+      "llm_evidence_cn": "多模态特征融合用于自动源代码漏洞检测",
+      "llm_evidence": "多模态特征融合用于自动源代码漏洞检测",
+      "canonical_evidence": "多模态特征融合用于自动源代码漏洞检测",
+      "llm_tldr_en": "FusionVul integrates Transformer and GNN to combine sequential and structural code features for improved vulnerability detection.",
+      "llm_tldr_cn": "源代码漏洞检测面临代码结构复杂和语义多样的问题，现有单模态方法忽略结构信息。FusionVul提出联合表示学习框架，融合Transformer顺序语法表示和图神经网络结构语义，并引入交叉模态注意力对齐。在多个基准上显著提升检测准确率，表明多模态融合对漏洞检测的有效性。",
+      "llm_tldr": "源代码漏洞检测面临代码结构复杂和语义多样的问题，现有单模态方法忽略结构信息。FusionVul提出联合表示学习框架，融合Transformer顺序语法表示和图神经网络结构语义，并引入交叉模态注意力对齐。在多个基准上显著提升检测准确率，表明多模态融合对漏洞检测的有效性。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "automatic vulnerability detection",
+      "matched_requirement_id": "req-13",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}

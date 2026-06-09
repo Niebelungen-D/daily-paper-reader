@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-06-09 <!--dpr-date:20260609-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/09/2606.08553v1-fusionvul-a-multimodal-feature-fusion-framework-for-source-code-vulnerability-detection" data-sidebar-item="{&quot;title&quot;: &quot;FusionVul: A Multimodal Feature Fusion Framework for Source Code Vulnerability Detection&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.08553v1-fusionvul-a-multimodal-feature-fusion-framework-for-source-code-vulnerability-detection&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;vuln-mining&quot;}], &quot;evidence&quot;: &quot;多模态特征融合用于自动源代码漏洞检测&quot;}">FusionVul: A Multimodal Feature Fusion Framework for Source Code Vulnerability Detection</a>
   * 2026-06-08 <!--dpr-date:20260608-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/08/2605.24949v1-apt-agent-automated-penetration-testing-using-large-language-models" data-sidebar-item="{&quot;title&quot;: &quot;APT-Agent: Automated Penetration Testing using Large Language Models&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2605.24949v1-apt-agent-automated-penetration-testing-using-large-language-models&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;vuln-mining&quot;}], &quot;evidence&quot;: &quot;使用LLM的自动化渗透测试代理，辅助漏洞利用&quot;}">APT-Agent: Automated Penetration Testing using Large Language Models</a>

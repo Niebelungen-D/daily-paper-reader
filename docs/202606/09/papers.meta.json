@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-09",
+  "date": "2026-06-09",
+  "generated_at": "2026-06-09T21:31:43",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/09/2606.08553v1-fusionvul-a-multimodal-feature-fusion-framework-for-source-code-vulnerability-detection",
+      "section": "deep",
+      "title_en": "FusionVul: A Multimodal Feature Fusion Framework for Source Code Vulnerability Detection",
+      "authors": "Hongyu Yang, Yaping Zhu, Jingchuan Luo, Hiroshi Nomaguchi, Chunhua Su, Willy Susilo",
+      "date": "2026-06-07",
+      "pdf": "https://arxiv.org/pdf/2606.08553v1",
+      "score": "8.0",
+      "evidence": "多模态特征融合用于自动源代码漏洞检测",
+      "tldr": "现有源代码漏洞检测方法受限于代码复杂性和语义多样性，难以捕获细微执行依赖。提出FusionVul框架，联合Transformer提取序列语法表示与图神经网络传播结构语义，并通过交叉注意力融合网络和样本感知加权机制整合多分支预测。在SVulD、DiverseVul等函数规模分散、漏洞类型多样的数据集上取得更优F1分数。该框架有效提升了检测对复杂、多样漏洞模式的鲁棒性。",
+      "tags": "query:vuln-mining",
+      "abstract_en": "Source code vulnerability detection remains a long-standing challenge due to the increasing scale, structural complexity, and semantic diversity of modern codebases. Conventional static-analysis or rule-based approaches often fail to capture subtle execution dependencies, while single-modality learning models tend to overlook critical structural information embedded beyond the lexical surface of source code. To improve robustness across heterogeneous code patterns, we propose FusionVul, a joint representation learning framework that integrates sequential syntactic representations extracted by a pretrained Transformer encoder with structural semantics propagated through a graph neural network. The framework further incorporates a cross-attention-based feature fusion network to enable fine-grained cross-modal interaction and employs a sample-aware weighting mechanism to integrate multiple predictive branches. Experimental results on four datasets demonstrate that FusionVul achieves superior F1 scores on datasets with highly dispersed function size distributions and broader vulnerability-type coverage, such as SVulD and DiverseVul, reflecting its capability to capture complex and diverse vulnerability patterns.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
