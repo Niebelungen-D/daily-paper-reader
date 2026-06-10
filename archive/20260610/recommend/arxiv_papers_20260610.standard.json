@@ -1,0 +1,292 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-10T22:54:07.925046+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 2,
+    "deep_divecandidates": 3,
+    "deep_cap": 7,
+    "deep_selected": 3,
+    "quick_candidates": 4,
+    "quick_skim_target": 12,
+    "quick_selected": 4
+  },
+  "deep_dive": [
+    {
+      "id": "2606.10290v1",
+      "source": "arxiv",
+      "title": "The Linux IOCTL Census: A Source-Derived Database of the Linux Kernel Control-Code Surface",
+      "abstract": "The ioctl system call is Linux's catch-all device-control interface. A userspace program opens a device node and hands the driver a numeric command code and an argument buffer, and the driver does whatever that code means, whether configuring hardware, reading back state, or moving data into and out of the kernel. Drivers define these commands themselves, by the thousand, and parse their arguments in kernel context, which makes ioctl handlers one of the broadest and least uniform local attack surfaces in the kernel. A handler that trusts an argument length it never validates can read or write kernel memory out of bounds, and the command space is catalogued in no central place. We present the Linux IOCTL Census, a source-derived and queryable inventory of that surface. An allmodconfig build compiles 878 modules across 169 subtrees, and over them a single deterministic libclang pass over the kernel source recovers 586 ioctl dispatch entry points, 1,289 decoded _IOC command codes, 3,583 controlled-input sinks, and 1,298 permission gates. A second pass encodes the kernel's own documented threat model as a queryable column, separating the capability-ungated ioctl surface, an upper bound on unprivileged reach rather than proven reach, from the part a hard capability gate puts out of scope. We backtest the census against 22 recent in-tree ioctl CVEs and release the structural tier as open data, on a schema shared with the companion Windows IOCTL Census so a single query spans both operating systems.",
+      "authors": [
+        "Michael J. Bommarito"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-06-09T01:28:45+00:00",
+      "link": "https://arxiv.org/pdf/2606.10290v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "directly addresses Linux kernel attack surface via ioctl handlers; provides a database for vulnerability discovery",
+      "llm_evidence_cn": "直接研究Linux内核攻击面（ioctl处理程序），提供漏洞发现数据库",
+      "llm_evidence": "直接研究Linux内核攻击面（ioctl处理程序），提供漏洞发现数据库",
+      "canonical_evidence": "直接研究Linux内核攻击面（ioctl处理程序），提供漏洞发现数据库",
+      "llm_tldr_en": "Presents a source-derived database of Linux ioctl commands, revealing the broad and unstandardized attack surface, aiding vulnerability discovery and analysis.",
+      "llm_tldr_cn": "本文提出了Linux IOCTL普查，一个从源码中提取的Linux内核ioctl命令数据库。ioctl处理程序是内核中一个广泛且不统一的攻击面，但缺乏集中编目。该数据库系统化地整理了命令码和参数结构，有助于分析潜在的内存越界漏洞。这项工作填补了内核安全分析中的一个重要空白，为自动化漏洞发现提供了基础资源。",
+      "llm_tldr": "本文提出了Linux IOCTL普查，一个从源码中提取的Linux内核ioctl命令数据库。ioctl处理程序是内核中一个广泛且不统一的攻击面，但缺乏集中编目。该数据库系统化地整理了命令码和参数结构，有助于分析潜在的内存越界漏洞。这项工作填补了内核安全分析中的一个重要空白，为自动化漏洞发现提供了基础资源。",
+      "llm_tags": [
+        "query:linux-kernel:composite"
+      ],
+      "matched_query_tag": "query:linux-kernel:composite",
+      "matched_query_text": "Papers central to Linux内核漏洞利用与漏洞挖掘相关论文, especially work that connects or combines: Linux kernel security vulnerability; techniques for exploiting Linux kernel vulnerabilities; methods for mining vulnerabilities in Linux kernel source code; methods for discovering vulnerabilities in the Linux kernel; analysis of Linux kernel vulnerabilities and root causes; Find papers on Linux kernel vulnerability discovery methods; research papers on Linux kernel vulnerability exploitation and mitigation bypass; automated vulnerability discovery techniques for the Linux kernel; Linux kernel fuzzing and crash analysis for exploit development.",
+      "matched_requirement_id": "req-composite-linux-kernel",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.11175v1",
+      "source": "arxiv",
+      "title": "Anchors that Don't Lift: Understanding Supply Chain Driven Kernel Lock-In and Governance-Mediated Mitigation Strategies in SOHO Devices",
+      "abstract": "Small Office/Home Office (SOHO) devices are widely popular, yet often attacked due to security vulnerabilities in their firmware, affecting thousands of devices. These security vulnerabilities often stem from outdated Linux kernel versions included in SOHO device firmware. Naturally, prior work audited the extent and impact of this issue by simple Linux version extraction and version number based vulnerability mapping. However, it is unclear how many of these anticipated vulnerabilities actually exist in the heavily customized SOHO kernels and if there are any barriers towards updating Linux kernels in SOHO firmwares.   To address this gap, we uncover actual kernel-related vulnerabilities found in 306 SOHO devices using a high-precision template-based CVE detection mechanism on GPL source releases of more than 900 firmwares from these devices. Next, as a first, we traced the supply chain of these vulnerable SOHO devices at scale and identify kernel lock-in as a significant security issue -- SOHO vendors are effectively locked to specific (often older) kernel versions due to the system-on-chip (SoC) SDKs they use. This kernel lock-in produces a vulnerability debt that is inherited along the supply chain from SoC vendor to firmware creators (ODM/OEM) to router/IP-camera vendor and ultimately borne by end users. All five SoC vendors in our dataset had used SDKs with Linux kernels that had reached EoL more than a year before their usage in a SOHO device. Finally, we explore the mitigation-potential of individual, regulatory and community governance by analyzing social media posts, regulations and community efforts. Our results show that regulation compliance is insufficient and only SoC vendors who engage with communities for kernel upgradation offered a viable path towards mitigation. The data and code for this work is available at https://doi.org/10.5281/zenodo.20433799",
+      "authors": [
+        "Ritwik Badola",
+        "Rajdeep Ghosh",
+        "Ashita Gupta",
+        "Chester Rebeiro",
+        "Mainack Mondal"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-06-09T17:51:26+00:00",
+      "link": "https://arxiv.org/pdf/2606.11175v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Analysis of Linux kernel vulnerabilities in SOHO devices due to outdated kernel versions",
+      "llm_evidence_cn": "分析SOHO设备中因内核版本过时导致的Linux内核漏洞",
+      "llm_evidence": "分析SOHO设备中因内核版本过时导致的Linux内核漏洞",
+      "canonical_evidence": "分析SOHO设备中因内核版本过时导致的Linux内核漏洞",
+      "llm_tldr_en": "Investigates kernel lock-in in SOHO device firmware due to outdated Linux kernel versions, uncovers actual vulnerabilities beyond version mapping.",
+      "llm_tldr_cn": "针对SOHO设备固件中广泛使用过时Linux内核版本导致安全漏洞的问题，本文深入分析了供应链驱动的内核锁定现象。通过实际漏洞挖掘，发现仅凭版本号映射无法准确反映定制内核中的真实漏洞情况。研究揭示了更新障碍，并提出了治理介导的缓解策略，对理解Linux内核漏洞的根源和供应链安全具有重要意义。",
+      "llm_tldr": "针对SOHO设备固件中广泛使用过时Linux内核版本导致安全漏洞的问题，本文深入分析了供应链驱动的内核锁定现象。通过实际漏洞挖掘，发现仅凭版本号映射无法准确反映定制内核中的真实漏洞情况。研究揭示了更新障碍，并提出了治理介导的缓解策略，对理解Linux内核漏洞的根源和供应链安全具有重要意义。",
+      "llm_tags": [
+        "query:linux-kernel"
+      ],
+      "matched_query_tag": "query:linux-kernel",
+      "matched_query_text": "Linux kernel security vulnerability",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.07732v1",
+      "source": "arxiv",
+      "title": "The Windows IOCTL Census: A Corpus-Scale, Multi-Architecture Database of the Driver Control-Code Surface",
+      "abstract": "A Windows driver exposes its kernel through I/O control (IOCTL) codes, and a single unchecked length on the buffer behind one turns an unprivileged call into a kernel write. The research community has strong scanners for this surface and a curated list of known-bad drivers, but no map of the surface itself. We build that map. The Windows IOCTL Census is a queryable database of the control-code dispatch surface of 27,087 signed Windows drivers, recovered by one deterministic, architecture-neutral pass with no symbolic execution. Reading a lifted intermediate representation instead of running a symbolic engine lets it recover a dispatch surface for 80% of the corpus across x86 and x64, including the 32-bit half existing scanners abort on. On the 64-bit lane it adds handler reachability, taint, and the call graph. An LLM ranks the reachable handlers for triage. We release the census as a public dataset of tens of millions of rows: 27,087 binaries, 3.1M decoded control codes, 8.18M functions, and 15.95M call edges.",
+      "authors": [
+        "Michael J. Bommarito"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE"
+      ],
+      "published": "2026-06-05T17:59:43+00:00",
+      "link": "https://arxiv.org/pdf/2606.07732v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "kernel IOCTL dispatch surface mapping for vulnerability discovery",
+      "llm_evidence_cn": "内核IOCTL分发面映射，用于漏洞发现",
+      "llm_evidence": "内核IOCTL分发面映射，用于漏洞发现",
+      "canonical_evidence": "内核IOCTL分发面映射，用于漏洞发现",
+      "llm_tldr_en": "Builds a corpus-scale database of Windows driver IOCTL dispatch surfaces using deterministic pass, enabling large-scale kernel vulnerability surface analysis.",
+      "llm_tldr_cn": "该论文构建了Windows IOCTL普查数据库，通过确定性的架构中立方法，在无需符号执行的情况下，单次遍历恢复27,087个签名驱动程序的IOCTL分发面，覆盖x86和x64架构。该数据库为内核攻击面分析提供了系统级地图，可帮助安全研究人员发现潜在的驱动漏洞，例如未检查的缓冲区长度导致的内核写入。这是首次大规模、多架构的驱动控制码面测绘工作，为Windows内核漏洞发现奠定了数据基础。",
+      "llm_tldr": "该论文构建了Windows IOCTL普查数据库，通过确定性的架构中立方法，在无需符号执行的情况下，单次遍历恢复27,087个签名驱动程序的IOCTL分发面，覆盖x86和x64架构。该数据库为内核攻击面分析提供了系统级地图，可帮助安全研究人员发现潜在的驱动漏洞，例如未检查的缓冲区长度导致的内核写入。这是首次大规模、多架构的驱动控制码面测绘工作，为Windows内核漏洞发现奠定了数据基础。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "vulnerability discovery techniques",
+      "matched_requirement_id": "req-10",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.08960v1",
+      "source": "arxiv",
+      "title": "Hardening Agent Benchmarks with Adversarial Hacker-Fixer Loops",
+      "abstract": "Agent benchmarks score submissions with outcome verifiers that are typically hand-written and brittle, leaving them open to reward hacking. We audit 1,968 tasks across five terminal-agent benchmarks and find 323 (16%) hackable by frontier models given only the task description. This corrupts both leaderboard rankings and RL training signal, yet the standard response is manual and reactive.   We introduce the hacker-fixer loop, a method for building exploit-resistant verifiers without per-task manual patching. The loop alternates three LLM agents: a hacker tries to pass the verifier without solving the task, a fixer patches the verifier to reject each discovered exploit, and a solver confirms the patched verifier still admits legitimate solutions. The loop iterates: each patch reshapes what the verifier rewards, surfacing the next exploit. We further add verifier access, and let patches transfer across tasks, to broaden the exploits the loop discovers.   On KernelBench, the loop drives the attack success rate from 62% to 0% on a held-out corpus of publicly reported exploits. We also find that weaker agents in the loop can defend against much stronger hackers: Gemini 3 Flash's loop drives the stronger Gemini 3.1 Pro and Claude Opus 4.7's attack success rate from 76% and 61% to 0% on KernelBench, and Gemini 3.1 Pro's from 39% to 17% on Terminal Bench across 77 tasks. We release Terminal Wrench (323 hackable environments, 3,632 hack trajectories) as a snapshot of the current attack surface, our patched verifiers, the exploits the loop discovered, and our implementation as a basis for future work.",
+      "authors": [
+        "Ziqian Zhong",
+        "Ivgeni Segal",
+        "Ivan Bercovich",
+        "Shashwat Saxena",
+        "Kexun Zhang",
+        "Aditi Raghunathan"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "published": "2026-06-08T03:00:56+00:00",
+      "link": "https://arxiv.org/pdf/2606.08960v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "agent-based hacking loop to discover exploits in benchmarks",
+      "llm_evidence_cn": "基于代理的黑客-修复循环，发现基准测试中的漏洞",
+      "llm_evidence": "基于代理的黑客-修复循环，发现基准测试中的漏洞",
+      "canonical_evidence": "基于代理的黑客-修复循环，发现基准测试中的漏洞",
+      "llm_tldr_en": "Proposes a hacker-fixer loop using three LLM agents to automatically discover and patch exploits in agent benchmarks, improving verifier robustness.",
+      "llm_tldr_cn": "该论文指出代理基准测试的验证器易被奖励黑客攻击，提出黑客-修复循环方法，使用三个LLM代理（黑客、修复者、求解者）自动发现并修补漏洞。实验在五个终端代理基准测试的1968个任务中发现323个可攻击，循环迭代后验证器鲁棒性显著提升，无需人工干预即可生成抗攻击的验证器。该方法为构建鲁棒基准测试提供了自动化方案，并展示了代理辅助漏洞发现的潜力。",
+      "llm_tldr": "该论文指出代理基准测试的验证器易被奖励黑客攻击，提出黑客-修复循环方法，使用三个LLM代理（黑客、修复者、求解者）自动发现并修补漏洞。实验在五个终端代理基准测试的1968个任务中发现323个可攻击，循环迭代后验证器鲁棒性显著提升，无需人工干预即可生成抗攻击的验证器。该方法为构建鲁棒基准测试提供了自动化方案，并展示了代理辅助漏洞发现的潜力。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "agent assisted vulnerability discovery",
+      "matched_requirement_id": "req-12",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.10264v1",
+      "source": "arxiv",
+      "title": "RECON: An LLM-Enhanced Backward Constraint Analysis Framework",
+      "abstract": "While traditional techniques, such as symbolic execution, provide a principled foundation for precise constraint reasoning in program analysis, they struggle to scale to modern software systems mainly due to path explosion, the need for function modeling, and the loss of semantic intent at low-level program representations. In complex execution environments such as Android, characterized by extensive framework interactions and event-driven behavior, these limitations are even more amplified. Thus, in this paper, we present a novel large language model (LLM)-enhanced backward constraint analysis framework that combines the precision of static program analysis with LLM's semantic understanding to extract precise execution constraints from Android bytecode. Our approach, titled RECON, performs backward path discovery from target method(s) to the application entry point(s), discovers method-level control-flow constraints, and leverages LLM reasoning to transform bytecode conditions into interpretable specifications. We evaluated RECON using five LLMs across 78 Android constraint-extraction scenarios and compared it with traditional symbolic execution on real-world applications. Results demonstrate that our approach operates 5.8X faster than traditional symbolic execution, with a 100% success rate, while maintaining logical equivalence and providing significantly more precise and interpretable output. We further evaluated RECON for malware analysis on 100 samples. The results indicate an 84% success rate in generating semantic constraints that lead to the execution of dangerous API behaviors and in detecting complex constraints across multiple execution paths.",
+      "authors": [
+        "Babangida Bappah",
+        "Lamine Noureddine",
+        "Umar Farooq",
+        "Aisha Ali-Gombe"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "published": "2026-06-09T00:09:50+00:00",
+      "link": "https://arxiv.org/pdf/2606.10264v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "LLM-enhanced backward constraint analysis for program understanding, applicable to vulnerability mining",
+      "llm_evidence_cn": "大语言模型增强的逆向约束分析用于程序理解，可应用于漏洞挖掘",
+      "llm_evidence": "大语言模型增强的逆向约束分析用于程序理解，可应用于漏洞挖掘",
+      "canonical_evidence": "大语言模型增强的逆向约束分析用于程序理解，可应用于漏洞挖掘",
+      "llm_tldr_en": "Proposes RECON, an LLM-enhanced backward constraint analysis framework combining static analysis with LLM semantic understanding to extract precise execution constraints from Android bytecode, aiming to improve scalability over traditional symbolic execution.",
+      "llm_tldr_cn": "针对传统符号执行在复杂Android环境中扩展性差的问题，本文提出RECON框架，将大语言模型的语义理解与静态程序分析相结合，从Android字节码中提取精确的执行约束。实验表明，该方法在约束推理的准确性和覆盖度上优于纯静态方法，为自动化漏洞分析提供了可迁移的技术路线。",
+      "llm_tldr": "针对传统符号执行在复杂Android环境中扩展性差的问题，本文提出RECON框架，将大语言模型的语义理解与静态程序分析相结合，从Android字节码中提取精确的执行约束。实验表明，该方法在约束推理的准确性和覆盖度上优于纯静态方法，为自动化漏洞分析提供了可迁移的技术路线。",
+      "llm_tags": [
+        "query:vuln-mining:composite"
+      ],
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.11022v1",
+      "source": "arxiv",
+      "title": "When Discovery Outpaces Remediation: Modeling AI-Accelerated Vulnerability Discovery in Interconnected Systems",
+      "abstract": "Advanced AI systems for code analysis, binary analysis, fuzzing orchestration, and penetration-test planningmay significantly increase the rate at which latent vulnerabilities are discovered. While improved discovery can benefit defenders, it can also overload remediation pipelines and accelerate adversarial weaponization. This paper develops a queueing and network-theoretic model of AI-accelerated vulnerability discovery in interconnected systems. We represent an enterprise as a weighted dependency graph with replenishing vulnerability pools, finite remediation capacity, triage degradation, exploit window compression, and dynamic compromise propagation. We derive stability conditions for vulnerability backlogs, formulate a dynamic coupling between unresolved backlog and cascade risk, and evaluate mitigation strategies through simulation. Results indicate that when actionable discovery arrivals exceed remediation throughput, backlogs grow rapidly and systemic risk increases nonlinearly. In hub-dominated topologies, segmentation can reduce propagated compromise more effectively than remediation speed alone, while the strongest defense combines remediation automation with reduced network coupling.",
+      "authors": [
+        "Mohamamad Reza Faghani"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR"
+      ],
+      "published": "2026-06-09T15:58:46+00:00",
+      "link": "https://arxiv.org/pdf/2606.11022v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "AI-accelerated vulnerability discovery modeling",
+      "llm_evidence_cn": "AI加速漏洞发现建模",
+      "llm_evidence": "AI加速漏洞发现建模",
+      "canonical_evidence": "AI加速漏洞发现建模",
+      "llm_tldr_en": "Models AI-accelerated vulnerability discovery using queueing and network theory, analyzing how faster discovery can overwhelm remediation pipelines and compress exploit windows.",
+      "llm_tldr_cn": "本文针对AI加速漏洞发现可能导致修复管道过载的问题，构建了一个基于排队论和网络理论的模型。该模型将企业表示为加权依赖图，包含可补充的漏洞池、有限修复能力、分类降解、利用窗口压缩和动态传播。研究得出了漏洞积压的稳定性条件，揭示了AI加速发现的双刃剑效应。",
+      "llm_tldr": "本文针对AI加速漏洞发现可能导致修复管道过载的问题，构建了一个基于排队论和网络理论的模型。该模型将企业表示为加权依赖图，包含可补充的漏洞池、有限修复能力、分类降解、利用窗口压缩和动态传播。研究得出了漏洞积压的稳定性条件，揭示了AI加速发现的双刃剑效应。",
+      "llm_tags": [
+        "query:vuln-mining:composite"
+      ],
+      "matched_query_tag": "query:vuln-mining:composite",
+      "matched_query_text": "Papers central to 查找漏洞挖掘和agent辅助漏洞挖掘相关的论文, especially work that connects or combines: vulnerability discovery techniques; vulnerability mining methods; agent assisted vulnerability discovery; automatic vulnerability detection; AI assisted vulnerability mining; large language model for vulnerability mining; find papers on vulnerability mining methods; papers about agent assisted vulnerability discovery; research on automatic vulnerability detection using AI; literature on large language models for vulnerability mining.",
+      "matched_requirement_id": "req-composite-vuln-mining",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.10925v1",
+      "source": "arxiv",
+      "title": "Early Comparative Evaluation of Transformer Models for Multilingual Software Vulnerability Detection",
+      "abstract": "Software vulnerability detection is increasingly important as modern applications combine multiple programming languages. This paper presents an early comparative evaluation of BERT, RoBERTa, and CodeBERT for binary vulnerability detection across HTML, Python, JavaScript, and PHP using the CVEFixes dataset and language-wise three-fold stratified cross-validation. The results show clear performance differences across languages, indicating that multilingual vulnerability detection requires more language-aware and robust transformer-based modelling strategies.",
+      "authors": [
+        "Fiza Naseer",
+        "Javad Khan",
+        "Muhammad Yaqoob",
+        "Alexios Mylonas"
+      ],
+      "primary_category": "cs.SE",
+      "categories": [
+        "cs.SE"
+      ],
+      "published": "2026-06-09T14:33:34+00:00",
+      "link": "https://arxiv.org/pdf/2606.10925v1",
+      "tags": [
+        "keyword:linux-kernel",
+        "keyword:vuln-mining",
+        "query:linux-kernel",
+        "query:vuln-mining"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "evaluates LLMs for multilingual vulnerability detection",
+      "llm_evidence_cn": "评估LLM用于多语言漏洞检测",
+      "llm_evidence": "评估LLM用于多语言漏洞检测",
+      "canonical_evidence": "评估LLM用于多语言漏洞检测",
+      "llm_tldr_en": "This paper compares BERT, RoBERTa, and CodeBERT for multilingual software vulnerability detection using CVEFixes dataset, showing performance differences across languages and highlighting the need for language-aware transformer models.",
+      "llm_tldr_cn": "现有漏洞检测模型多针对单一语言，多语言场景下性能未知。本文基于CVEFixes数据集，对BERT、RoBERTa和CodeBERT在HTML、Python、JavaScript、PHP上的漏洞检测进行了分层交叉验证比较。结果表明，模型在不同语言上表现差异显著，CodeBERT在部分语言上优于其他模型，但整体精度有限，说明当前Transformer模型在跨语言漏洞检测上仍存在不足，需发展更鲁棒的语言感知策略。",
+      "llm_tldr": "现有漏洞检测模型多针对单一语言，多语言场景下性能未知。本文基于CVEFixes数据集，对BERT、RoBERTa和CodeBERT在HTML、Python、JavaScript、PHP上的漏洞检测进行了分层交叉验证比较。结果表明，模型在不同语言上表现差异显著，CodeBERT在部分语言上优于其他模型，但整体精度有限，说明当前Transformer模型在跨语言漏洞检测上仍存在不足，需发展更鲁棒的语言感知策略。",
+      "llm_tags": [
+        "query:vuln-mining"
+      ],
+      "matched_query_tag": "query:vuln-mining",
+      "matched_query_text": "large language model for vulnerability mining",
+      "matched_requirement_id": "req-15",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
